@@ -1,0 +1,8 @@
+Guarda tus renders de Minecraft en esta carpeta con los siguientes nombres:
+
+1. grupo1.png -> Para los Aventureros del Fuego (ej. suuupernatural, Lelielwaffen, draquin_)
+2. grupo2.png -> Para el Pacto del Nether (ej. rSapphire, Benjaaaah, jdromero1011)
+3. grupo3.png -> Para los Buscadores del Vacío (ej. Jirowoo, Rafismo, ExplosionGirl)
+4. grupo4.png -> Para la Guardia de la Tormenta (ej. comertetass, yohiXD, QueTontoLeny, _ZoshI_)
+
+El sitio de Angular leerá automáticamente estas imágenes de esta ruta para mostrarlas en la pestaña "Jugadores".

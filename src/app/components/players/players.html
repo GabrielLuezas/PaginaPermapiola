@@ -1,0 +1,86 @@
+<div class="players-page-bg">
+  <div class="container players-container">
+    <header class="page-header">
+      <h1 class="page-title gradient-text-fire glow-text-fire">JUGADORES ANUNCIADOS</h1>
+      <p class="page-subtitle">Explora los grupos de combatientes oficiales que se enfrentarán a la muerte en Permapiola.</p>
+    </header>
+
+    <!-- Filters and Search Toolbar -->
+    <div class="toolbar glass-card">
+      <div class="filter-buttons">
+        <button class="filter-btn" [class.active]="filterType() === 'all'" (click)="setFilter('all')">Todos</button>
+        <button class="filter-btn" [class.active]="filterType() === 'revealed'" (click)="setFilter('revealed')">Revelados</button>
+        <button class="filter-btn" [class.active]="filterType() === 'locked'" (click)="setFilter('locked')">Por Revelar</button>
+      </div>
+      
+      <div class="search-box">
+        <input 
+          type="text" 
+          placeholder="Buscar jugador o grupo..." 
+          [value]="searchQuery()" 
+          (input)="updateSearch($event)"
+          class="search-input"
+        />
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+
+    <!-- Groups Grid -->
+    <div class="groups-grid">
+      @for (group of filteredGroups(); track group.id) {
+        <div class="group-card glass-card" [class.locked-group]="!group.revealed">
+          
+          <!-- Group Render Image / Lock overlay -->
+          <div class="group-image-wrapper">
+            @if (group.revealed) {
+              <!-- Display the uploaded render -->
+              <img [src]="group.image" alt="Render de Participantes" class="group-render" onerror="this.src='https://placehold.co/600x400/121010/ff5e00?text=Subiendo+Render...'"/>
+              <div class="image-gradient-shadow"></div>
+            } @else {
+              <!-- Locked state visual layout -->
+              <div class="lock-overlay">
+                <span class="lock-icon">🔒</span>
+                <span class="lock-title">SIGUIENTES TANDAS</span>
+                <span class="lock-date">{{ group.revealDate }}</span>
+              </div>
+            }
+          </div>
+
+          <!-- Group Meta info -->
+          <div class="group-info">
+            @if (!group.revealed) {
+              <h3 class="group-title">Siguientes tandas</h3>
+            }
+            
+            <div class="members-title">JUGADORES:</div>
+            
+            <div class="members-list">
+              @for (member of group.members; track member.name) {
+                <div class="member-item">
+                  @if (group.revealed) {
+                    <img [src]="member.avatar" [alt]="member.name" class="member-head" onerror="this.src='https://minotar.net/helm/Steve/64.png'"/>
+                    <div class="member-meta">
+                      <span class="member-name">{{ member.name }}</span>
+                    </div>
+                  } @else {
+                    <div class="member-head anonymous-head">?</div>
+                    <div class="member-meta">
+                      <span class="member-name redacted-text">XXXXXXX</span>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+        </div>
+      } @empty {
+        <div class="empty-state glass-card">
+          <span class="empty-icon">📭</span>
+          <h3>No se encontraron resultados</h3>
+          <p>Prueba buscando con otros términos o cambia el filtro de selección.</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>

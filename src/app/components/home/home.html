@@ -1,0 +1,62 @@
+<section class="hero-section">
+  <div class="hero-bg-overlay"></div>
+  <div class="container hero-container">
+    <div class="hero-content">
+      <img src="images/logo.png" alt="Permapiola Logo" class="hero-logo" />
+      
+      <p class="hero-subtitle">
+        ¡Bienvenidos a la <strong>Temporada 6</strong> de Permapiola, la sexta entrega del evento permadeath definitivo en Minecraft! Prepárate para adentrarte en un mundo implacable con una sola vida, donde la muerte es permanente y cada decisión cuenta. Los jefes customizados y los peligros extremos pondrán a prueba la voluntad de todos los escuadrones. ¿Lograrás escribir tu leyenda en esta sexta edición o te unirás a las almas caídas del cementerio?
+      </p>
+
+      <!-- Timer Card -->
+      <div class="timer-card glass-card">
+        <h3 class="timer-card-title">{{ timerTitle() }}</h3>
+        <div class="countdown-display">
+          <div class="time-block">
+            <span class="time-val">{{ days() }}</span>
+            <span class="time-label">Días</span>
+          </div>
+          <div class="time-separator">:</div>
+          <div class="time-block">
+            <span class="time-val">{{ hours() }}</span>
+            <span class="time-label">Horas</span>
+          </div>
+          <div class="time-separator">:</div>
+          <div class="time-block">
+            <span class="time-val">{{ minutes() }}</span>
+            <span class="time-label">Min</span>
+          </div>
+          <div class="time-separator">:</div>
+          <div class="time-block">
+            <span class="time-val">{{ seconds() }}</span>
+            <span class="time-label">Seg</span>
+          </div>
+        </div>
+        <p class="timer-card-footer">Cada 12 horas revelamos un nuevo grupo de participantes oficiales.</p>
+      </div>
+
+      <!-- Server Connection Row -->
+      <div class="server-connect-row">
+        <a href="https://discord.gg/kp8hRSXRq" target="_blank" class="btn-fire discord-join-btn">
+          <span>UNIRSE AL DISCORD</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.579-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.156 5.395-.872 9.644.518 13.73a.06.06 0 0 0 .022.043 13.7 13.7 0 0 0 4.12 2.029.05.05 0 0 0 .058-.017c.308-.41.58-.845.8-.1.3-.013c.03-.01.034-.03.02-.047-.367-.69-.732-1.428-1.043-2.193a.05.05 0 0 0-.09-.025 8.9 8.9 0 0 1-1.375-.653.05.05 0 0 1-.006-.083c.092-.07.185-.143.272-.218a.05.05 0 0 1 .054-.007c2.78 1.272 5.786 1.272 8.528 0a.05.05 0 0 1 .056.006c.09.076.18.148.272.218a.05.05 0 0 1-.006.084 9 9 0 0 1-1.375.653.05.05 0 0 0-.09.025c-.09.223-.188.45-.287.675a.05.05 0 0 0 .02.047 13.6 13.6 0 0 0 4.12-2.029.06.06 0 0 0 .022-.043c1.533-4.72.63-8.966-.518-13.73a.04.04 0 0 0-.02-.018z"/>
+          </svg>
+        </a>
+
+        <a href="https://x.com/PermaPiola2" target="_blank" class="btn-outline twitter-join-btn">
+          <span>SEGUIR EN X</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Toast Notification -->
+<div class="toast" [class.show]="showToast()">
+  <span class="toast-icon">✓</span>
+  <span class="toast-text">{{ toastMessage() }}</span>
+</div>

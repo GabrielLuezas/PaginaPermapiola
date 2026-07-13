@@ -1,0 +1,42 @@
+.changelog-page-bg {
+  padding: 60px 0;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.not-available-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.not-available-card {
+  text-align: center;
+  padding: 50px 40px;
+  border-color: rgba(255, 94, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+.not-available-icon {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 94, 0, 0.3));
+}
+
+.not-available-card h3 {
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+.not-available-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
