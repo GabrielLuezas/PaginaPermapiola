@@ -51,6 +51,7 @@ export class Home implements OnInit, OnDestroy {
       // First run: set countdown target to 10 minutes from now
       this.revealTargetTime = now + 10 * 60 * 1000;
       localStorage.setItem('permapiola_reveal_target', this.revealTargetTime.toString());
+      localStorage.setItem('permapiola_original_target', this.revealTargetTime.toString());
     }
   }
 
