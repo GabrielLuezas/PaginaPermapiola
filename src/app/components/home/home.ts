@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy, signal } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { RevealConfigService } from '../../services/reveal-config.service';
 
 @Component({
   selector: 'app-home',
@@ -8,52 +10,55 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.css'
 })
 export class Home implements OnInit, OnDestroy {
-  // Global synchronized target base date (approx 10 minutes from current request time)
-  private readonly baseTargetDate = new Date('2026-07-14T02:25:00+02:00');
-  
+  private revealConfig = inject(RevealConfigService);
+
   protected readonly days = signal('00');
   protected readonly hours = signal('00');
   protected readonly minutes = signal('00');
   protected readonly seconds = signal('00');
   protected readonly timerTitle = signal('Siguiente Ronda de Participantes');
-  
+
   protected readonly showToast = signal(false);
   protected readonly toastMessage = signal('Enlace copiado!');
-  
-  private timerInterval?: any;
+
+  private timerInterval?: ReturnType<typeof setInterval>;
+  private revealTargetMs = 0;
+  private configSub?: Subscription;
 
   ngOnInit() {
-    this.startCountdown();
+    this.configSub = this.revealConfig.getRevealTargetMs().subscribe(targetMs => {
+      this.revealTargetMs = targetMs;
+      this.startCountdown();
+    });
   }
 
   ngOnDestroy() {
-    if (this.timerInterval) {
-      clearInterval(this.timerInterval);
-    }
+    if (this.timerInterval) clearInterval(this.timerInterval);
+    this.configSub?.unsubscribe();
   }
 
   private startCountdown() {
+    if (this.timerInterval) clearInterval(this.timerInterval);
     this.updateCountdown();
-    this.timerInterval = setInterval(() => {
-      this.updateCountdown();
-    }, 1000);
+    this.timerInterval = setInterval(() => this.updateCountdown(), 1000);
   }
 
   private updateCountdown() {
+    if (!this.revealTargetMs) return;
+
     const now = Date.now();
-    const baseTarget = this.baseTargetDate.getTime();
+    const baseTarget = this.revealTargetMs;
     let target = baseTarget;
 
-    // Synchronized calculation for 12 hours interval adjustments
+    // If base target has already passed, advance in 12-hour steps
     if (now > baseTarget) {
       const msPast = now - baseTarget;
-      const step = 12 * 60 * 60 * 1000; // 12 hours
+      const step = 12 * 60 * 60 * 1000;
       const intervals = Math.floor(msPast / step);
       target = baseTarget + (intervals + 1) * step;
     }
 
     const difference = target - now;
-
     const d = Math.floor(difference / (1000 * 60 * 60 * 24));
     const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));

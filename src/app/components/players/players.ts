@@ -1,6 +1,8 @@
-import { Component, OnInit, signal, computed } from '@angular/core';
+import { Component, OnInit, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RevealConfigService } from '../../services/reveal-config.service';
+import { Subscription } from 'rxjs';
 
 interface Player {
   name: string;
@@ -24,13 +26,12 @@ interface ParticipantGroup {
   styleUrl: './players.css'
 })
 export class Players implements OnInit {
-  // Global synchronized target base date (must match Home component)
-  private readonly baseTargetDate = new Date('2026-07-14T02:25:00+02:00');
+  private revealConfig = inject(RevealConfigService);
+  private configSub?: Subscription;
 
   protected readonly searchQuery = signal('');
   protected readonly filterType = signal<'all' | 'revealed' | 'locked'>('all');
 
-  // Exactly 5 batches, starting hidden (revealed: false)
   protected readonly groups = signal<ParticipantGroup[]>([
     {
       id: 1,
@@ -54,7 +55,7 @@ export class Players implements OnInit {
       members: [
         { name: 'ShadowExx', role: 'Participante', avatar: 'https://minotar.net/helm/ShadowExx/64.png' },
         { name: 'proxing33', role: 'Participante', avatar: 'https://minotar.net/helm/proxing33/64.png' },
-        { name: 'GabrielLucifer27', role: 'Participante', avatar: 'https://minotar.net/helm/GabrielLucifer27/64.png' }
+        { name: 'GabrielLucifer22', role: 'Participante', avatar: 'https://minotar.net/helm/GabrielLucifer22/64.png' }
       ]
     },
     {
@@ -96,24 +97,22 @@ export class Players implements OnInit {
   ]);
 
   ngOnInit() {
-    this.calculateReveals();
+    this.configSub = this.revealConfig.getRevealTargetMs().subscribe(targetMs => {
+      this.calculateReveals(targetMs);
+    });
   }
 
-  private calculateReveals() {
+  private calculateReveals(originalTarget: number) {
     const now = Date.now();
-    const originalTarget = this.baseTargetDate.getTime();
 
-    // Update the revealed state of the groups based on the global target time
     this.groups.update(currentGroups => {
       return currentGroups.map(group => {
         let isRevealed = false;
 
         if (now >= originalTarget) {
           if (group.id === 1 || group.id === 2) {
-            // Group 1 and 2 reveal automatically after 10 minutes (past originalTarget)
             isRevealed = true;
           } else {
-            // Group 3, 4, and 5 reveal in 12-hour intervals after the initial target
             const msPast = now - originalTarget;
             const step = 12 * 60 * 60 * 1000;
             const intervals = Math.floor(msPast / step);
@@ -129,24 +128,17 @@ export class Players implements OnInit {
     });
   }
 
-  // Reactive computed list filtering search query and active tab filter
   protected readonly filteredGroups = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
     const type = this.filterType();
-    
+
     return this.groups().filter(group => {
-      // 1. Tab filtering
       if (type === 'revealed' && !group.revealed) return false;
       if (type === 'locked' && group.revealed) return false;
-      
-      // 2. Search query filtering
       if (!query) return true;
-      
+
       const matchGroupName = group.name.toLowerCase().includes(query);
-      const matchMemberName = group.members.some(member => 
-        member.name.toLowerCase().includes(query)
-      );
-      
+      const matchMemberName = group.members.some(m => m.name.toLowerCase().includes(query));
       return matchGroupName || matchMemberName;
     });
   });
@@ -158,5 +150,9 @@ export class Players implements OnInit {
   protected updateSearch(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     this.searchQuery.set(inputElement.value);
+  }
+
+  ngOnDestroy() {
+    this.configSub?.unsubscribe();
   }
 }
