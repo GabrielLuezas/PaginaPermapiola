@@ -8,6 +8,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.css'
 })
 export class Home implements OnInit, OnDestroy {
+  // Global synchronized target base date (approx 10 minutes from current request time)
+  private readonly baseTargetDate = new Date('2026-07-14T02:25:00+02:00');
+  
   protected readonly days = signal('00');
   protected readonly hours = signal('00');
   protected readonly minutes = signal('00');
@@ -18,40 +21,14 @@ export class Home implements OnInit, OnDestroy {
   protected readonly toastMessage = signal('Enlace copiado!');
   
   private timerInterval?: any;
-  private revealTargetTime: number = 0;
 
   ngOnInit() {
-    this.initializeTimerTarget();
     this.startCountdown();
   }
 
   ngOnDestroy() {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
-    }
-  }
-
-  private initializeTimerTarget() {
-    // Attempt to load existing target time from localStorage
-    const savedTarget = localStorage.getItem('permapiola_reveal_target');
-    const now = Date.now();
-
-    if (savedTarget) {
-      this.revealTargetTime = parseInt(savedTarget, 10);
-      
-      // If the saved target has already passed, advance it in 12-hour steps until it is in the future
-      if (now > this.revealTargetTime) {
-        const step = 12 * 60 * 60 * 1000; // 12 hours step
-        while (now > this.revealTargetTime) {
-          this.revealTargetTime += step;
-        }
-        localStorage.setItem('permapiola_reveal_target', this.revealTargetTime.toString());
-      }
-    } else {
-      // First run: set countdown target to 10 minutes from now
-      this.revealTargetTime = now + 10 * 60 * 1000;
-      localStorage.setItem('permapiola_reveal_target', this.revealTargetTime.toString());
-      localStorage.setItem('permapiola_original_target', this.revealTargetTime.toString());
     }
   }
 
@@ -64,17 +41,18 @@ export class Home implements OnInit, OnDestroy {
 
   private updateCountdown() {
     const now = Date.now();
-    
-    // If the timer reaches 0, advance target by 12 hours for the next round
-    if (now > this.revealTargetTime) {
+    const baseTarget = this.baseTargetDate.getTime();
+    let target = baseTarget;
+
+    // Synchronized calculation for 12 hours interval adjustments
+    if (now > baseTarget) {
+      const msPast = now - baseTarget;
       const step = 12 * 60 * 60 * 1000; // 12 hours
-      while (now > this.revealTargetTime) {
-        this.revealTargetTime += step;
-      }
-      localStorage.setItem('permapiola_reveal_target', this.revealTargetTime.toString());
+      const intervals = Math.floor(msPast / step);
+      target = baseTarget + (intervals + 1) * step;
     }
 
-    const difference = this.revealTargetTime - now;
+    const difference = target - now;
 
     const d = Math.floor(difference / (1000 * 60 * 60 * 24));
     const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

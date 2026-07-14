@@ -24,10 +24,13 @@ interface ParticipantGroup {
   styleUrl: './players.css'
 })
 export class Players implements OnInit {
+  // Global synchronized target base date (must match Home component)
+  private readonly baseTargetDate = new Date('2026-07-14T02:25:00+02:00');
+
   protected readonly searchQuery = signal('');
   protected readonly filterType = signal<'all' | 'revealed' | 'locked'>('all');
 
-  // 5 batches total, starting hidden (revealed: false)
+  // Exactly 5 batches, starting hidden (revealed: false)
   protected readonly groups = signal<ParticipantGroup[]>([
     {
       id: 1,
@@ -97,27 +100,17 @@ export class Players implements OnInit {
   }
 
   private calculateReveals() {
-    let originalTargetStr = localStorage.getItem('permapiola_original_target');
     const now = Date.now();
+    const originalTarget = this.baseTargetDate.getTime();
 
-    if (!originalTargetStr) {
-      // Sync initialization if they land here first
-      const firstTarget = now + 10 * 60 * 1000;
-      localStorage.setItem('permapiola_reveal_target', firstTarget.toString());
-      localStorage.setItem('permapiola_original_target', firstTarget.toString());
-      originalTargetStr = firstTarget.toString();
-    }
-
-    const originalTarget = parseInt(originalTargetStr, 10);
-
-    // Update the revealed state of the groups based on the time elapsed
+    // Update the revealed state of the groups based on the global target time
     this.groups.update(currentGroups => {
       return currentGroups.map(group => {
         let isRevealed = false;
 
         if (now >= originalTarget) {
           if (group.id === 1 || group.id === 2) {
-            // Group 1 and 2 reveal automatically after 10 minutes
+            // Group 1 and 2 reveal automatically after 10 minutes (past originalTarget)
             isRevealed = true;
           } else {
             // Group 3, 4, and 5 reveal in 12-hour intervals after the initial target
