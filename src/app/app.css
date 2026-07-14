@@ -2,7 +2,7 @@
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
   background: rgba(9, 8, 8, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -259,60 +259,86 @@
   font-size: 0.8rem;
 }
 
-/* Responsive adjustments */
+/* ===========================
+   MOBILE NAV
+   =========================== */
 @media (max-width: 768px) {
+
+  /* Full-screen overlay menu */
   .nav-menu {
     position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* Fully opaque – no bleed-through from page content */
-    background: #090808;
+    inset: 0;              /* top/right/bottom/left: 0 */
+    z-index: 9999;         /* above everything */
+    background: #0a0909;   /* solid, no transparency */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 0;
     overflow-y: auto;
-    /* Slide in from top */
-    transform: translateY(-110%);
+    /* Hidden state */
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-    z-index: 999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   .nav-menu.open {
-    transform: translateY(0);
+    visibility: visible;
     opacity: 1;
     pointer-events: all;
   }
 
-  .nav-link {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    padding: 8px 24px;
+  /* Nav links inside mobile menu */
+  .nav-menu .nav-link {
+    display: block;
     width: 100%;
     text-align: center;
-    border-bottom: 1px solid rgba(255, 94, 0, 0.08);
+    font-size: 1.6rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: #f5f4f4 !important;           /* explicit white */
+    -webkit-text-fill-color: #f5f4f4;   /* override gradient */
+    text-decoration: none;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255, 94, 0, 0.1);
+    letter-spacing: 1.5px;
+    transition: color 0.2s ease, background 0.2s ease;
   }
 
-  .nav-link:last-child {
-    border-bottom: none;
+  .nav-menu .nav-link:first-child {
+    border-top: 1px solid rgba(255, 94, 0, 0.1);
   }
 
-  .nav-link::after {
-    display: none; /* hide underline animation in full-screen menu */
+  .nav-menu .nav-link:hover,
+  .nav-menu .nav-link.active {
+    color: var(--accent-fire) !important;
+    -webkit-text-fill-color: var(--accent-fire);
+    background: rgba(255, 94, 0, 0.05);
   }
 
+  /* Hide underline pseudo-element */
+  .nav-menu .nav-link::after {
+    display: none;
+  }
+
+  /* Link number badges */
+  .nav-menu .link-number {
+    display: none;
+  }
+
+  /* Show hamburger button */
   .nav-toggle {
     display: flex;
+    z-index: 10000; /* above the overlay so X is always tappable */
+    position: relative;
   }
 
+  /* Hide status badge */
   .nav-status-badge {
     display: none;
   }
 
+  /* Footer stacks */
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -333,21 +359,12 @@
   }
 
   .nav-logo {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
-  .logo-icon {
-    font-size: 1.3rem;
-  }
-
-  /* Nav menu must match reduced navbar height */
-  .nav-menu {
-    top: 64px;
-  }
-
-  .nav-link {
-    font-size: 1.25rem;
-    gap: 24px;
+  .nav-menu .nav-link {
+    font-size: 1.35rem;
+    padding: 18px 32px;
   }
 
   .footer {
