@@ -297,17 +297,44 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 48px 0;
+    min-height: auto;
+  }
+
+  .hero-content {
+    gap: 18px;
+  }
+
+  .hero-logo {
+    max-width: 140px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    padding: 0 4px;
+  }
+
+  .timer-card {
+    padding: 20px 16px;
+  }
+
+  .timer-card-title {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+  }
+
   .countdown-display {
     gap: 8px;
   }
   
   .time-block {
-    min-width: 65px;
+    min-width: 58px;
   }
   
   .time-val {
-    font-size: 2.2rem;
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
   }
   
   .time-separator {
@@ -315,16 +342,34 @@
     margin-bottom: 15px;
   }
 
+  .timer-card-footer {
+    font-size: 0.78rem;
+  }
+
   .server-connect-row {
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
   }
   
-  .ip-card {
-    justify-content: space-between;
-  }
-  
-  .discord-join-btn {
+  .discord-join-btn,
+  .twitter-join-btn {
+    height: 52px;
     justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .countdown-display {
+    gap: 4px;
+  }
+  .time-block {
+    min-width: 48px;
+  }
+  .time-val {
+    font-size: 1.5rem;
+  }
+  .time-separator {
+    font-size: 1.3rem;
   }
 }

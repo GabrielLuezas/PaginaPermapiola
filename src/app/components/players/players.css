@@ -84,8 +84,8 @@
 /* Groups Grid Layout */
 .groups-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(min(330px, 100%), 1fr));
+  gap: 24px;
 }
 
 .group-card {
@@ -276,20 +276,70 @@
   .toolbar {
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
+    padding: 14px 16px;
   }
   
   .search-box {
     max-width: none;
   }
+
+  .search-input {
+    font-size: 1rem; /* prevents iOS zoom on focus */
+  }
   
   .filter-buttons {
     width: 100%;
+    justify-content: stretch;
   }
   
   .filter-btn {
-    flex-grow: 1;
+    flex: 1;
     text-align: center;
-    padding: 8px 10px;
+    padding: 10px 6px;
+    font-size: 0.8rem;
+  }
+
+  /* Players page padding */
+  .players-page-bg {
+    padding: 32px 0;
+  }
+
+  /* Shorter image on mobile */
+  .group-image-wrapper {
+    height: 160px;
+  }
+
+  /* Group info tighter */
+  .group-info {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  /* Member items smaller gap */
+  .member-item {
+    gap: 10px;
+    padding: 6px;
+  }
+
+  /* Grid single column */
+  .groups-grid {
+    gap: 16px;
+  }
+
+  /* Lightbox close btn easier to tap */
+  .lightbox-close {
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+    top: 12px;
+    right: 12px;
+  }
+
+  /* Zoom hint always visible on mobile (no hover) */
+  .zoom-hint {
+    opacity: 0.85;
+    transform: translateY(0);
   }
 }
 

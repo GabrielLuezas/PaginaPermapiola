@@ -295,7 +295,7 @@
   }
 
   .nav-status-badge {
-    display: none; /* Hide status badge on small mobiles, keeping focus on brand/menu */
+    display: none;
   }
 
   .footer-content {
@@ -309,5 +309,37 @@
 
   .footer-socials {
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .logo-icon {
+    font-size: 1.3rem;
+  }
+
+  /* Nav menu must match reduced navbar height */
+  .nav-menu {
+    top: 64px;
+  }
+
+  .footer {
+    padding: 40px 0 24px;
+  }
+
+  .footer-logo {
+    font-size: 1.1rem;
+    justify-content: center;
+  }
+
+  .footer-desc {
+    font-size: 0.85rem;
   }
 }
