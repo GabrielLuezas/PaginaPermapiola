@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, computed, inject } from '@angular/core';
+import { Component, OnInit, signal, computed, inject, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RevealConfigService } from '../../services/reveal-config.service';
@@ -31,6 +31,7 @@ export class Players implements OnInit {
 
   protected readonly searchQuery = signal('');
   protected readonly filterType = signal<'all' | 'revealed' | 'locked'>('all');
+  protected readonly lightboxImage = signal<string | null>(null);
 
   protected readonly groups = signal<ParticipantGroup[]>([
     {
@@ -65,9 +66,9 @@ export class Players implements OnInit {
       revealed: false,
       revealDate: 'Tanda 3',
       members: [
-        { name: 'suuupernatural', role: 'Participante', avatar: 'https://minotar.net/helm/suuupernatural/64.png' },
-        { name: 'Lelielwaffen', role: 'Participante', avatar: 'https://minotar.net/helm/Lelielwaffen/64.png' },
-        { name: 'draquin_', role: 'Participante', avatar: 'https://minotar.net/helm/draquin_/64.png' }
+        { name: 'ItsNG266', role: 'Participante', avatar: 'https://minotar.net/helm/ItsNG266/64.png' },
+        { name: 'MACUM', role: 'Participante', avatar: 'https://minotar.net/helm/MACUM/64.png' },
+        { name: 'S_Stark', role: 'Participante', avatar: 'https://minotar.net/helm/S_Stark/64.png' }
       ]
     },
     {
@@ -77,7 +78,7 @@ export class Players implements OnInit {
       revealed: false,
       revealDate: 'Tanda 4',
       members: [
-        { name: 'rSapphire', role: 'Participante', avatar: 'https://minotar.net/helm/rSapphire/64.png' },
+        { name: 'rShapphire', role: 'Participante', avatar: 'https://minotar.net/helm/rShapphire/64.png' },
         { name: 'Benjaaaah', role: 'Participante', avatar: 'https://minotar.net/helm/Benjaaaah/64.png' },
         { name: 'jdromero1011', role: 'Participante', avatar: 'https://minotar.net/helm/jdromero1011/64.png' }
       ]
@@ -89,9 +90,9 @@ export class Players implements OnInit {
       revealed: false,
       revealDate: 'Tanda 5',
       members: [
-        { name: 'Jirowoo', role: 'Participante', avatar: 'https://minotar.net/helm/Jirowoo/64.png' },
-        { name: 'Rafismo', role: 'Participante', avatar: 'https://minotar.net/helm/Rafismo/64.png' },
-        { name: 'ExplosionGirl', role: 'Participante', avatar: 'https://minotar.net/helm/ExplosionGirl/64.png' }
+        { name: 'ImNate987_', role: 'Participante', avatar: 'https://minotar.net/helm/ImNate987_/64.png' },
+        { name: 'iBeenji', role: 'Participante', avatar: 'https://minotar.net/helm/iBeenji/64.png' },
+        { name: 'PeruvianMaster69', role: 'Participante', avatar: 'https://minotar.net/helm/PeruvianMaster69/64.png' }
       ]
     }
   ]);
@@ -150,6 +151,21 @@ export class Players implements OnInit {
   protected updateSearch(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     this.searchQuery.set(inputElement.value);
+  }
+
+  protected openLightbox(imageSrc: string) {
+    this.lightboxImage.set(imageSrc);
+    document.body.style.overflow = 'hidden';
+  }
+
+  protected closeLightbox() {
+    this.lightboxImage.set(null);
+    document.body.style.overflow = '';
+  }
+
+  @HostListener('document:keydown.escape')
+  protected onEscapeKey() {
+    this.closeLightbox();
   }
 
   ngOnDestroy() {

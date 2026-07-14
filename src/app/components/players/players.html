@@ -33,8 +33,15 @@
           <div class="group-image-wrapper">
             @if (group.revealed) {
               <!-- Display the uploaded render -->
-              <img [src]="group.image" alt="Render de Participantes" class="group-render" onerror="this.src='https://placehold.co/600x400/121010/ff5e00?text=Subiendo+Render...'"/>
+              <img 
+                [src]="group.image" 
+                alt="Render de Participantes" 
+                class="group-render clickable-render" 
+                (click)="openLightbox(group.image)"
+                onerror="this.src='https://placehold.co/600x400/121010/ff5e00?text=Subiendo+Render...'"
+              />
               <div class="image-gradient-shadow"></div>
+              <div class="zoom-hint">🔍 Ver en grande</div>
             } @else {
               <!-- Locked state visual layout -->
               <div class="lock-overlay">
@@ -83,3 +90,13 @@
     </div>
   </div>
 </div>
+
+<!-- Lightbox Modal -->
+@if (lightboxImage()) {
+  <div class="lightbox-overlay" (click)="closeLightbox()">
+    <button class="lightbox-close" (click)="closeLightbox()">✕</button>
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <img [src]="lightboxImage()!" alt="Render ampliado" class="lightbox-img" />
+    </div>
+  </div>
+}
