@@ -2,7 +2,7 @@
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 9999;
   background: rgba(9, 8, 8, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -264,26 +264,26 @@
    =========================== */
 @media (max-width: 768px) {
 
-  /* Full-screen overlay menu */
+  /* Dropdown panel below the navbar */
   .nav-menu {
     position: fixed;
-    inset: 0;              /* top/right/bottom/left: 0 */
-    z-index: 9999;         /* above everything */
-    background: #0a0909;   /* solid, no transparency */
+    top: 80px;           /* directly below navbar */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;       /* just below navbar (9999) */
+    background: #0d0b0b;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0;
-    overflow-y: auto;
     /* Hidden state */
-    visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.25s ease;
   }
 
   .nav-menu.open {
-    visibility: visible;
     opacity: 1;
     pointer-events: all;
   }
@@ -293,13 +293,13 @@
     display: block;
     width: 100%;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-family: var(--font-display);
     font-weight: 700;
-    color: #f5f4f4 !important;           /* explicit white */
-    -webkit-text-fill-color: #f5f4f4;   /* override gradient */
+    color: #f5f4f4 !important;
+    -webkit-text-fill-color: #f5f4f4 !important;
     text-decoration: none;
-    padding: 20px 40px;
+    padding: 22px 40px;
     border-bottom: 1px solid rgba(255, 94, 0, 0.1);
     letter-spacing: 1.5px;
     transition: color 0.2s ease, background 0.2s ease;
@@ -309,19 +309,16 @@
     border-top: 1px solid rgba(255, 94, 0, 0.1);
   }
 
-  .nav-menu .nav-link:hover,
   .nav-menu .nav-link.active {
     color: var(--accent-fire) !important;
-    -webkit-text-fill-color: var(--accent-fire);
-    background: rgba(255, 94, 0, 0.05);
+    -webkit-text-fill-color: var(--accent-fire) !important;
+    background: rgba(255, 94, 0, 0.06);
   }
 
-  /* Hide underline pseudo-element */
   .nav-menu .nav-link::after {
     display: none;
   }
 
-  /* Link number badges */
   .nav-menu .link-number {
     display: none;
   }
@@ -329,8 +326,6 @@
   /* Show hamburger button */
   .nav-toggle {
     display: flex;
-    z-index: 10000; /* above the overlay so X is always tappable */
-    position: relative;
   }
 
   /* Hide status badge */
@@ -358,12 +353,17 @@
     height: 64px;
   }
 
+  /* Menu must start right below the smaller navbar */
+  .nav-menu {
+    top: 64px;
+  }
+
   .nav-logo {
     font-size: 1.15rem;
   }
 
   .nav-menu .nav-link {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     padding: 18px 32px;
   }
 
@@ -380,3 +380,4 @@
     font-size: 0.85rem;
   }
 }
+
