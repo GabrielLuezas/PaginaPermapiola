@@ -111,15 +111,15 @@ export class Players implements OnInit {
 
         if (now >= originalTarget) {
           if (group.id === 1 || group.id === 2) {
+            // Tanda 1 y 2 se revelan en el primer objetivo (22:15)
             isRevealed = true;
           } else {
+            // Tanda 3, 4 y 5 se revelan juntas a las 12 horas del objetivo inicial
             const msPast = now - originalTarget;
             const step = 12 * 60 * 60 * 1000;
             const intervals = Math.floor(msPast / step);
 
-            if (group.id === 3 && intervals >= 1) isRevealed = true;
-            if (group.id === 4 && intervals >= 2) isRevealed = true;
-            if (group.id === 5 && intervals >= 3) isRevealed = true;
+            if ((group.id === 3 || group.id === 4 || group.id === 5) && intervals >= 1) isRevealed = true;
           }
         }
 

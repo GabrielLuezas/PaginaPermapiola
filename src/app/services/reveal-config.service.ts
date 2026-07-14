@@ -17,7 +17,7 @@ export class RevealConfigService {
     'https://gist.githubusercontent.com/REEMPLAZAR_CON_TU_URL/raw/permapiola-config.json';
 
   // Fallback date used if the Gist cannot be reached
-  private readonly FALLBACK_TARGET = '2026-07-14T21:00:00+02:00';
+  private readonly FALLBACK_TARGET = '2026-07-14T22:15:00+02:00';
 
   private config$?: Observable<RevealConfig>;
 
