@@ -2,7 +2,7 @@
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 100;
   background: rgba(9, 8, 8, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -49,8 +49,8 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Nav menu items */
-.nav-menu {
+/* Desktop nav menu */
+.nav-menu-desktop {
   display: flex;
   align-items: center;
   gap: 32px;
@@ -260,36 +260,74 @@
 }
 
 /* ===========================
-   MOBILE NAV
+   MOBILE NAV OVERLAY
+   Sits OUTSIDE the <header> element, so it has no
+   stacking context parent — position:fixed works correctly.
    =========================== */
-@media (max-width: 768px) {
 
-  /* Dropdown panel below the navbar */
-  .nav-menu {
+/* Mobile overlay — hidden by default on all screen sizes */
+.mobile-nav-overlay {
+  display: none;
+}
+
+/* Desktop: hide hamburger + mobile overlay, show desktop nav */
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none;
+  }
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop nav on mobile */
+  .nav-menu-desktop {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Hide status badge */
+  .nav-status-badge {
+    display: none;
+  }
+
+  /* Mobile overlay panel */
+  .mobile-nav-overlay {
+    display: flex;              /* always in flex, toggled by opacity/pointer-events */
     position: fixed;
-    top: 80px;           /* directly below navbar */
+    top: 80px;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 9998;       /* just below navbar (9999) */
+    z-index: 9999;              /* free from navbar stacking context */
     background: #0d0b0b;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    /* Hidden state */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s ease;
   }
 
-  .nav-menu.open {
+  .mobile-nav-overlay.open {
     opacity: 1;
     pointer-events: all;
   }
 
-  /* Nav links inside mobile menu */
-  .nav-menu .nav-link {
+  /* Links inside mobile overlay */
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 0;
+  }
+
+  .mobile-nav-links .nav-link {
     display: block;
     width: 100%;
     text-align: center;
@@ -302,34 +340,20 @@
     padding: 22px 40px;
     border-bottom: 1px solid rgba(255, 94, 0, 0.1);
     letter-spacing: 1.5px;
-    transition: color 0.2s ease, background 0.2s ease;
+    transition: background 0.2s ease;
   }
 
-  .nav-menu .nav-link:first-child {
+  .mobile-nav-links .nav-link:first-child {
     border-top: 1px solid rgba(255, 94, 0, 0.1);
   }
 
-  .nav-menu .nav-link.active {
+  .mobile-nav-links .nav-link.active {
     color: var(--accent-fire) !important;
     -webkit-text-fill-color: var(--accent-fire) !important;
     background: rgba(255, 94, 0, 0.06);
   }
 
-  .nav-menu .nav-link::after {
-    display: none;
-  }
-
-  .nav-menu .link-number {
-    display: none;
-  }
-
-  /* Show hamburger button */
-  .nav-toggle {
-    display: flex;
-  }
-
-  /* Hide status badge */
-  .nav-status-badge {
+  .mobile-nav-links .nav-link::after {
     display: none;
   }
 
@@ -353,8 +377,8 @@
     height: 64px;
   }
 
-  /* Menu must start right below the smaller navbar */
-  .nav-menu {
+  /* Overlay must start below the shorter navbar */
+  .mobile-nav-overlay {
     top: 64px;
   }
 
@@ -362,7 +386,7 @@
     font-size: 1.15rem;
   }
 
-  .nav-menu .nav-link {
+  .mobile-nav-links .nav-link {
     font-size: 1.25rem;
     padding: 18px 32px;
   }

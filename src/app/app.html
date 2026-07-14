@@ -1,36 +1,38 @@
 <header class="navbar">
   <div class="container nav-container">
     <a routerLink="/home" class="nav-logo" (click)="closeMobileMenu()">
+      <span class="logo-icon">🔥</span>
       <span class="logo-text">PERMAPIOLA</span>
     </a>
 
-    <!-- Hamburger menu button for mobile -->
+    <!-- Hamburger button (mobile only) -->
     <button class="nav-toggle" (click)="toggleMobileMenu()" [class.open]="isMobileMenuOpen()" aria-label="Toggle menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <!-- Navigation links -->
-    <nav class="nav-menu" [class.open]="isMobileMenuOpen()">
-      <a routerLink="/home" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
-        Inicio
-      </a>
-      <a routerLink="/calendar" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
-        Calendario
-      </a>
-      <a routerLink="/changelog" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
-        Cambios
-      </a>
-      <a routerLink="/players" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
-        Jugadores
-      </a>
-      <a routerLink="/deaths" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
-        Muertes
-      </a>
+    <!-- Desktop navigation links (hidden on mobile via CSS) -->
+    <nav class="nav-menu-desktop">
+      <a routerLink="/home" routerLinkActive="active" class="nav-link">Inicio</a>
+      <a routerLink="/calendar" routerLinkActive="active" class="nav-link">Calendario</a>
+      <a routerLink="/changelog" routerLinkActive="active" class="nav-link">Cambios</a>
+      <a routerLink="/players" routerLinkActive="active" class="nav-link">Jugadores</a>
+      <a routerLink="/deaths" routerLinkActive="active" class="nav-link">Muertes</a>
     </nav>
   </div>
 </header>
+
+<!-- Mobile nav overlay — outside <header> to avoid stacking context issues -->
+<div class="mobile-nav-overlay" [class.open]="isMobileMenuOpen()">
+  <nav class="mobile-nav-links">
+    <a routerLink="/home" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Inicio</a>
+    <a routerLink="/calendar" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Calendario</a>
+    <a routerLink="/changelog" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Cambios</a>
+    <a routerLink="/players" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Jugadores</a>
+    <a routerLink="/deaths" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Muertes</a>
+  </nav>
+</div>
 
 <!-- Main content area where active route component is rendered -->
 <main class="main-content">
