@@ -94,6 +94,44 @@ export class Players implements OnInit {
         { name: 'iBeenji', role: 'Participante', avatar: 'https://minotar.net/helm/iBeenji/64.png' },
         { name: 'PeruvianMaster69', role: 'Participante', avatar: 'https://minotar.net/helm/PeruvianMaster69/64.png' }
       ]
+    },
+    {
+      id: 6,
+      name: 'Tanda 6',
+      image: 'images/grupo6.png',
+      revealed: false,
+      revealDate: 'Tanda 6',
+      members: [
+        { name: 'Dunao_', role: 'Participante', avatar: 'https://minotar.net/helm/Dunao_/64.png' },
+        { name: 'SuperMiGamer003', role: 'Participante', avatar: 'https://minotar.net/helm/SuperMiGamer003/64.png' },
+        { name: 'CarolBlazing', role: 'Participante', avatar: 'https://minotar.net/helm/CarolBlazing/64.png' },
+        { name: 'itzKira811', role: 'Participante', avatar: 'https://minotar.net/helm/itzKira811/64.png' },
+        { name: 'Elplatanero_', role: 'Participante', avatar: 'https://minotar.net/helm/Elplatanero_/64.png' }
+      ]
+    },
+    {
+      id: 7,
+      name: 'Tanda 7',
+      image: 'images/grupo7.png',
+      revealed: false,
+      revealDate: 'Tanda 7',
+      members: [
+        { name: 'hdlux', role: 'Participante', avatar: 'https://minotar.net/helm/hdlux/64.png' },
+        { name: 'jaiba12', role: 'Participante', avatar: 'https://minotar.net/helm/jaiba12/64.png' },
+        { name: 'MadeByKinda', role: 'Participante', avatar: 'https://minotar.net/helm/MadeByKinda/64.png' }
+      ]
+    },
+    {
+      id: 8,
+      name: 'Tanda 8',
+      image: 'images/grupo8.png',
+      revealed: false,
+      revealDate: 'Tanda 8',
+      members: [
+        { name: 'TheBasty257', role: 'Participante', avatar: 'https://minotar.net/helm/TheBasty257/64.png' },
+        { name: 'EchiTimeYT', role: 'Participante', avatar: 'https://minotar.net/helm/EchiTimeYT/64.png' },
+        { name: 'SrInteligencia', role: 'Participante', avatar: 'https://minotar.net/helm/SrInteligencia/64.png' }
+      ]
     }
   ]);
 
@@ -112,15 +150,18 @@ export class Players implements OnInit {
 
         if (now >= originalTarget) {
           if (group.id === 1 || group.id === 2) {
-            // Tanda 1 y 2 se revelan en el primer objetivo (22:15)
+            // Tanda 1 y 2 se revelan en el primer objetivo
             isRevealed = true;
           } else {
-            // Tanda 3, 4 y 5 se revelan juntas a las 12 horas del objetivo inicial
             const msPast = now - originalTarget;
-            const step = 12 * 60 * 60 * 1000;
+            const step = 12 * 60 * 60 * 1000; // cada 12 horas
             const intervals = Math.floor(msPast / step);
 
+            // Tanda 3, 4 y 5 → a las 12h (interval >= 1)
             if ((group.id === 3 || group.id === 4 || group.id === 5) && intervals >= 1) isRevealed = true;
+
+            // Tanda 6, 7 y 8 → a las 24h (interval >= 2)
+            if ((group.id === 6 || group.id === 7 || group.id === 8) && intervals >= 2) isRevealed = true;
           }
         }
 
