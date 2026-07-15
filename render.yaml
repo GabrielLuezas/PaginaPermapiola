@@ -1,9 +1,7 @@
 services:
-  - type: static
+  - type: web
     name: permapiola-web
-    buildCommand: npm run build
-    publishPath: dist/permapiola-web/browser
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
+    plan: free
