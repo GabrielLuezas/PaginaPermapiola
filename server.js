@@ -10,17 +10,17 @@ const PORT = process.env.PORT || 3000;
 // Update this object when a new batch is announced.
 // ──────────────────────────────────────────────────────────────
 const REVEAL_DATES = {
-  1:  new Date('2026-07-14T00:00:00Z'), // Tandas 1 — ya anunciados
-  2:  new Date('2026-07-14T00:00:00Z'), // Tandas 2 — ya anunciados
-  3:  new Date('2026-07-14T00:00:00Z'), // Tandas 3 — ya anunciados
-  4:  new Date('2026-07-14T00:00:00Z'), // Tandas 4 — ya anunciados
-  5:  new Date('2026-07-14T00:00:00Z'), // Tandas 5 — ya anunciados
-  6:  new Date('2026-07-16T04:00:00Z'), // Tandas 6 (+10h desde anuncio)
-  7:  new Date('2026-07-16T04:00:00Z'), // Tandas 7
-  8:  new Date('2026-07-16T04:00:00Z'), // Tandas 8
-  9:  new Date('2026-07-16T16:00:00Z'), // Tandas 9  (+22h desde anuncio)
-  10: new Date('2026-07-16T16:00:00Z'), // Tandas 10
-  11: new Date('2026-07-16T16:00:00Z'), // Tandas 11
+  1:  new Date('2026-07-14T00:00:00Z'), // Ya anunciados
+  2:  new Date('2026-07-14T00:00:00Z'),
+  3:  new Date('2026-07-14T00:00:00Z'),
+  4:  new Date('2026-07-14T00:00:00Z'),
+  5:  new Date('2026-07-14T00:00:00Z'),
+  6:  new Date('2026-07-15T22:00:00Z'), // Ya anunciados (visible ahora)
+  7:  new Date('2026-07-15T22:00:00Z'),
+  8:  new Date('2026-07-15T22:00:00Z'),
+  9:  new Date('2026-07-16T08:11:00Z'), // +10h desde ahora (00:11 ESP)
+  10: new Date('2026-07-16T08:11:00Z'),
+  11: new Date('2026-07-16T08:11:00Z'),
 };
 
 function isGroupRevealed(groupNum) {
