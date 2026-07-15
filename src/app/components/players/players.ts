@@ -132,6 +132,44 @@ export class Players implements OnInit {
         { name: 'EchiTimeYT', role: 'Participante', avatar: 'https://minotar.net/helm/EchiTimeYT/64.png' },
         { name: 'SrInteligencia', role: 'Participante', avatar: 'https://minotar.net/helm/SrInteligencia/64.png' }
       ]
+    },
+    {
+      id: 9,
+      name: 'Tanda 9',
+      image: 'images/grupo9.png',
+      revealed: false,
+      revealDate: 'Tanda 9',
+      members: [
+        { name: 'SnowieFlqre', role: 'Participante', avatar: 'https://minotar.net/helm/SnowieFlqre/64.png' },
+        { name: 'Gargo6y6', role: 'Participante', avatar: 'https://minotar.net/helm/Gargo6y6/64.png' },
+        { name: 'Ks100_', role: 'Participante', avatar: 'https://minotar.net/helm/Ks100_/64.png' },
+        { name: 'SuprameKiller', role: 'Participante', avatar: 'https://minotar.net/helm/SuprameKiller/64.png' },
+        { name: 'Lalodragod5', role: 'Participante', avatar: 'https://minotar.net/helm/Lalodragod5/64.png' }
+      ]
+    },
+    {
+      id: 10,
+      name: 'Tanda 10',
+      image: 'images/grupo10.png',
+      revealed: false,
+      revealDate: 'Tanda 10',
+      members: [
+        { name: 'Jirowoo', role: 'Participante', avatar: 'https://minotar.net/helm/Jirowoo/64.png' },
+        { name: 'Rafismo', role: 'Participante', avatar: 'https://minotar.net/helm/Rafismo/64.png' },
+        { name: 'ExplosionGIrl', role: 'Participante', avatar: 'https://minotar.net/helm/ExplosionGIrl/64.png' }
+      ]
+    },
+    {
+      id: 11,
+      name: 'Tanda 11',
+      image: 'images/grupo11.png',
+      revealed: false,
+      revealDate: 'Tanda 11',
+      members: [
+        { name: 'Nataa_', role: 'Participante', avatar: 'https://minotar.net/helm/Nataa_/64.png' },
+        { name: 'MailsBowi', role: 'Participante', avatar: 'https://minotar.net/helm/MailsBowi/64.png' },
+        { name: 'YoniJP1000', role: 'Participante', avatar: 'https://minotar.net/helm/YoniJP1000/64.png' }
+      ]
     }
   ]);
 
@@ -162,6 +200,9 @@ export class Players implements OnInit {
 
             // Tanda 6, 7 y 8 → a las 24h (interval >= 2)
             if ((group.id === 6 || group.id === 7 || group.id === 8) && intervals >= 2) isRevealed = true;
+
+            // Tanda 9, 10 y 11 → a las 36h (interval >= 3)
+            if ((group.id === 9 || group.id === 10 || group.id === 11) && intervals >= 3) isRevealed = true;
           }
         }
 
