@@ -23,31 +23,22 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  text-shadow: 0 0 15px rgba(255, 94, 0, 0.2);
   transition: var(--transition-smooth);
 }
 
 .nav-logo:hover {
-  transform: scale(1.02);
-  text-shadow: 0 0 20px rgba(255, 94, 0, 0.5);
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 10px rgba(255, 94, 0, 0.5));
 }
 
-.logo-icon {
-  font-size: 1.6rem;
-  animation: fireFlicker 2.5s infinite ease-in-out;
+.nav-logo-img {
+  height: 70px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(255, 94, 0, 0.4));
 }
 
-.logo-text {
-  background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent-fire) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 /* Desktop nav menu */
 .nav-menu-desktop {

@@ -1,0 +1,210 @@
+<div class="ranks-container container">
+  <div class="ranks-header text-center">
+    <h1 class="page-title glow-text-fire">Rangos & Ventajas</h1>
+    <p class="ranks-subtitle">Apoya al servidor y obtén increíbles beneficios dentro de PermaPiola.</p>
+    
+    <!-- Billing Cycle Toggle Switch -->
+    <div class="toggle-container">
+      <button 
+        class="toggle-btn" 
+        [class.active]="!isPermanent()" 
+        (click)="togglePeriod(false)">
+        Temporal (Temporada)
+      </button>
+      <button 
+        class="toggle-btn" 
+        [class.active]="isPermanent()" 
+        (click)="togglePeriod(true)">
+        Permanente (+3$)
+      </button>
+      <div class="toggle-slider" [class.slide-right]="isPermanent()"></div>
+    </div>
+  </div>
+
+  <!-- Ranks Grid -->
+  <div class="ranks-grid">
+    
+    <!-- Gold Rank Card -->
+    <div class="rank-card gold-tier glass-card">
+      <div class="rank-badge-wrapper">
+        <img src="https://minecraft.wiki/images/Gold_Ingot_JE4_BE2.png" alt="Gold Ingot" class="rank-item-icon" />
+        <h2 class="rank-name">Gold Rank</h2>
+      </div>
+      <div class="rank-price-box">
+        <span class="currency">$</span>
+        <span class="price-amount">{{ isPermanent() ? '6' : '3' }}</span>
+        <span class="price-duration">USD / {{ isPermanent() ? 'Permanente' : 'Temporada' }}</span>
+      </div>
+      <div class="divider"></div>
+      <ul class="perk-list">
+        <li>
+          <span class="perk-icon">💬</span>
+          <span class="perk-text">Canal exclusivo de chat y sugerencias (tomadas más en serio por el staff).</span>
+        </li>
+        <li>
+          <span class="perk-icon">⚡</span>
+          <span class="perk-text">Saber los cambios antes de ser anunciados (<strong>24h antes</strong>).</span>
+        </li>
+        <li>
+          <span class="perk-icon">📦</span>
+          <span class="perk-text">Comando para reclamar <strong>3 Airdrops</strong> (Cooldown 24h).</span>
+        </li>
+        <li>
+          <span class="perk-icon">🚪</span>
+          <span class="perk-text">Asegura tu entrada directa a PermaPiola.</span>
+        </li>
+        <li>
+          <span class="perk-icon">⏳</span>
+          <span class="perk-text">Entra a la apertura <strong>1 hora antes</strong> que los jugadores sin rango.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Diamond Rank Card -->
+    <div class="rank-card diamond-tier glass-card">
+      <div class="rank-badge-wrapper">
+        <img src="https://minecraft.wiki/images/Diamond_JE3_BE3.png" alt="Diamond" class="rank-item-icon" />
+        <h2 class="rank-name">Diamond Rank</h2>
+      </div>
+      <div class="rank-price-box">
+        <span class="currency">$</span>
+        <span class="price-amount">{{ isPermanent() ? '9' : '6' }}</span>
+        <span class="price-duration">USD / {{ isPermanent() ? 'Permanente' : 'Temporada' }}</span>
+      </div>
+      <div class="divider"></div>
+      <ul class="perk-list">
+        <li class="perk-included">
+          <span class="perk-icon">⭐</span>
+          <span class="perk-text"><strong>Todo lo anterior incluido</strong></span>
+        </li>
+        <li>
+          <span class="perk-icon">⚡</span>
+          <span class="perk-text">Cambios antes de tiempo (<strong>48h antes</strong>).</span>
+        </li>
+        <li>
+          <span class="perk-icon">👁️</span>
+          <span class="perk-text">Spectear en eventos importantes (solo si estás muerto o no juegas la temporada).</span>
+        </li>
+        <li>
+          <span class="perk-icon">🏷️</span>
+          <span class="perk-text">Poner nombre y color a tus ítems en Minecraft (<code class="cmd">/rename</code>).</span>
+        </li>
+        <li>
+          <span class="perk-icon">👤</span>
+          <span class="perk-text">Cambiarse el nick dentro de Minecraft (<code class="cmd">/nick "Nick"</code>).</span>
+        </li>
+        <li>
+          <span class="perk-icon">💡</span>
+          <span class="perk-text">Poder recomendar cambios directamente.</span>
+        </li>
+        <li>
+          <span class="perk-icon">💫</span>
+          <span class="perk-text">Acceso a todos los trails de proyectiles.</span>
+        </li>
+        <li>
+          <span class="perk-icon">📦</span>
+          <span class="perk-text">Comando para reclamar <strong>5 Airdrops + 1 Ultra Airdrop</strong> (Cooldown 24h).</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Netherite Rank Card -->
+    <div class="rank-card netherite-tier glass-card featured">
+      <div class="popular-tag">Recomendado</div>
+      <div class="rank-badge-wrapper">
+        <img src="https://minecraft.wiki/images/Netherite_Ingot_JE1_BE2.png" alt="Netherite Ingot" class="rank-item-icon" />
+        <h2 class="rank-name">Netherite Rank</h2>
+      </div>
+      <div class="rank-price-box">
+        <span class="currency">$</span>
+        <span class="price-amount">{{ isPermanent() ? '15' : '12' }}</span>
+        <span class="price-duration">USD / {{ isPermanent() ? 'Permanente' : 'Temporada' }}</span>
+      </div>
+      <div class="divider"></div>
+      <ul class="perk-list">
+        <li class="perk-included">
+          <span class="perk-icon">⭐</span>
+          <span class="perk-text"><strong>Todo lo anterior incluido</strong></span>
+        </li>
+        <li>
+          <span class="perk-icon">🎙️</span>
+          <span class="perk-text">Canal de voz exclusivo para ti y para tu team.</span>
+        </li>
+        <li>
+          <span class="perk-icon">⚡</span>
+          <span class="perk-text">Cambios antes de tiempo (<strong>72h antes</strong>).</span>
+        </li>
+        <li>
+          <span class="perk-icon">👁️</span>
+          <span class="perk-text">Spectear cuando quieras (solo si estás muerto o no juegas la temporada).</span>
+        </li>
+        <li>
+          <span class="perk-icon">🏷️</span>
+          <span class="perk-text">Suffix personalizado en el servidor para ti y para tu team.</span>
+        </li>
+        <li>
+          <span class="perk-icon">📦</span>
+          <span class="perk-text">Comando para reclamar <strong>7 Airdrops + 3 Ultra Airdrops</strong> (Cooldown 24h).</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- PayPal Payment instructions -->
+  <div class="paypal-info-card glass-card">
+    <div class="paypal-icon-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#003087" viewBox="0 0 24 24" class="paypal-svg">
+        <path d="M20.007 6.136c-.452 2.658-2.185 8.164-2.822 10.158-.204.64-.627.954-1.282.954h-2.336c-.36 0-.663-.228-.76-.575l-1.393-4.992c-.104-.374-.442-.628-.83-.628H8.5l-1.636 5.86c-.085.3-.356.51-.667.51H3.633a.5.5 0 0 1-.482-.635L6.082 6.643A2.5 2.5 0 0 1 8.5 4.75h6.634c1.884 0 3.195.426 3.931 1.28.625.726.837 1.623.63 2.651z"/>
+        <path d="M16.924 6.838c.208-1.028-.004-1.925-.63-2.651-.736-.854-2.047-1.28-3.931-1.28H5.73c-.31 0-.582.21-.667.51L3.107 10.36a.5.5 0 0 0 .482.635h2.565c.311 0 .582-.21.667-.51l.865-3.1h1.564c1.233 0 2.21.321 2.915.955.706.635 1.053 1.517 1.042 2.627-.021 2.222-1.348 3.921-3.957 3.921h-.977c-.388 0-.726.254-.83.628L6.87 20.89a.5.5 0 0 0 .481.635h3.045c.312 0 .583-.21.668-.51l.995-3.565c.104-.374.442-.628.83-.628h1.218c3.084 0 5.485-1.464 6.136-4.664.556-2.731-.054-4.225-1.319-5.32z" fill="#0079C1"/>
+      </svg>
+      <h3>¿Cómo Adquirir tu Rango?</h3>
+    </div>
+    
+    <div class="paypal-steps">
+      <div class="step-item">
+        <span class="step-num">1</span>
+        <p>Realiza el pago correspondiente según el rango elegido a través de PayPal.</p>
+      </div>
+      <div class="step-item">
+        <span class="step-num">2</span>
+        <p>Envía tu pago a la siguiente dirección de correo electrónico:</p>
+      </div>
+    </div>
+
+    <!-- Email Copier Area -->
+    <div class="email-copy-box">
+      <code class="paypal-email">{{ paypalEmail }}</code>
+      <button class="btn-copy" (click)="copyEmail()" [class.copied]="copied()">
+        <span class="btn-copy-text">{{ copied() ? '¡Copiado!' : 'Copiar correo' }}</span>
+        <span class="btn-copy-icon">
+          <svg *ngIf="!copied()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+          </svg>
+          <svg *ngIf="copied()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="check-icon">
+            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+
+    <div class="paypal-footer-notes">
+      <p class="payment-note">
+        <strong>⚠️ Importante:</strong> Una vez realizado el pago, ponte en contacto con los Administradores o Staff a través de nuestro 
+        <a href="https://discord.gg/kp8hRSXRq" target="_blank" class="discord-link">servidor de Discord</a>. 
+        Deberás adjuntar el <strong>comprobante de pago</strong> y especificar tu <strong>Nick de Minecraft</strong> para activar el rango de forma inmediata.
+      </p>
+    </div>
+
+    <div class="paypal-action-button-row">
+      <a href="https://www.paypal.com" target="_blank" class="btn-fire btn-paypal-go">
+        Ir a PayPal
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+          <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
