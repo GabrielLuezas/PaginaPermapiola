@@ -5,6 +5,9 @@ import { Changelog } from './components/changelog/changelog';
 import { Players } from './components/players/players';
 import { Deaths } from './components/deaths/deaths';
 import { Ranks } from './components/ranks/ranks';
+import { Rules } from './components/rules/rules';
+import { Login } from './components/login/login';
+import { Register } from './components/register/register';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,5 +17,8 @@ export const routes: Routes = [
   { path: 'players', component: Players },
   { path: 'deaths', component: Deaths },
   { path: 'ranks', component: Ranks },
+  { path: 'rules', component: Rules },
+  { path: 'login', component: Login },
+  { path: 'register', component: Register },
   { path: '**', redirectTo: 'home' }
 ];

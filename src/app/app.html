@@ -16,10 +16,25 @@
       <a routerLink="/home" routerLinkActive="active" class="nav-link">Inicio</a>
       <a routerLink="/players" routerLinkActive="active" class="nav-link">Jugadores</a>
       <a routerLink="/ranks" routerLinkActive="active" class="nav-link">Rangos</a>
+      <a routerLink="/rules" routerLinkActive="active" class="nav-link">Reglas</a>
       <a routerLink="/calendar" routerLinkActive="active" class="nav-link">Calendario</a>
       <a routerLink="/changelog" routerLinkActive="active" class="nav-link">Cambios</a>
       <a routerLink="/deaths" routerLinkActive="active" class="nav-link">Muertes</a>
     </nav>
+
+    <!-- User area (Desktop) -->
+    <div class="nav-user-area-desktop" *ngIf="!authService.loading()">
+      <div *ngIf="authService.currentUser() as user; else guestUser" class="nav-user-logged">
+        <span class="nav-user-info">
+          👤 <span class="username-text">{{ user.username }}</span>
+          <span class="badge-rank" [ngClass]="user.rank">{{ user.rank }}</span>
+        </span>
+        <button class="nav-btn-logout" (click)="onLogout()">Salir</button>
+      </div>
+      <ng-template #guestUser>
+        <a routerLink="/login" class="nav-btn-login">Ingresar</a>
+      </ng-template>
+    </div>
   </div>
 </header>
 
@@ -29,9 +44,26 @@
     <a routerLink="/home" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Inicio</a>
     <a routerLink="/players" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Jugadores</a>
     <a routerLink="/ranks" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Rangos</a>
+    <a routerLink="/rules" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Reglas</a>
     <a routerLink="/calendar" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Calendario</a>
     <a routerLink="/changelog" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Cambios</a>
     <a routerLink="/deaths" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Muertes</a>
+    
+    <div class="mobile-nav-divider"></div>
+    
+    <!-- User area (Mobile) -->
+    <div class="mobile-user-area" *ngIf="!authService.loading()">
+      <div *ngIf="authService.currentUser() as user; else guestUserMobile">
+        <div class="mobile-user-details">
+          👤 <span class="username-text">{{ user.username }}</span>
+          <span class="badge-rank" [ngClass]="user.rank">{{ user.rank }}</span>
+        </div>
+        <button class="mobile-btn-logout" (click)="onLogout()">Cerrar Sesión</button>
+      </div>
+      <ng-template #guestUserMobile>
+        <a routerLink="/login" class="mobile-btn-login" (click)="closeMobileMenu()">Iniciar Sesión</a>
+      </ng-template>
+    </div>
   </nav>
 </div>
 
