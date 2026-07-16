@@ -140,11 +140,9 @@ export class Players implements OnInit {
       revealed: false,
       revealDate: 'Tanda 9',
       members: [
-        { name: 'SnowieFlqre', role: 'Participante', avatar: 'https://minotar.net/helm/SnowieFlqre/64.png' },
-        { name: 'Gargo6y6', role: 'Participante', avatar: 'https://minotar.net/helm/Gargo6y6/64.png' },
-        { name: 'Ks100_', role: 'Participante', avatar: 'https://minotar.net/helm/Ks100_/64.png' },
-        { name: 'SuprameKiller', role: 'Participante', avatar: 'https://minotar.net/helm/SuprameKiller/64.png' },
-        { name: 'Lalodragod5', role: 'Participante', avatar: 'https://minotar.net/helm/Lalodragod5/64.png' }
+        { name: 'SlowDeAlex', role: 'Participante', avatar: 'https://minotar.net/helm/SlowDeAlex/64.png' },
+        { name: 'LechugaMC', role: 'Participante', avatar: 'https://minotar.net/helm/LechugaMC/64.png' },
+        { name: 'Aaa_OnichanUwU', role: 'Participante', avatar: 'https://minotar.net/helm/Aaa_OnichanUwU/64.png' }
       ]
     },
     {
