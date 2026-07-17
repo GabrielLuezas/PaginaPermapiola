@@ -266,7 +266,7 @@ export class Players implements OnInit {
       members: [
         { name: 'RoaminBarcade', role: 'Participante', avatar: 'https://minotar.net/helm/RoaminBarcade/64.png' },
         { name: 'Caubet', role: 'Participante', avatar: 'https://minotar.net/helm/Caubet/64.png' },
-        { name: 'Ancroyd', role: 'Participante', avatar: 'https://minotar.net/helm/Ancroyd/64.png' },
+        { name: 'Anckroyd', role: 'Participante', avatar: 'https://minotar.net/helm/Ancroyd/64.png' },
         { name: 'VtrHater', role: 'Participante', avatar: 'https://minotar.net/helm/VtrHater/64.png' }
       ]
     },
