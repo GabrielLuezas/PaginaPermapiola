@@ -218,6 +218,93 @@ export class Players implements OnInit {
         { name: 'SuprameKiller', role: 'Participante', avatar: 'https://minotar.net/helm/SuprameKiller/64.png' },
         { name: 'Lalodragod5', role: 'Participante', avatar: 'https://minotar.net/helm/Lalodragod5/64.png' }
       ]
+    },
+    {
+      id: 16,
+      name: 'Tanda 16',
+      image: 'images/grupo16.png',
+      revealed: false,
+      revealDate: 'Tanda 16',
+      members: [
+        { name: 'BanterAcee', role: 'Participante', avatar: 'https://minotar.net/helm/BanterAcee/64.png' },
+        { name: 'Secreto_Angel', role: 'Participante', avatar: 'https://minotar.net/helm/Secreto_Angel/64.png' },
+        { name: 'BlessedYagoo', role: 'Participante', avatar: 'https://minotar.net/helm/BlessedYagoo/64.png' },
+        { name: 'TheDexant', role: 'Participante', avatar: 'https://minotar.net/helm/TheDexant/64.png' },
+        { name: 'Darkalex56', role: 'Participante', avatar: 'https://minotar.net/helm/Darkalex56/64.png' }
+      ]
+    },
+    {
+      id: 17,
+      name: 'Tanda 17',
+      image: 'images/grupo17.png',
+      revealed: false,
+      revealDate: 'Tanda 17',
+      members: [
+        { name: 'GiovanniLuigini', role: 'Participante', avatar: 'https://minotar.net/helm/GiovanniLuigini/64.png' },
+        { name: 'dhexter', role: 'Participante', avatar: 'https://minotar.net/helm/dhexter/64.png' },
+        { name: 'xxanders', role: 'Participante', avatar: 'https://minotar.net/helm/xxanders/64.png' }
+      ]
+    },
+    {
+      id: 18,
+      name: 'Tanda 18',
+      image: 'images/grupo18.png',
+      revealed: false,
+      revealDate: 'Tanda 18',
+      members: [
+        { name: 'lvxzz_', role: 'Participante', avatar: 'https://minotar.net/helm/lvxzz_/64.png' },
+        { name: 'm4xp33ly', role: 'Participante', avatar: 'https://minotar.net/helm/m4xp33ly/64.png' },
+        { name: 'Erricherx_XZ', role: 'Participante', avatar: 'https://minotar.net/helm/Erricherx_XZ/64.png' }
+      ]
+    },
+    {
+      id: 19,
+      name: 'Tanda 19',
+      image: 'images/grupo19.png',
+      revealed: false,
+      revealDate: 'Tanda 19',
+      members: [
+        { name: 'RoaminBarcade', role: 'Participante', avatar: 'https://minotar.net/helm/RoaminBarcade/64.png' },
+        { name: 'Caubet', role: 'Participante', avatar: 'https://minotar.net/helm/Caubet/64.png' },
+        { name: 'Ancroyd', role: 'Participante', avatar: 'https://minotar.net/helm/Ancroyd/64.png' },
+        { name: 'VtrHater', role: 'Participante', avatar: 'https://minotar.net/helm/VtrHater/64.png' }
+      ]
+    },
+    {
+      id: 20,
+      name: 'Tanda 20',
+      image: 'images/grupo20.png',
+      revealed: false,
+      revealDate: 'Tanda 20',
+      members: [
+        { name: 'Cekita', role: 'Participante', avatar: 'https://minotar.net/helm/Cekita/64.png' },
+        { name: 'Drogapult', role: 'Participante', avatar: 'https://minotar.net/helm/Drogapult/64.png' },
+        { name: 'daniel3865', role: 'Participante', avatar: 'https://minotar.net/helm/daniel3865/64.png' }
+      ]
+    },
+    {
+      id: 21,
+      name: 'Tanda 21',
+      image: 'images/grupo21.png',
+      revealed: false,
+      revealDate: 'Tanda 21',
+      members: [
+        { name: 'spoontify', role: 'Participante', avatar: 'https://minotar.net/helm/spoontify/64.png' },
+        { name: 'RolexHK', role: 'Participante', avatar: 'https://minotar.net/helm/RolexHK/64.png' },
+        { name: 'DJNacho248', role: 'Participante', avatar: 'https://minotar.net/helm/DJNacho248/64.png' }
+      ]
+    },
+    {
+      id: 22,
+      name: 'Tanda 22',
+      image: 'images/grupo22.png',
+      revealed: false,
+      revealDate: 'Tanda 22',
+      members: [
+        { name: 'Dexby2006', role: 'Participante', avatar: 'https://minotar.net/helm/Dexby2006/64.png' },
+        { name: 'buxworld', role: 'Participante', avatar: 'https://minotar.net/helm/buxworld/64.png' },
+        { name: 'AfterDarkside', role: 'Participante', avatar: 'https://minotar.net/helm/AfterDarkside/64.png' }
+      ]
     }
   ]);
 
@@ -255,8 +342,11 @@ export class Players implements OnInit {
             // Tanda 12, 13 y 14 → a las 48h (interval >= 4)
             if ((group.id === 12 || group.id === 13 || group.id === 14) && intervals >= 4) isRevealed = true;
 
-            // Tanda 15 → a las 60h (interval >= 5)
-            if (group.id === 15 && intervals >= 5) isRevealed = true;
+            // Tanda 15, 16, 17 y 18 → a las 60h (interval >= 5)
+            if ((group.id === 15 || group.id === 16 || group.id === 17 || group.id === 18) && intervals >= 5) isRevealed = true;
+
+            // Tanda 19, 20, 21 y 22 → a las 72h (interval >= 6)
+            if ((group.id === 19 || group.id === 20 || group.id === 21 || group.id === 22) && intervals >= 6) isRevealed = true;
           }
         }
 
