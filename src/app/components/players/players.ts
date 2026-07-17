@@ -241,7 +241,7 @@ export class Players implements OnInit {
       revealDate: 'Tanda 17',
       members: [
         { name: 'GiovanniLuigini', role: 'Participante', avatar: 'https://minotar.net/helm/GiovanniLuigini/64.png' },
-        { name: 'dhexter', role: 'Participante', avatar: 'https://minotar.net/helm/dhexter/64.png' },
+        { name: 'dhexther', role: 'Participante', avatar: 'https://minotar.net/helm/dhexther/64.png' },
         { name: 'xxanders', role: 'Participante', avatar: 'https://minotar.net/helm/xxanders/64.png' }
       ]
     },
