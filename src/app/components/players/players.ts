@@ -305,6 +305,34 @@ export class Players implements OnInit {
         { name: 'buxworld', role: 'Participante', avatar: 'https://minotar.net/helm/buxworld/64.png' },
         { name: 'AfterDarkside', role: 'Participante', avatar: 'https://minotar.net/helm/AfterDarkside/64.png' }
       ]
+    },
+    {
+      id: 23,
+      name: 'Tanda 23',
+      image: 'images/grupo23.png',
+      revealed: false,
+      revealDate: 'Tanda 23',
+      members: [
+        { name: 'pkns', role: 'Participante', avatar: 'https://minotar.net/helm/pkns/64.png' },
+        { name: 'johan2426', role: 'Participante', avatar: 'https://minotar.net/helm/johan2426/64.png' },
+        { name: 'alfredito33', role: 'Participante', avatar: 'https://minotar.net/helm/alfredito33/64.png' },
+        { name: 'Lucas_Speed', role: 'Participante', avatar: 'https://minotar.net/helm/Lucas_Speed/64.png' },
+        { name: 'MrSeta', role: 'Participante', avatar: 'https://minotar.net/helm/MrSeta/64.png' }
+      ]
+    },
+    {
+      id: 24,
+      name: 'Tanda 24',
+      image: 'images/grupo24.png',
+      revealed: false,
+      revealDate: 'Tanda 24',
+      members: [
+        { name: 'minicirdy', role: 'Participante', avatar: 'https://minotar.net/helm/minicirdy/64.png' },
+        { name: 'Wrygames', role: 'Participante', avatar: 'https://minotar.net/helm/Wrygames/64.png' },
+        { name: 'KartanaGX', role: 'Participante', avatar: 'https://minotar.net/helm/KartanaGX/64.png' },
+        { name: 'Manugg', role: 'Participante', avatar: 'https://minotar.net/helm/Manugg/64.png' },
+        { name: 'MiniYisus', role: 'Participante', avatar: 'https://minotar.net/helm/MiniYisus/64.png' }
+      ]
     }
   ]);
 
@@ -347,6 +375,9 @@ export class Players implements OnInit {
 
             // Tanda 19, 20, 21 y 22 → a las 72h (interval >= 6)
             if ((group.id === 19 || group.id === 20 || group.id === 21 || group.id === 22) && intervals >= 6) isRevealed = true;
+
+            // Tanda 23 y 24 → a las 84h (interval >= 7 / en 20 min)
+            if ((group.id === 23 || group.id === 24) && intervals >= 7) isRevealed = true;
           }
         }
 
