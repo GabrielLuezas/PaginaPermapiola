@@ -411,7 +411,7 @@ export class Players implements OnInit {
       members: [
         { name: 'microvevo', role: 'Participante', avatar: 'https://minotar.net/helm/microvevo/64.png' },
         { name: 'Tondergames7', role: 'Participante', avatar: 'https://minotar.net/helm/Tondergames7/64.png' },
-        { name: 'ImFalsee_', role: 'Participante', avatar: 'https://minotar.net/helm/ImFalsee_/64.png' },
+        { name: 'ImFalse_', role: 'Participante', avatar: 'https://minotar.net/helm/ImFalsee_/64.png' },
         { name: 'Winder_Gamer', role: 'Participante', avatar: 'https://minotar.net/helm/Winder_Gamer/64.png' },
         { name: 'Zaipy', role: 'Participante', avatar: 'https://minotar.net/helm/Zaipy/64.png' }
       ]
