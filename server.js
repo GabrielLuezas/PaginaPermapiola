@@ -71,6 +71,9 @@ const REVEAL_DATES = {
   25: new Date('2026-07-18T20:15:00Z'),
   26: new Date('2026-07-18T20:15:00Z'),
   27: new Date('2026-07-18T20:15:00Z'),
+  28: new Date('2026-07-19T08:15:00Z'),
+  29: new Date('2026-07-19T08:15:00Z'),
+  30: new Date('2026-07-19T08:15:00Z'),
 };
 
 function isGroupRevealed(groupNum) {
