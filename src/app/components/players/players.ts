@@ -471,6 +471,48 @@ export class Players implements OnInit {
         { name: 'ZapatonCachondo', role: 'Participante', avatar: 'https://minotar.net/helm/ZapatonCachondo/64.png' },
         { name: 'BlessedDragox', role: 'Participante', avatar: 'https://minotar.net/helm/BlessedDragox/64.png' }
       ]
+    },
+    {
+      id: 35,
+      name: 'Tanda 35',
+      image: 'images/grupo35.png',
+      revealed: false,
+      revealDate: 'Tanda 35',
+      members: [
+        { name: 'cirocasta_', role: 'Participante', avatar: 'https://minotar.net/helm/cirocasta_/64.png' },
+        { name: 'william47', role: 'Participante', avatar: 'https://minotar.net/helm/william47/64.png' },
+        { name: 'Nathalex_YT', role: 'Participante', avatar: 'https://minotar.net/helm/Nathalex_YT/64.png' },
+        { name: 'RebelAndrew', role: 'Participante', avatar: 'https://minotar.net/helm/RebelAndrew/64.png' },
+        { name: 'Polardss', role: 'Participante', avatar: 'https://minotar.net/helm/Polardss/64.png' }
+      ]
+    },
+    {
+      id: 36,
+      name: 'Tanda 36',
+      image: 'images/grupo36.png',
+      revealed: false,
+      revealDate: 'Tanda 36',
+      members: [
+        { name: 'Coppel', role: 'Participante', avatar: 'https://minotar.net/helm/Coppel/64.png' },
+        { name: 'HOOD21', role: 'Participante', avatar: 'https://minotar.net/helm/HOOD21/64.png' },
+        { name: 'RojitoGoes', role: 'Participante', avatar: 'https://minotar.net/helm/RojitoGoes/64.png' },
+        { name: 'TinybiteOF', role: 'Participante', avatar: 'https://minotar.net/helm/TinybiteOF/64.png' },
+        { name: 'MrDeam', role: 'Participante', avatar: 'https://minotar.net/helm/MrDeam/64.png' }
+      ]
+    },
+    {
+      id: 37,
+      name: 'Tanda 37',
+      image: 'images/grupo37.png',
+      revealed: false,
+      revealDate: 'Tanda 37',
+      members: [
+        { name: 'PachamancaUwu', role: 'Participante', avatar: 'https://minotar.net/helm/PachamancaUwu/64.png' },
+        { name: 'Laufwy', role: 'Participante', avatar: 'https://minotar.net/helm/Laufwy/64.png' },
+        { name: 'InkognitoMC', role: 'Participante', avatar: 'https://minotar.net/helm/InkognitoMC/64.png' },
+        { name: 'TitanioTi', role: 'Participante', avatar: 'https://minotar.net/helm/TitanioTi/64.png' },
+        { name: 'Jeicito', role: 'Participante', avatar: 'https://minotar.net/helm/Jeicito/64.png' }
+      ]
     }
   ]);
 
@@ -528,6 +570,9 @@ export class Players implements OnInit {
 
             // Tanda 33 y 34 → a las 132h (interval >= 11 / revelado inmediato)
             if ((group.id === 33 || group.id === 34) && intervals >= 11) isRevealed = true;
+
+            // Tanda 35, 36 y 37 → a las 144h (interval >= 12 / en ~20 min)
+            if ((group.id === 35 || group.id === 36 || group.id === 37) && intervals >= 12) isRevealed = true;
           }
         }
 
