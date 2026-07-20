@@ -522,62 +522,9 @@ export class Players implements OnInit {
     });
   }
 
-  private calculateReveals(originalTarget: number) {
-    const now = Date.now();
-
+  private calculateReveals(_originalTarget: number) {
     this.groups.update(currentGroups => {
-      return currentGroups.map(group => {
-        let isRevealed = false;
-
-        if (now >= originalTarget) {
-          if (group.id === 1 || group.id === 2) {
-            // Tanda 1 y 2 se revelan en el primer objetivo
-            isRevealed = true;
-          } else {
-            const msPast = now - originalTarget;
-            const step = 12 * 60 * 60 * 1000; // cada 12 horas
-            const intervals = Math.floor(msPast / step);
-
-            // Tanda 3, 4 y 5 → a las 12h (interval >= 1)
-            if ((group.id === 3 || group.id === 4 || group.id === 5) && intervals >= 1) isRevealed = true;
-
-            // Tanda 6, 7 y 8 → a las 24h (interval >= 2)
-            if ((group.id === 6 || group.id === 7 || group.id === 8) && intervals >= 2) isRevealed = true;
-
-            // Tanda 9, 10 y 11 → a las 36h (interval >= 3)
-            if ((group.id === 9 || group.id === 10 || group.id === 11) && intervals >= 3) isRevealed = true;
-
-            // Tanda 12, 13 y 14 → a las 48h (interval >= 4)
-            if ((group.id === 12 || group.id === 13 || group.id === 14) && intervals >= 4) isRevealed = true;
-
-            // Tanda 15, 16, 17 y 18 → a las 60h (interval >= 5)
-            if ((group.id === 15 || group.id === 16 || group.id === 17 || group.id === 18) && intervals >= 5) isRevealed = true;
-
-            // Tanda 19, 20, 21 y 22 → a las 72h (interval >= 6)
-            if ((group.id === 19 || group.id === 20 || group.id === 21 || group.id === 22) && intervals >= 6) isRevealed = true;
-
-            // Tanda 23 y 24 → a las 84h (interval >= 7 / en 20 min)
-            if ((group.id === 23 || group.id === 24) && intervals >= 7) isRevealed = true;
-
-            // Tanda 25, 26 y 27 → a las 96h (interval >= 8 / 12h después)
-            if ((group.id === 25 || group.id === 26 || group.id === 27) && intervals >= 8) isRevealed = true;
-
-            // Tanda 28, 29 y 30 → a las 108h (interval >= 9 / en 25 min)
-            if ((group.id === 28 || group.id === 29 || group.id === 30) && intervals >= 9) isRevealed = true;
-
-            // Tanda 31 y 32 → a las 120h (interval >= 10 / en 20 min)
-            if ((group.id === 31 || group.id === 32) && intervals >= 10) isRevealed = true;
-
-            // Tanda 33 y 34 → a las 132h (interval >= 11 / revelado inmediato)
-            if ((group.id === 33 || group.id === 34) && intervals >= 11) isRevealed = true;
-
-            // Tanda 35, 36 y 37 → a las 144h (interval >= 12 / en ~20 min)
-            if ((group.id === 35 || group.id === 36 || group.id === 37) && intervals >= 12) isRevealed = true;
-          }
-        }
-
-        return { ...group, revealed: isRevealed };
-      });
+      return currentGroups.map(group => ({ ...group, revealed: true }));
     });
   }
 

@@ -83,10 +83,8 @@ const REVEAL_DATES = {
   37: new Date('2026-07-20T20:15:00Z'),
 };
 
-function isGroupRevealed(groupNum) {
-  const revealAt = REVEAL_DATES[groupNum];
-  if (!revealAt) return false;
-  return Date.now() >= revealAt.getTime();
+function isGroupRevealed(_groupNum) {
+  return true;
 }
 
 app.get('/images/grupo:num.png', (req, res, next) => {
