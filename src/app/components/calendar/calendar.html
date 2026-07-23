@@ -1,15 +1,125 @@
 <div class="calendar-page-bg">
   <div class="container calendar-container">
+
     <header class="page-header">
       <h1 class="page-title gradient-text-fire glow-text-fire">CALENDARIO DE EVENTOS</h1>
+      <p class="page-subtitle">Agosto 2026 · Temporada 6 · Horas en hora España (CEST)</p>
     </header>
 
-    <div class="not-available-wrapper">
-      <div class="glass-card not-available-card">
-        <span class="not-available-icon flicker">📅</span>
-        <h3>Aún no está esta funcionalidad</h3>
-        <p>El calendario detallado de eventos se publicará muy pronto, antes del inicio oficial del servidor.</p>
+    <!-- Legend -->
+    <div class="legend glass-card">
+      <div class="legend-item">
+        <span class="legend-dot ev-inicio"></span>
+        <span>Inicio / Fin</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot ev-cambios"></span>
+        <span>Cambios</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot ev-evento"></span>
+        <span>Evento</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot ev-dragon"></span>
+        <span>DragonFight</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot ev-mega"></span>
+        <span>MegaDungeon</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot ev-dungeon"></span>
+        <span>Dungeon / Boss</span>
       </div>
     </div>
+
+    <!-- Calendar grid -->
+    <div class="calendar-grid-wrapper glass-card">
+
+      <!-- Day headers -->
+      <div class="calendar-header-row">
+        <div class="cal-header-cell">Lun</div>
+        <div class="cal-header-cell">Mar</div>
+        <div class="cal-header-cell">Mié</div>
+        <div class="cal-header-cell">Jue</div>
+        <div class="cal-header-cell">Vie</div>
+        <div class="cal-header-cell">Sáb</div>
+        <div class="cal-header-cell">Dom</div>
+      </div>
+
+      <!-- Day cells -->
+      <div class="calendar-body">
+        @for (cell of calendarDays(); track $index) {
+          <div
+            class="cal-cell"
+            [class.empty]="cell.day === null"
+            [class.today]="cell.isToday"
+            [class.past]="cell.isPast"
+            [class.has-events]="cell.events.length > 0"
+          >
+            @if (cell.day !== null) {
+              <span class="cal-day-number">{{ cell.day }}</span>
+
+              @for (ev of cell.events; track ev.id) {
+                <button
+                  class="cal-event-pill"
+                  [class]="'cal-event-pill ' + getEventTypeClass(ev.type)"
+                  (click)="openEvent(ev)"
+                  [title]="ev.title"
+                >
+                  {{ ev.title }}
+                </button>
+              }
+            }
+          </div>
+        }
+      </div>
+
+    </div>
+
   </div>
 </div>
+
+<!-- Event Detail Modal -->
+@if (selectedEvent()) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-card glass-card" (click)="$event.stopPropagation()">
+
+      <button class="modal-close" (click)="closeModal()">✕</button>
+
+      <!-- Event type badge -->
+      <div class="modal-badge" [class]="'modal-badge ' + getEventTypeClass(selectedEvent()!.type)">
+        {{ eventTypeLabels[selectedEvent()!.type] }}
+      </div>
+
+      <h2 class="modal-title">{{ selectedEvent()!.title }}</h2>
+      <p class="modal-desc">{{ selectedEvent()!.description }}</p>
+
+      <!-- World times -->
+      <div class="modal-times">
+        <h3 class="times-title">🌍 Horarios</h3>
+        <div class="times-grid">
+          @for (tz of timezones; track tz.label) {
+            <div class="time-row">
+              <span class="tz-label">
+                <img
+                  [src]="'https://flagcdn.com/20x15/' + tz.flag + '.png'"
+                  [alt]="tz.label"
+                  class="tz-flag"
+                  loading="lazy"
+                />
+                {{ tz.label }}
+              </span>
+              <span class="tz-time">
+                {{ getTimeForZone(selectedEvent()!.hour, selectedEvent()!.minute, tz.offset) }}
+                <small class="tz-abbr">{{ tz.abbr }}</small>
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+}
