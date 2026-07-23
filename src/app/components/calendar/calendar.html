@@ -59,7 +59,13 @@
             [class.has-events]="cell.events.length > 0"
           >
             @if (cell.day !== null) {
-              <span class="cal-day-number">{{ cell.day }}</span>
+              <span class="cal-day-number">
+                @if (cell.day > 31) {
+                  {{ cell.day - 31 }} Sep
+                } @else {
+                  {{ cell.day }}
+                }
+              </span>
 
               @for (ev of cell.events; track ev.id) {
                 <button

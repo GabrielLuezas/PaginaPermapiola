@@ -23,91 +23,82 @@ export interface CalendarDay {
 // Server launch: August 8, 2026 — referencia: España CEST (UTC+2), 19:00h
 const SERVER_EVENTS: CalendarEvent[] = [
   {
-    id: 'inicio',
+    id: 'dia1',
     day: 8, hour: 19, minute: 0,
     type: 'inicio',
-    title: 'Inicio del Servidor',
+    title: 'Día 1 (Inicio)',
     description: 'Apertura oficial de Permapiola Survival Temporada 6. Todos los participantes entran con 1 sola vida. El permadeath comienza.'
   },
-  /*
   {
-    id: 'boss1',
-    day: 10, hour: 18, minute: 0,
-    type: 'dungeon',
-    title: 'Boss',
-    description: 'Aparece el primer jefe customizado. Un enorme Guardián de Piedra que pone a prueba la cooperación de los grupos.'
-  },
-  {
-    id: 'cambios1',
-    day: 12, hour: 19, minute: 0,
+    id: 'dia3',
+    day: 10, hour: 19, minute: 0,
     type: 'cambios',
-    title: 'Parche de Cambios #1',
-    description: 'Primer parche de balanceo. Se ajustan drops, mecánicas de PVP y se revelan nuevas zonas del mapa.'
+    title: 'Día 3',
+    description: 'Parche de cambios y ajustes.'
   },
   {
-    id: 'evento1',
+    id: 'dia7',
     day: 14, hour: 19, minute: 0,
-    type: 'evento',
-    title: 'Evento',
-    description: 'Evento especial de 2 horas donde llueven mobs reforzados. Los equipos que sobrevivan recibirán recompensas únicas.'
-  },
-  {
-    id: 'dungeon1',
-    day: 16, hour: 18, minute: 0,
-    type: 'dungeon',
-    title: 'Dungeon',
-    description: 'Se abre la primera dungeon del servidor. Solo los equipos más coordinados podrán obtener el loot legendario.'
-  },
-  {
-    id: 'cambios2',
-    day: 18, hour: 19, minute: 0,
     type: 'cambios',
-    title: 'Parche de Cambios #2',
-    description: 'Segundo parche. Se activan nuevas mecánicas, ajustes de economía y se habilita el PVP en zonas neutras.'
+    title: 'Día 7',
+    description: 'Parche de cambios y ajustes.'
   },
   {
-    id: 'megadungeon1',
-    day: 20, hour: 18, minute: 0,
-    type: 'megadungeon',
-    title: 'MegaDungeon',
-    description: 'La primera MegaDungeon del servidor. Un laberinto de 5 pisos con jefes únicos. Solo los más fuertes saldrán con vida.'
-  },
-  {
-    id: 'evento2',
-    day: 22, hour: 20, minute: 0,
-    type: 'evento',
-    title: 'Evento',
-    description: 'Se desvela el Altar Sagrado de Resurrección. Los equipos podrán traer de vuelta a un compañero caído (límite: 1 por equipo).'
-  },
-  {
-    id: 'cambios3',
-    day: 24, hour: 19, minute: 0,
+    id: 'dia10',
+    day: 17, hour: 19, minute: 0,
     type: 'cambios',
-    title: 'Parche de Cambios #3',
-    description: 'Tercer parche. Se activa el fuego amigo en zonas específicas. Las alianzas se ponen a prueba.'
+    title: 'Día 10',
+    description: 'Parche de cambios y ajustes.'
   },
   {
-    id: 'boss2',
-    day: 25, hour: 18, minute: 0,
-    type: 'dungeon',
-    title: 'Boss',
-    description: 'Regresa el EvokerBoss potenciado. Invocará tormentas y guerreros de piedra. Se requiere máxima cooperación.'
+    id: 'dia14',
+    day: 21, hour: 19, minute: 0,
+    type: 'cambios',
+    title: 'Día 14',
+    description: 'Parche de cambios y ajustes.'
   },
   {
-    id: 'dragonfight',
-    day: 27, hour: 19, minute: 0,
+    id: 'dia18',
+    day: 25, hour: 19, minute: 0,
+    type: 'cambios',
+    title: 'Día 18',
+    description: 'Parche de cambios y ajustes.'
+  },
+  {
+    id: 'dia21',
+    day: 28, hour: 19, minute: 0,
+    type: 'cambios',
+    title: 'Día 21',
+    description: 'Parche de cambios y ajustes.'
+  },
+  {
+    id: 'dia23',
+    day: 30, hour: 19, minute: 0,
+    type: 'cambios',
+    title: 'Día 23',
+    description: 'Parche de cambios (End open).'
+  },
+  {
+    id: 'dia23_dragon',
+    day: 30, hour: 20, minute: 0,
     type: 'dragonfight',
-    title: 'DragonFight',
-    description: 'La batalla definitiva contra el Dragón del Fin. El equipo que lo derrote se corona campeón de la temporada.'
+    title: 'Evento del Dragón',
+    description: 'La batalla definitiva contra el Dragón del Fin. (End open)'
   },
   {
-    id: 'fin',
-    day: 28, hour: 20, minute: 0,
+    id: 'dia25',
+    day: 32, hour: 19, minute: 0,
+    type: 'cambios',
+    title: 'Día 25',
+    description: 'Parche de cambios y ajustes.'
+  },
+  {
+    id: 'dia28',
+    day: 35, hour: 19, minute: 0,
     type: 'fin',
-    title: 'Fin del Servidor',
-    description: 'Cierre oficial de la temporada. Se revelan los campeones y comienza la ceremonia de premios.'
+    title: 'Día 28 (Fin)',
+    description: 'Último parche y fin de la temporada.'
   }
-  */
 ];
 
 // Offsets relativos a España CEST (UTC+2)
@@ -147,9 +138,8 @@ export class Calendar {
   // Aug 1 = Saturday → padding = 5
   protected readonly calendarDays = computed<CalendarDay[]>(() => {
     const today = new Date();
-    const todayDay = today.getMonth() === 7 && today.getFullYear() === 2026 ? today.getDate() : -1;
-    const daysInAug = 31;
     const startPadding = 5; // Aug 1 is Saturday
+    const totalDays = 35; // Hasta el 4 de septiembre
 
     const days: CalendarDay[] = [];
 
@@ -159,13 +149,31 @@ export class Calendar {
     }
 
     // Actual days
-    for (let d = 1; d <= daysInAug; d++) {
+    for (let d = 1; d <= totalDays; d++) {
       const evts = SERVER_EVENTS.filter(e => e.day === d);
+      
+      let isToday = false;
+      let isPast = false;
+      
+      if (today.getFullYear() === 2026) {
+        const month = d <= 31 ? 7 : 8; // 7=Agosto, 8=Septiembre
+        const date = d <= 31 ? d : d - 31;
+        
+        if (today.getMonth() === month) {
+          isToday = today.getDate() === date;
+          isPast = today.getDate() > date;
+        } else if (today.getMonth() > month) {
+          isPast = true;
+        }
+      } else if (today.getFullYear() > 2026) {
+        isPast = true;
+      }
+
       days.push({
         day: d,
         events: evts,
-        isToday: d === todayDay,
-        isPast: d < todayDay
+        isToday,
+        isPast
       });
     }
 
