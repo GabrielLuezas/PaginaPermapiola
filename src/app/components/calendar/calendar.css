@@ -95,6 +95,12 @@
   box-shadow: 0 0 8px rgba(8, 145, 178, 0.5);
 }
 
+.ev-boss {
+  background: #e11d48;
+  color: #fff;
+  box-shadow: 0 0 8px rgba(225, 29, 72, 0.5);
+}
+
 /* =====================
    CALENDAR GRID
    ===================== */

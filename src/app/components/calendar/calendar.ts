@@ -1,7 +1,7 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export type EventType = 'inicio' | 'fin' | 'cambios' | 'evento' | 'dragonfight' | 'megadungeon' | 'dungeon';
+export type EventType = 'inicio' | 'fin' | 'cambios' | 'evento' | 'dragonfight' | 'megadungeon' | 'dungeon' | 'boss';
 
 export interface CalendarEvent {
   id: string;
@@ -37,11 +37,32 @@ const SERVER_EVENTS: CalendarEvent[] = [
     description: 'Parche de cambios y ajustes.'
   },
   {
+    id: 'dungeon_aug11',
+    day: 11, hour: 19, minute: 0,
+    type: 'dungeon',
+    title: 'Dungeon',
+    description: 'Apertura de Dungeon.'
+  },
+  {
+    id: 'dungeon_aug13',
+    day: 13, hour: 19, minute: 0,
+    type: 'dungeon',
+    title: 'Dungeon',
+    description: 'Apertura de Dungeon.'
+  },
+  {
     id: 'dia7',
     day: 14, hour: 19, minute: 0,
     type: 'cambios',
     title: 'Día 7',
     description: 'Parche de cambios y ajustes.'
+  },
+  {
+    id: 'boss_aug15',
+    day: 15, hour: 19, minute: 0,
+    type: 'boss',
+    title: 'Boss',
+    description: 'Aparición de Boss.'
   },
   {
     id: 'dia10',
@@ -51,11 +72,25 @@ const SERVER_EVENTS: CalendarEvent[] = [
     description: 'Parche de cambios y ajustes.'
   },
   {
+    id: 'boss_aug19',
+    day: 19, hour: 19, minute: 0,
+    type: 'boss',
+    title: 'Boss',
+    description: 'Aparición de Boss.'
+  },
+  {
     id: 'dia14',
     day: 21, hour: 19, minute: 0,
     type: 'cambios',
     title: 'Día 14',
     description: 'Parche de cambios y ajustes.'
+  },
+  {
+    id: 'megadungeon_aug23',
+    day: 23, hour: 19, minute: 0,
+    type: 'megadungeon',
+    title: 'MegaDungeon',
+    description: 'Apertura de la MegaDungeon.'
   },
   {
     id: 'dia18',
@@ -130,7 +165,8 @@ export class Calendar {
     evento:      'Evento Especial',
     dragonfight: 'Dragon Fight',
     megadungeon: 'MegaDungeon',
-    dungeon:     'Dungeon / Boss',
+    dungeon:     'Dungeon',
+    boss:        'Boss',
   };
 
   // August 2026: starts on Saturday (day index 5 in Mon-first week)
@@ -215,6 +251,7 @@ export class Calendar {
       dragonfight: 'ev-dragon',
       megadungeon: 'ev-mega',
       dungeon:     'ev-dungeon',
+      boss:        'ev-boss',
     };
     return map[type] ?? '';
   }
