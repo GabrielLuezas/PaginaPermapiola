@@ -30,6 +30,13 @@ const SERVER_EVENTS: CalendarEvent[] = [
     description: 'Apertura oficial de Permapiola Survival Temporada 6. Todos los participantes entran con 1 sola vida. El permadeath comienza.'
   },
   {
+    id: 'evento_aug9',
+    day: 9, hour: 19, minute: 0,
+    type: 'evento',
+    title: 'Evento',
+    description: 'Evento especial.'
+  },
+  {
     id: 'dia3',
     day: 10, hour: 19, minute: 0,
     type: 'cambios',
