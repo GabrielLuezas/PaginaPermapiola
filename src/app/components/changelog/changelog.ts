@@ -1,18 +1,118 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, computed, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
-interface ChangelogChange {
-  type: 'added' | 'removed' | 'fixed' | 'adjusted';
+/* ─── Data types ───────────────────────────────────────────── */
+
+export interface Mechanic {
+  tag: 'NUEVO' | 'AJUSTE' | 'FIX' | 'QUITADO';
   text: string;
 }
 
-interface ChangelogVersion {
-  version: string;
-  codename: string;
-  date: string;
-  isLatest: boolean;
-  changes: ChangelogChange[];
+export interface DungeonEntry {
+  name: string;
+  img: string;
+  description: string;
 }
+
+export interface MobEntry {
+  name: string;
+  img: string;
+  hearts?: number;
+  equipment?: string[];
+  description?: string;
+  drop?: string;
+}
+
+export interface ItemEntry {
+  name: string;
+  img: string;
+  description: string;
+  droppedBy?: string;
+  craftIngredients?: string;
+}
+
+export interface EffectEntry {
+  name: string;
+  img: string;
+  description: string;
+}
+
+export interface RecipeSlot {
+  row: number;
+  col: number;
+  name: string;
+  count?: number;
+  img?: string;
+}
+
+export interface RecipeEntry {
+  title: string;
+  type?: 'crafting' | 'furnace' | 'gui-showcase';
+  gridCols?: number;
+  gridRows?: number;
+  slots?: RecipeSlot[];
+  input?: RecipeSlot;
+  fuel?: RecipeSlot;
+  result?: RecipeSlot;
+}
+
+export interface AmuletSystemData {
+  title: string;
+  command: string;
+  description: string;
+  gridCols?: number;
+  gridRows?: number;
+  slots?: RecipeSlot[];
+  availableAmulets?: ItemEntry[];
+}
+
+export interface NpcReward {
+  rank: string;
+  amount: string;
+  icon?: string;
+  badgeClass?: string;
+}
+
+export interface NpcShopItem {
+  name: string;
+  img: string;
+  description: string;
+  category?: string;
+  price?: string;
+}
+
+export interface NpcEntry {
+  name: string;
+  img?: string;
+  description: string;
+  cooldown?: string;
+  rewards?: NpcReward[];
+  guiTitle?: string;
+  guiGridRows?: number;
+  guiGridCols?: number;
+  guiSlots?: RecipeSlot[];
+  shopItems?: NpcShopItem[];
+}
+
+export interface Patch {
+  number: number;
+  day: number;
+  revealDate?: string;
+  locked: boolean;
+  mechanics: Mechanic[];
+  dungeons?: DungeonEntry[];
+  effects?: EffectEntry[];
+  mobs: MobEntry[];
+  crafts?: ItemEntry[];
+  loot?: ItemEntry[];
+  recipes?: RecipeEntry[];
+  amuletSystem?: AmuletSystemData;
+  npcs?: NpcEntry[];
+  items?: ItemEntry[];
+}
+
+/* ─── Component ─────────────────────────────────────────────── */
 
 @Component({
   selector: 'app-changelog',
@@ -20,46 +120,104 @@ interface ChangelogVersion {
   templateUrl: './changelog.html',
   styleUrl: './changelog.css'
 })
-export class Changelog {
-  protected readonly changelogs = signal<ChangelogVersion[]>([
-    {
-      version: 'v1.2.0',
-      codename: 'La Amenaza del Evoker',
-      date: '12 de Julio, 2026',
-      isLatest: true,
-      changes: [
-        { type: 'added', text: 'Nuevo Boss Customizado: EvokerBoss. Aparece en arenas especiales e invoca súbditos mortales.' },
-        { type: 'added', text: 'Sistema de Habilidades del Invocador: Lanza hachas de piedra teledirigidas (AxeThrow) y canaliza un rayo giratorio letal (SpinningBeam).' },
-        { type: 'added', text: 'Nueva Interfaz de Alianzas: PartyGUI. Crea escuadras, activa o desactiva fuego amigo y comparte coordenadas.' },
-        { type: 'added', text: 'Mecánica de Almacenamiento de Muertes: DeadPlayerItemStorage. Los items del jugador que muere de forma permanente se guardan en un cofre seguro reclamable únicamente por su asesino o equipo.' },
-        { type: 'fixed', text: 'Bug solucionado con la recolección de tótems en cuevas de bedrock.' },
-        { type: 'adjusted', text: 'Incrementado el daño por congelamiento en biomas nevados.' }
-      ]
-    },
-    {
-      version: 'v1.1.0',
-      codename: 'Almas y Espectadores',
-      date: '05 de Julio, 2026',
-      isLatest: false,
-      changes: [
-        { type: 'added', text: 'Habilitado el modo Espectador Permanente en caso de perder la última vida.' },
-        { type: 'added', text: 'Añadida la interfaz de selección de arenas para combate contra jefes (TestArenaSelectGUI).' },
-        { type: 'added', text: 'Integración de chat de proximidad por voz (opcional).' },
-        { type: 'fixed', text: 'Corregido error de duplicación de inventario en portales del Nether.' },
-        { type: 'adjusted', text: 'Reducido el índice de generación de manzanas doradas en cofres de bastiones.' }
-      ]
-    },
-    {
-      version: 'v1.0.0',
-      codename: 'Génesis de la Supervivencia',
-      date: '28 de Junio, 2026',
-      isLatest: false,
-      changes: [
-        { type: 'added', text: 'Lanzamiento de la base del servidor Permapiola.' },
-        { type: 'added', text: 'Sistema de corazones y vida en pantalla con visualización en tiempo real.' },
-        { type: 'added', text: 'Protección de Spawn temporal (primeros 5 minutos).' },
-        { type: 'added', text: 'Dificultad Hardcore por defecto.' }
-      ]
+export class Changelog implements OnInit {
+  private authService = inject(AuthService);
+
+  protected readonly selectedPatch = signal<number>(1);
+  protected readonly patches = signal<Patch[]>([]);
+  protected readonly userRank = signal<string>('normal');
+  protected readonly selectedZoomImage = signal<string | null>(null);
+
+  protected readonly currentPatch = computed(() => {
+    const list = this.patches();
+    if (list.length === 0) {
+      return {
+        number: 1,
+        day: 3,
+        locked: true,
+        mechanics: [],
+        mobs: [],
+        items: []
+      };
     }
-  ]);
+    return list.find(p => p.number === this.selectedPatch()) ?? list[0];
+  });
+
+  ngOnInit() {
+    this.loadPatches();
+  }
+
+  protected loadPatches() {
+    const token = this.authService.getToken();
+    const headers: Record<string, string> = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    fetch('/api/changelogs', { headers })
+      .then(res => {
+        if (!res.ok) throw new Error('Error al cargar parches');
+        return res.json();
+      })
+      .then(data => {
+        this.patches.set(data.patches);
+        this.userRank.set(data.userRank);
+      })
+      .catch(err => {
+        console.error('Error loading changelogs:', err);
+      });
+  }
+
+  protected selectPatch(n: number) {
+    if (!this.patchLocked(n)) this.selectedPatch.set(n);
+  }
+
+  protected openZoom(img: string) {
+    this.selectedZoomImage.set(img);
+  }
+
+  protected closeZoom() {
+    this.selectedZoomImage.set(null);
+  }
+
+  protected patchLocked(n: number): boolean {
+    const patch = this.patches().find(p => p.number === n);
+    return patch ? patch.locked : true;
+  }
+
+  protected tagClass(tag: string): string {
+    const map: Record<string, string> = {
+      'NUEVO': 'tag-new',
+      'NERFEO/BUFEO': 'tag-adj',
+      'AJUSTE': 'tag-adj',
+      'FIX': 'tag-fix',
+      'REMOVIDO': 'tag-rm',
+      'QUITADO': 'tag-rm'
+    };
+    return map[tag] ?? 'tag-adj';
+  }
+
+  protected heartArray(n: number): number[] {
+    return Array(Math.min(n, 10)).fill(0);
+  }
+
+  protected rowArray(n: number): number[] {
+    return Array.from({ length: n }, (_, i) => i);
+  }
+
+  protected colArray(n: number): number[] {
+    return Array.from({ length: n }, (_, i) => i);
+  }
+
+  protected getSlot(recipe: RecipeEntry, row: number, col: number): RecipeSlot | undefined {
+    return recipe.slots?.find(s => s.row === row && s.col === col);
+  }
+
+  protected getAmuletSlot(system: AmuletSystemData, row: number, col: number): RecipeSlot | undefined {
+    return system.slots?.find(s => s.row === row && s.col === col);
+  }
+
+  protected getNpcSlot(npc: NpcEntry, row: number, col: number): RecipeSlot | undefined {
+    return npc.guiSlots?.find(s => s.row === row && s.col === col);
+  }
 }

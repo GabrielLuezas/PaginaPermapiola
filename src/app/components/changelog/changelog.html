@@ -1,15 +1,445 @@
 <div class="changelog-page-bg">
   <div class="container changelog-container">
+
     <header class="page-header">
       <h1 class="page-title gradient-text-fire glow-text-fire">ACTUALIZACIONES Y PARCHES</h1>
+      <p class="page-subtitle">Cambios oficiales de la Temporada 6 · Permapiola 2</p>
     </header>
 
-    <div class="not-available-wrapper">
-      <div class="glass-card not-available-card">
-        <span class="not-available-icon flicker">🛠️</span>
-        <h3>Aún no está esta funcionalidad</h3>
-        <p>El registro de cambios estará disponible una vez que se lance la primera versión del servidor.</p>
+    <!-- Day selector -->
+    <div class="patch-selector">
+      @for (p of patches(); track p.number) {
+        <button
+          class="patch-btn"
+          [class.active]="selectedPatch() === p.number"
+          [class.locked]="patchLocked(p.number)"
+          (click)="selectPatch(p.number)"
+        >
+          @if (patchLocked(p.number)) { <span class="patch-lock">🔒</span> }
+          DÍA {{ p.day }}
+        </button>
+      }
+    </div>
+
+    <!-- Difficulty header -->
+    <div class="difficulty-header">
+      <div class="difficulty-line"></div>
+      <div class="difficulty-title">
+        <span class="difficulty-label">CAMBIOS DE DIFICULTAD</span>
+        <span class="difficulty-day">DÍA {{ currentPatch().day }}</span>
+      </div>
+      <div class="difficulty-line"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 1 — MECÁNICAS
+    ════════════════════════════════════════════ -->
+    <section class="cl-section glass-card">
+      <div class="section-header">
+        <h2 class="section-title">MECÁNICAS</h2>
+      </div>
+      <ul class="mechanics-list">
+        @for (m of currentPatch().mechanics; track m.text) {
+          <li class="mechanic-row">
+            <span class="mechanic-tag" [class]="tagClass(m.tag)">{{ m.tag }}</span>
+            <span class="mechanic-text">{{ m.text }}</span>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — NPCS DEL PUEBLO
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().npcs && currentPatch().npcs!.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title">NPCS DEL PUEBLO</h2>
+        </div>
+        <div class="npcs-list">
+          @for (npc of currentPatch().npcs; track npc.name) {
+            <div class="npc-card">
+              @if (npc.img) {
+                <div class="npc-img-wrap" (click)="openZoom(npc.img)">
+                  <img [src]="npc.img" [alt]="npc.name" class="npc-img" />
+                  <div class="zoom-badge">🔍 Clic para ampliar</div>
+                </div>
+              }
+              <div class="npc-content">
+                <div class="npc-header-row">
+                  <h3 class="npc-name">{{ npc.name }}</h3>
+                  @if (npc.cooldown) {
+                    <span class="npc-cooldown-badge">⏱ {{ npc.cooldown }}</span>
+                  }
+                </div>
+                <p class="entry-desc">{{ npc.description }}</p>
+
+                @if (npc.rewards && npc.rewards.length > 0) {
+                  <div class="npc-rewards-section">
+                    <h4 class="npc-rewards-subtitle">RECOMPENSAS DIARIAS POR RANGO:</h4>
+                    <div class="npc-rewards-grid">
+                      @for (rew of npc.rewards; track rew.rank) {
+                        <div class="npc-reward-card" [class]="'reward-tier-' + (rew.badgeClass || 'user')">
+                          <div class="reward-rank-header">
+                            <span class="reward-rank-name">{{ rew.rank }}</span>
+                          </div>
+                          <div class="reward-item-row">
+                            <img [src]="rew.icon || '/images/items/medallion.png'" alt="Medallion" class="reward-item-icon" />
+                            <span class="reward-amount-text">{{ rew.amount }}</span>
+                          </div>
+                        </div>
+                      }
+                    </div>
+                  </div>
+                }
+
+                @if (npc.guiSlots && npc.guiSlots.length > 0) {
+                  <div class="npc-gui-section">
+                    <h4 class="npc-rewards-subtitle">MENÚ INTERACTIVO {{ npc.guiTitle }}:</h4>
+                    <div class="mc-inventory-container">
+                      <div class="mc-inventory-header">
+                        <span>{{ npc.guiTitle || '[MEDALLON SHOP]' }}</span>
+                      </div>
+                      <div class="mc-grid grid-9x3">
+                        @for (r of rowArray(npc.guiGridRows || 3); track r) {
+                          <div class="mc-grid-row">
+                            @for (c of colArray(npc.guiGridCols || 9); track c) {
+                              @let slot = getNpcSlot(npc, r, c);
+                              <div class="mc-slot" [class.has-item]="slot !== undefined">
+                                @if (slot) {
+                                  @if (slot.img) {
+                                    <img [src]="slot.img" [alt]="slot.name" class="mc-slot-img" />
+                                  }
+                                  <div class="mc-tooltip">{{ slot.name }}</div>
+                                }
+                              </div>
+                            }
+                          </div>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — SISTEMA DE AMULETOS
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().amuletSystem) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title">SISTEMA DE AMULETOS</h2>
+        </div>
+        <div class="amulet-system-card">
+          <p class="entry-desc amulet-system-desc">{{ currentPatch().amuletSystem!.description }}</p>
+          <div class="mc-inventory-container">
+            <div class="mc-inventory-header">
+              <span>⚙ Amuletos ⚙</span>
+            </div>
+            <div class="mc-grid grid-9x3">
+              @for (r of rowArray(currentPatch().amuletSystem!.gridRows || 3); track r) {
+                <div class="mc-grid-row">
+                  @for (c of colArray(currentPatch().amuletSystem!.gridCols || 9); track c) {
+                    @let slot = getAmuletSlot(currentPatch().amuletSystem!, r, c);
+                    <div class="mc-slot"
+                         [class.has-item]="slot !== undefined"
+                         [class.amulet-active-slot]="r === 1 && (c === 1 || c === 3 || c === 5)"
+                         [class.amulet-locked-slot]="r === 1 && c === 7">
+                      @if (slot) {
+                        @if (slot.img) {
+                          <img [src]="slot.img" [alt]="slot.name" class="mc-slot-img" />
+                        }
+                        <div class="mc-tooltip">{{ slot.name }}</div>
+                      }
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+          @if (currentPatch().amuletSystem!.availableAmulets && currentPatch().amuletSystem!.availableAmulets!.length > 0) {
+            <div class="amulets-available-section">
+              <h3 class="amulets-available-title">- Amuletos disponibles</h3>
+              <div class="amulets-available-list">
+                @for (amulet of currentPatch().amuletSystem!.availableAmulets; track amulet.name) {
+                  <div class="entry-card item-entry-card amulet-item-card">
+                    <div class="entry-img-wrap item-slot-wrap">
+                      <img [src]="amulet.img" [alt]="amulet.name" class="entry-img" />
+                    </div>
+                    <div class="entry-content">
+                      <h4 class="entry-name">{{ amulet.name }}</h4>
+                      <p class="entry-desc">{{ amulet.description }}</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 2 — DUNGEONS NUEVAS
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().dungeons && currentPatch().dungeons!.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title">DUNGEONS NUEVAS</h2>
+        </div>
+        <div class="dungeons-grid">
+          @for (dungeon of currentPatch().dungeons; track dungeon.name) {
+            <div class="dungeon-card dungeon-card-vertical">
+              <div class="dungeon-img-wrap" (click)="openZoom(dungeon.img)">
+                <img [src]="dungeon.img" [alt]="dungeon.name" class="dungeon-img" />
+                <div class="zoom-badge">🔍 Clic para ampliar</div>
+              </div>
+              <div class="dungeon-content">
+                <h3 class="dungeon-name">{{ dungeon.name }}</h3>
+                <p class="dungeon-desc">{{ dungeon.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 3 — EFECTOS NUEVOS
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().effects && currentPatch().effects!.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title">EFECTOS NUEVOS</h2>
+        </div>
+        <div class="entries-list">
+          @for (effect of currentPatch().effects; track effect.name) {
+            <div class="entry-card effect-entry-card">
+              <div class="entry-img-wrap item-slot-wrap">
+                <img [src]="effect.img" [alt]="effect.name" class="entry-img" />
+              </div>
+              <div class="entry-content">
+                <h3 class="entry-name">{{ effect.name }}</h3>
+                <p class="entry-desc">{{ effect.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 4 — MOBS NUEVOS
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().mobs && currentPatch().mobs.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title">MOBS NUEVOS</h2>
+        </div>
+        <div class="entries-list">
+          @for (mob of currentPatch().mobs; track mob.name) {
+            <div class="entry-card mob-entry-card">
+              <div class="entry-img-wrap">
+                <img [src]="mob.img" [alt]="mob.name" class="entry-img" />
+              </div>
+              <div class="entry-content">
+                <div class="entry-header-row">
+                  <h3 class="entry-name">{{ mob.name }}</h3>
+                  @if (mob.hearts && mob.hearts > 0) {
+                    <span class="mob-hp-badge">{{ mob.hearts }} HP</span>
+                  }
+                </div>
+                @if (mob.description) {
+                  <p class="entry-desc">{{ mob.description }}</p>
+                }
+                @if (mob.equipment && mob.equipment.length > 0) {
+                  <ul class="mob-stats">
+                    @for (eq of mob.equipment; track eq) {
+                      <li>{{ eq }}</li>
+                    }
+                  </ul>
+                }
+                @if (mob.drop) {
+                  <div class="mob-drop">
+                    <span class="drop-text">{{ mob.drop }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 4 — ITEMS NUEVOS
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().crafts && currentPatch().crafts!.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title">ITEMS NUEVOS</h2>
+        </div>
+        <div class="entries-list">
+          @for (item of currentPatch().crafts; track item.name) {
+            <div class="entry-card item-entry-card">
+              <div class="entry-img-wrap item-slot-wrap">
+                <img [src]="item.img" [alt]="item.name" class="entry-img" />
+              </div>
+              <div class="entry-content">
+                <h3 class="entry-name">{{ item.name }}</h3>
+                <p class="entry-desc">{{ item.description }}</p>
+                @if (item.craftIngredients) {
+                  <div class="item-craft-badge">
+                    Receta: {{ item.craftIngredients }}
+                  </div>
+                }
+                @if (item.droppedBy) {
+                  <div class="item-obtained-badge">
+                    Obtención: {{ item.droppedBy }}
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 5 — LOOT NUEVO
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().loot && currentPatch().loot!.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title">LOOT NUEVO</h2>
+        </div>
+        <div class="entries-list">
+          @for (item of currentPatch().loot; track item.name) {
+            <div class="entry-card item-entry-card">
+              <div class="entry-img-wrap item-slot-wrap">
+                <img [src]="item.img" [alt]="item.name" class="entry-img" />
+              </div>
+              <div class="entry-content">
+                <h3 class="entry-name">{{ item.name }}</h3>
+                <p class="entry-desc">{{ item.description }}</p>
+                @if (item.droppedBy) {
+                  <div class="item-obtained-badge">
+                    Obtención: {{ item.droppedBy }}
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 6 — RECETAS DE CRAFTEO (Minecraft GUI Grids)
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().recipes && currentPatch().recipes!.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title">RECETAS DE CRAFTEO</h2>
+        </div>
+        <div class="recipes-list">
+          @for (recipe of currentPatch().recipes; track recipe.title) {
+            <div class="recipe-card">
+              <h3 class="recipe-title">{{ recipe.title }}</h3>
+              <div class="mc-gui-wrapper">
+                @if (recipe.type === 'furnace') {
+                  <!-- Furnace Smelting GUI -->
+                  <div class="mc-furnace-left">
+                    <div class="mc-slot has-item">
+                      @if (recipe.input) {
+                        <img [src]="recipe.input.img" [alt]="recipe.input.name" class="mc-slot-img" />
+                        @if (recipe.input.count && recipe.input.count > 1) {
+                          <span class="mc-slot-count">{{ recipe.input.count }}</span>
+                        }
+                        <div class="mc-tooltip">{{ recipe.input.name }}</div>
+                      }
+                    </div>
+                    <div class="mc-furnace-fire">🔥</div>
+                    <div class="mc-slot has-item">
+                      @if (recipe.fuel) {
+                        <img [src]="recipe.fuel.img" [alt]="recipe.fuel.name" class="mc-slot-img" />
+                        @if (recipe.fuel.count && recipe.fuel.count > 1) {
+                          <span class="mc-slot-count">{{ recipe.fuel.count }}</span>
+                        }
+                        <div class="mc-tooltip">{{ recipe.fuel.name }}</div>
+                      }
+                    </div>
+                  </div>
+
+                  <!-- Arrow & Result Slot -->
+                  @if (recipe.result) {
+                    <div class="mc-result-wrap">
+                      <div class="mc-arrow">➜</div>
+                      <div class="mc-slot mc-result-slot has-item">
+                        <img [src]="recipe.result.img" [alt]="recipe.result.name" class="mc-slot-img" />
+                        @if (recipe.result.count && recipe.result.count > 1) {
+                          <span class="mc-slot-count">{{ recipe.result.count }}</span>
+                        }
+                        <div class="mc-tooltip">{{ recipe.result.name }}</div>
+                      </div>
+                    </div>
+                  }
+                } @else {
+                  <!-- Standard Crafting Grid (3x3) -->
+                  <div class="mc-grid grid-3x3">
+                    @for (r of rowArray(recipe.gridRows || 3); track r) {
+                      <div class="mc-grid-row">
+                        @for (c of colArray(recipe.gridCols || 3); track c) {
+                          @let slot = getSlot(recipe, r, c);
+                          <div class="mc-slot" [class.has-item]="slot !== undefined">
+                            @if (slot) {
+                              <img [src]="slot.img" [alt]="slot.name" class="mc-slot-img" />
+                              @if (slot.count && slot.count > 1) {
+                                <span class="mc-slot-count">{{ slot.count }}</span>
+                              }
+                              <div class="mc-tooltip">{{ slot.name }}</div>
+                            }
+                          </div>
+                        }
+                      </div>
+                    }
+                  </div>
+
+                  <!-- Arrow & Result Slot -->
+                  @if (recipe.result) {
+                    <div class="mc-result-wrap">
+                      <div class="mc-arrow">➜</div>
+                      <div class="mc-slot mc-result-slot has-item">
+                        <img [src]="recipe.result.img" [alt]="recipe.result.name" class="mc-slot-img" />
+                        @if (recipe.result.count && recipe.result.count > 1) {
+                          <span class="mc-slot-count">{{ recipe.result.count }}</span>
+                        }
+                        <div class="mc-tooltip">{{ recipe.result.name }}</div>
+                      </div>
+                    </div>
+                  }
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+  </div>
+
+  <!-- Modal / Lightbox para Zoom de Imágenes -->
+  @if (selectedZoomImage()) {
+    <div class="zoom-modal-backdrop" (click)="closeZoom()">
+      <div class="zoom-modal-content" (click)="$event.stopPropagation()">
+        <button class="zoom-close-btn" (click)="closeZoom()">✕</button>
+        <img [src]="selectedZoomImage()!" alt="Vista ampliada" class="zoom-modal-img" />
       </div>
     </div>
-  </div>
+  }
 </div>

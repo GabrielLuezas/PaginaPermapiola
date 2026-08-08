@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0a10"/>
+      <stop offset="50%" stop-color="#161329"/>
+      <stop offset="100%" stop-color="#2a1636"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffb703"/>
+      <stop offset="100%" stop-color="#fb8500"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect x="20" y="20" width="760" height="410" rx="16" fill="none" stroke="rgba(255,183,3,0.3)" stroke-width="2" stroke-dasharray="8 6"/>
+  <!-- Castle silhouette -->
+  <path d="M320 270 H480 V170 H450 V195 H430 V170 H370 V195 H350 V170 H320 Z" fill="#21153b" stroke="url(#gold)" stroke-width="3"/>
+  <path d="M380 270 V225 H420 V270 Z" fill="url(#gold)"/>
+  <!-- Glowing particles -->
+  <circle cx="280" cy="150" r="5" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="530" cy="170" r="7" fill="#a78bfa" opacity="0.8"/>
+  <circle cx="240" cy="230" r="6" fill="#f43f5e" opacity="0.7"/>
+  <circle cx="560" cy="220" r="5" fill="#f43f5e" opacity="0.6"/>
+  <text x="400" y="325" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="url(#gold)" text-anchor="middle" letter-spacing="4">CASTILLO LOS MILENARIOS</text>
+  <text x="400" y="360" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="middle" letter-spacing="2">[ DUNGEON IMAGE PLACEHOLDER ]</text>
+</svg>
