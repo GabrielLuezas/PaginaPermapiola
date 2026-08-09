@@ -464,7 +464,7 @@ const PATCHES_DATA = [
   {
     number: 2,
     day: 3,
-    revealDate: DAY3_REVEAL,
+    revealDate: new Date('2026-08-11T17:00:00Z'),
     mechanics: [
       { tag: 'REMOVIDO', text: 'El casco de tortuga ya no es crafteable.' },
       { tag: 'NERFEO/BUFEO', text: 'Minar un bloque de Creaking Heart te dará Darkness por 1 minuto.' },
@@ -672,7 +672,7 @@ const PATCHES_DATA = [
   {
     number: 3,
     day: 7,
-    revealDate: new Date('2026-08-11T17:00:00Z'),
+    revealDate: new Date('2026-08-14T19:00:00Z'),
     mechanics: [
       { tag: 'NUEVO', text: '3 zonas de PVP forzado en el mapa. Los jugadores dentro tienen su posición visible en el mapa de todos.' },
       { tag: 'NERFEO/BUFEO', text: 'Fuego amigo activo en zonas neutrales. Las PartyGUI siguen protegiendo dentro del grupo.' },
