@@ -31,7 +31,7 @@ const SERVER_EVENTS: CalendarEvent[] = [
   },
   {
     id: 'dia3',
-    day: 10, hour: 11, minute: 0,
+    day: 10, hour: 23, minute: 0,
     type: 'cambios',
     title: 'Día 3',
     description: 'Parche de cambios y ajustes.'
