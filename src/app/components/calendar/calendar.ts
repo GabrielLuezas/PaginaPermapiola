@@ -31,10 +31,17 @@ const SERVER_EVENTS: CalendarEvent[] = [
   },
   {
     id: 'dia3',
-    day: 10, hour: 19, minute: 0,
+    day: 10, hour: 11, minute: 0,
     type: 'cambios',
     title: 'Día 3',
     description: 'Parche de cambios y ajustes.'
+  },
+  {
+    id: 'nether_aug10',
+    day: 10, hour: 19, minute: 0,
+    type: 'evento',
+    title: 'Apertura del Nether',
+    description: 'El Nether abre sus puertas. Los jugadores podrán acceder al Nether a partir de este momento.'
   },
   {
     id: 'dungeon_aug11',
