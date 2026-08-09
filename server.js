@@ -343,15 +343,15 @@ const PATCHES_DATA = [
         gridCols: 3,
         gridRows: 3,
         slots: [
-          { row: 0, col: 0, name: 'Mena de esmeralda', img: '/images/items/emerald_ore.png' },
-          { row: 0, col: 1, name: 'Bloque de esmeralda', img: '/images/items/emerald_block.png' },
-          { row: 0, col: 2, name: 'Mena de esmeralda', img: '/images/items/emerald_ore.png' },
-          { row: 1, col: 0, name: 'Bloque de esmeralda', img: '/images/items/emerald_block.png' },
-          { row: 1, col: 1, name: 'Mena de esmeralda', img: '/images/items/emerald_ore.png' },
-          { row: 1, col: 2, name: 'Bloque de esmeralda', img: '/images/items/emerald_block.png' },
-          { row: 2, col: 0, name: 'Mena de esmeralda', img: '/images/items/emerald_ore.png' },
-          { row: 2, col: 1, name: 'Bloque de esmeralda', img: '/images/items/emerald_block.png' },
-          { row: 2, col: 2, name: 'Mena de esmeralda', img: '/images/items/emerald_ore.png' }
+          { row: 0, col: 0, name: 'Bloque de esmeralda', img: '/images/items/emerald_block.png' },
+          { row: 0, col: 1, name: 'Mena de esmeralda', img: '/images/items/emerald_ore.png' },
+          { row: 0, col: 2, name: 'Bloque de esmeralda', img: '/images/items/emerald_block.png' },
+          { row: 1, col: 0, name: 'Mena de esmeralda', img: '/images/items/emerald_ore.png' },
+          { row: 1, col: 1, name: 'Bloque de esmeralda', img: '/images/items/emerald_block.png' },
+          { row: 1, col: 2, name: 'Mena de esmeralda', img: '/images/items/emerald_ore.png' },
+          { row: 2, col: 0, name: 'Bloque de esmeralda', img: '/images/items/emerald_block.png' },
+          { row: 2, col: 1, name: 'Mena de esmeralda', img: '/images/items/emerald_ore.png' },
+          { row: 2, col: 2, name: 'Bloque de esmeralda', img: '/images/items/emerald_block.png' }
         ],
         result: { row: 1, col: 2, name: 'Esmeralda Reforzada', img: '/images/items/emerald_block.png' }
       },
