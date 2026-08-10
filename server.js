@@ -497,8 +497,13 @@ const PATCHES_DATA = [
     effects: [
       {
         name: 'Chained Memory',
-        img: '/images/placeholders/effect_placeholder.svg',
+        img: '/images/efectos/chained.png',
         description: 'Este efecto te impide pensar y recordar. Por lo tanto el jugador al tener este efecto, lo hace muy lento. Pierde significativamente su visión y habilidades básicas. Como poder cambiar de mano un objeto. O usar el escudo.'
+      },
+      {
+        name: 'Immunity',
+        img: '/images/efectos/invulnerability.png',
+        description: 'Otorga inmunidad temporal frente a efectos negativos y estados alterados.'
       }
     ],
     dungeons: [
