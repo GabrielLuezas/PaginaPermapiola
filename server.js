@@ -13,9 +13,32 @@ app.use(express.json());
 // ──────────────────────────────────────────────────────────────
 // Database Connection
 // ──────────────────────────────────────────────────────────────
-const connectionString = 'postgresql://neondb_owner:npg_WkutSaeA1i7K@ep-wispy-water-avdsdy02-pooler.c-11.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require';
+const connectionString = process.env.DATABASE_URL || 'postgresql://neondb_owner:npg_WkutSaeA1i7K@ep-wispy-water-avdsdy02-pooler.c-11.us-east-1.aws.neon.tech/neondb?sslmode=require';
+
 const pool = new Pool({
   connectionString,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle database client:', err);
+});
+
+// Auto-initialize table on startup
+pool.query(`
+  CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    rank VARCHAR(20) DEFAULT 'normal' NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  );
+`).then(() => {
+  console.log('Database "users" table verified/created successfully.');
+}).catch((err) => {
+  console.error('Error verifying database "users" table:', err.message);
 });
 
 const JWT_SECRET = 'permapiola-secret-key-12345';
