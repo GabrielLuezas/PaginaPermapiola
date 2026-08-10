@@ -501,6 +501,16 @@ const PATCHES_DATA = [
         description: 'Este pequeño prototipo al golpearte se sumergirá en tu cerebro y borrará toda tu memoria al instante. Dejándote tonto y en shock durante unos segundos pero si quieres cortar la duración, tendrás que usar un antídoto. (15s del efecto Chained Memory).'
       },
       {
+        name: 'Millenary Archer',
+        img: '/images/mobs/millenary_archer.png',
+        description: 'Arquero de la antigua civilización milenaria. Sus flechas están imbuidas con la aleación milenaria, atravesando armaduras con facilidad y dejando a sus víctimas marcadas por la oscuridad.'
+      },
+      {
+        name: 'Millenary Golem',
+        img: '/images/mobs/millenary_golem.png',
+        description: 'Colosal constructo forjado con lingotes milenarios. Es el guardián más poderoso de Los Milenarios. Su fuerza es devastadora y su resistencia casi indestructible, capaz de arrasar con cualquier intruso que ose profanar el castillo.'
+      },
+      {
         name: 'Kamikaze Machine',
         img: '/images/mobs/kamikaze_machine.png',
         description: 'Esta antigua máquina kamikaze lleva en sus manos una antorcha de Redstone. La cual utilizará en el momento que se acerque a ti para prender la mecha de su barril con dinamita.'
