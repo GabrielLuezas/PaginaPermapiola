@@ -625,6 +625,11 @@ const PATCHES_DATA = [
         description: 'Reliquias y joyas de rubí protegidas por la civilización milenaria.'
       },
       {
+        name: 'Jade Jewels',
+        img: '/images/items/jade_jewels.png',
+        description: 'Joyas de jade antiguas halladas en las profundidades de Los Milenarios.'
+      },
+      {
         name: 'Millenary Jewels',
         img: '/images/items/m_jewels.png',
         description: 'Antiguas joyas y tesoros sagrados recuperados de Los Milenarios.'
