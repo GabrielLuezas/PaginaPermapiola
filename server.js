@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const { Pool } = require('pg');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -960,13 +961,30 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
 // ──────────────────────────────────────────────────────────────
 // Static files (Angular build output)
 // ──────────────────────────────────────────────────────────────
-const DIST = path.join(__dirname, 'dist/permapiola-web/browser');
+let distPath = path.join(__dirname, 'dist/permapiola-web/browser');
+if (!fs.existsSync(path.join(distPath, 'index.html'))) {
+  if (fs.existsSync(path.join(__dirname, 'dist/permapiola-web', 'index.html'))) {
+    distPath = path.join(__dirname, 'dist/permapiola-web');
+  } else if (fs.existsSync(path.join(__dirname, 'dist/browser', 'index.html'))) {
+    distPath = path.join(__dirname, 'dist/browser');
+  } else if (fs.existsSync(path.join(__dirname, 'dist', 'index.html'))) {
+    distPath = path.join(__dirname, 'dist');
+  }
+}
+
+console.log(`Serving static files from: ${distPath}`);
+
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(DIST));
+app.use(express.static(distPath));
 
 // SPA fallback — Angular routing
 app.get('*', (_req, res) => {
-  res.sendFile(path.join(DIST, 'index.html'));
+  const indexPath = path.join(distPath, 'index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(404).send('Not Found: Application build index.html missing');
+  }
 });
 
 app.listen(PORT, () => {
