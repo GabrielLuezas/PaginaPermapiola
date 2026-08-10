@@ -487,7 +487,7 @@ const PATCHES_DATA = [
     mobs: [
       {
         name: 'Millenary Guard',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/millenary_guard.png',
         description: 'Este cadáver de un antiguo guarda de los milenarios es muy fuerte. Lleva una espada con él y defenderá el milenario con su vida.'
       },
       {
@@ -497,7 +497,7 @@ const PATCHES_DATA = [
       },
       {
         name: 'Millenary Crawler',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/millenary_crawler.png',
         description: 'Este pequeño prototipo al golpearte se sumergirá en tu cerebro y borrará toda tu memoria al instante. Dejándote tonto y en shock durante unos segundos pero si quieres cortar la duración, tendrás que usar un antídoto. (15s del efecto Chained Memory).'
       },
       {
@@ -529,6 +529,46 @@ const PATCHES_DATA = [
         name: 'Wasted Walker',
         img: '/images/mobs/wasted_walker.png',
         description: 'Es el zombie común que todos vemos, tiene doble de fuerza y 3 corazones más.'
+      },
+      {
+        name: 'Cyclone Skeleton',
+        img: '/images/mobs/cyclone_archer.png',
+        description: 'Sus flechas al impactar generan un rayo que aplica Weakness, Mining Fatigue y Slowness.'
+      },
+      {
+        name: 'Emperor Skeleton',
+        img: '/images/mobs/emperor_archer.png',
+        description: 'Sus ataques quitan una gran cantidad de vida.'
+      },
+      {
+        name: 'Magnetic Skeleton',
+        img: '/images/mobs/magnetic_archer.png',
+        description: 'Te atrae hacia él con cada disparo.'
+      },
+      {
+        name: 'Nightmare Skeleton',
+        img: '/images/mobs/nightmare_archer.png',
+        description: 'Sus flechas te queman infinitamente, aplican Blindness y remueven todos tus efectos activos.'
+      },
+      {
+        name: 'Arcane Creeper',
+        img: '/images/mobs/arcane_creeper.png',
+        description: 'Su explosión inflige daño masivo, siendo el creeper con mayor poder explosivo del servidor.'
+      },
+      {
+        name: 'Solar Creeper',
+        img: '/images/mobs/solar_creeper.png',
+        description: 'Al explotar invoca 4 Mini Creepers, prende fuego a los jugadores y aplica Wither, causando daño continuo incluso después de la explosión.'
+      },
+      {
+        name: 'Chaos Creeper',
+        img: '/images/mobs/chaos_creeper.png',
+        description: 'Atrae a los jugadores hacia él antes de explotar, provoca una gran destrucción del terreno, aplica Lentitud y Debilidad, y al morir genera una explosión adicional.'
+      },
+      {
+        name: 'Nebula Creeper',
+        img: '/images/mobs/nebula_creeper.png',
+        description: 'Su explosión aplica Levitación, Oscuridad (Darkness) y Fatiga Minera (Mining Fatigue), además de liberar una onda de choque que empuja a los jugadores, dejándolos completamente desorientados.'
       }
     ],
     crafts: [
