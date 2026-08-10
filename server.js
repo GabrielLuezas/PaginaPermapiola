@@ -511,21 +511,6 @@ const PATCHES_DATA = [
         description: 'Colosal constructo forjado con lingotes milenarios. Es el guardián más poderoso de Los Milenarios. Su fuerza es devastadora y su resistencia casi indestructible, capaz de arrasar con cualquier intruso que ose profanar el castillo.'
       },
       {
-        name: 'Kamikaze Machine',
-        img: '/images/mobs/kamikaze_machine.png',
-        description: 'Esta antigua máquina kamikaze lleva en sus manos una antorcha de Redstone. La cual utilizará en el momento que se acerque a ti para prender la mecha de su barril con dinamita.'
-      },
-      {
-        name: 'Pale Cyclops',
-        img: '/images/mobs/pale_cyclops.png',
-        description: 'Su mordida es altamente mortal. Además de que al pegarte te dejará cegado durante varios segundos. Tiene una velocidad lenta y su vida es alta.'
-      },
-      {
-        name: 'Pale Wasp',
-        img: '/images/mobs/pale_wasp.png',
-        description: 'Con su aguijón te dará una inyección letal de Veneno, Descomposición y Ceguera.'
-      },
-      {
         name: 'Wasted Crawler',
         img: '/images/mobs/wasted_crawler.png',
         description: 'Este zombie se arrastra por el piso. No hace mucho daño, ni es rápido pero al golpearte te intentará mantener para que los demás te cazen. (Te da lentitud 2)'
@@ -579,6 +564,31 @@ const PATCHES_DATA = [
         name: 'Nebula Creeper',
         img: '/images/mobs/nebula_creeper.png',
         description: 'Su explosión aplica Levitación, Oscuridad (Darkness) y Fatiga Minera (Mining Fatigue), además de liberar una onda de choque que empuja a los jugadores, dejándolos completamente desorientados.'
+      },
+      {
+        name: 'Father Hoglin',
+        img: '/images/mobs/father_hoglin.png',
+        description: 'Hoglin modificado con un poder devastador. Su daño es extremadamente alto y aparece en todos los biomas del Nether excepto en Soul Sand Valley y Basalt Deltas.'
+      },
+      {
+        name: 'Magician Piglin',
+        img: '/images/mobs/magician_piglin.png',
+        description: 'Al golpearte suelta pociones con múltiples efectos negativos, convirtiéndose en una amenaza constante que debilita a sus víctimas con cada impacto.'
+      },
+      {
+        name: 'Superior Piglin',
+        img: '/images/mobs/superior_piglin.png',
+        description: 'Tiene una gran cantidad de vida y pega muy fuerte. Al golpearte aplica Mining Fatigue, reduciendo tu capacidad de minar y atacar.'
+      },
+      {
+        name: 'Assasin Piglin',
+        img: '/images/mobs/assasin_piglin.png',
+        description: 'Pega extremadamente fuerte pero tiene poca vida. Un asesino letal que puede eliminarte en pocos golpes si no lo derrotas rápido.'
+      },
+      {
+        name: 'Scorched Piglin',
+        img: '/images/mobs/scorched_piglin.png',
+        description: 'Al golpearte te quema por mucho tiempo, te deja cegado y con Wither. Invoca un Magma Cube pequeño al impactar y al morir se convierte en un Esqueleto Wither.'
       }
     ],
     crafts: [
@@ -744,6 +754,21 @@ const PATCHES_DATA = [
         hearts: 60,
         equipment: ['Trident Channeling permanente', 'Daño triple vs. jugadores', 'Aparece en aguas > 30 bloques'],
         drop: '30% — Tridente Encantado'
+      },
+      {
+        name: 'Kamikaze Machine',
+        img: '/images/mobs/kamikaze_machine.png',
+        description: 'Esta antigua máquina kamikaze lleva en sus manos una antorcha de Redstone. La cual utilizará en el momento que se acerque a ti para prender la mecha de su barril con dinamita.'
+      },
+      {
+        name: 'Pale Cyclops',
+        img: '/images/mobs/pale_cyclops.png',
+        description: 'Su mordida es altamente mortal. Además de que al pegarte te dejará cegado durante varios segundos. Tiene una velocidad lenta y su vida es alta.'
+      },
+      {
+        name: 'Pale Wasp',
+        img: '/images/mobs/pale_wasp.png',
+        description: 'Con su aguijón te dará una inyección letal de Veneno, Descomposición y Ceguera.'
       }
     ],
     crafts: [
