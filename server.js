@@ -488,7 +488,7 @@ const PATCHES_DATA = [
   {
     number: 2,
     day: 3,
-    revealDate: new Date('2026-08-10T21:00:00Z'),
+    revealDate: new Date('2026-08-08T00:00:00Z'),
     mechanics: [
       { tag: 'REMOVIDO', text: 'El casco de tortuga ya no es crafteable.' },
       { tag: 'NERFEO/BUFEO', text: 'Minar un bloque de Creaking Heart te dará Darkness por 1 minuto.' },
