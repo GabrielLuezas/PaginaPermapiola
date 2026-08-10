@@ -555,26 +555,6 @@ const PATCHES_DATA = [
         description: 'Es el zombie común que todos vemos, tiene doble de fuerza y 3 corazones más.'
       },
       {
-        name: 'Cyclone Skeleton',
-        img: '/images/mobs/cyclone_archer.png',
-        description: 'Sus flechas al impactar generan un rayo que aplica Weakness, Mining Fatigue y Slowness.'
-      },
-      {
-        name: 'Emperor Skeleton',
-        img: '/images/mobs/emperor_archer.png',
-        description: 'Sus ataques quitan una gran cantidad de vida.'
-      },
-      {
-        name: 'Magnetic Skeleton',
-        img: '/images/mobs/magnetic_archer.png',
-        description: 'Te atrae hacia él con cada disparo.'
-      },
-      {
-        name: 'Nightmare Skeleton',
-        img: '/images/mobs/nightmare_archer.png',
-        description: 'Sus flechas te queman infinitamente, aplican Blindness y remueven todos tus efectos activos.'
-      },
-      {
         name: 'Arcane Creeper',
         img: '/images/mobs/arcane_creeper.png',
         description: 'Su explosión inflige daño masivo, siendo el creeper con mayor poder explosivo del servidor.'
@@ -682,14 +662,13 @@ const PATCHES_DATA = [
         gridCols: 3,
         gridRows: 3,
         slots: [
-          { row: 0, col: 0, name: 'Millenary Jewels', count: 6, img: '/images/items/m_jewels.png' },
-          { row: 0, col: 1, name: 'Millenary Jewels', count: 6, img: '/images/items/m_jewels.png' },
-          { row: 0, col: 2, name: 'Millenary Jewels', count: 6, img: '/images/items/m_jewels.png' },
-          { row: 1, col: 0, name: 'Millenary Ingot', count: 4, img: '/images/items/millenary_ingot.png' },
-          { row: 1, col: 1, name: 'Millenary Bar', count: 8, img: '/images/items/millenary_plate.png' },
-          { row: 1, col: 2, name: 'Millenary Ingot', count: 4, img: '/images/items/millenary_ingot.png' },
-          { row: 2, col: 0, name: 'Millenary Ingot', count: 4, img: '/images/items/millenary_ingot.png' },
-          { row: 2, col: 2, name: 'Millenary Ingot', count: 4, img: '/images/items/millenary_ingot.png' }
+          { row: 0, col: 1, name: 'Jade Jewels', count: 64, img: '/images/items/jade_jewels.png' },
+          { row: 1, col: 0, name: 'Ruby Jewels', count: 64, img: '/images/items/r_jewels.png' },
+          { row: 1, col: 1, name: 'Millenary Jewels', count: 8, img: '/images/items/m_jewels.png' },
+          { row: 1, col: 2, name: 'Sapphire Jewels', count: 64, img: '/images/items/s_jewels.png' },
+          { row: 2, col: 0, name: 'Millenary Bars', count: 32, img: '/images/items/millenary_ingot.png' },
+          { row: 2, col: 1, name: 'Millenary Bars', count: 32, img: '/images/items/millenary_ingot.png' },
+          { row: 2, col: 2, name: 'Millenary Bars', count: 32, img: '/images/items/millenary_ingot.png' }
         ],
         result: { row: 1, col: 2, name: 'Millenary Crown', img: '/images/items/millenary_crown.svg' }
       },
@@ -699,14 +678,14 @@ const PATCHES_DATA = [
         gridCols: 3,
         gridRows: 3,
         slots: [
-          { row: 0, col: 0, name: 'Hierro en bruto', img: '/images/items/raw_iron.png' },
-          { row: 0, col: 1, name: 'Hierro en bruto', img: '/images/items/raw_iron.png' },
-          { row: 0, col: 2, name: 'Hierro en bruto', img: '/images/items/raw_iron.png' },
-          { row: 1, col: 0, name: 'Hierro en bruto', img: '/images/items/raw_iron.png' },
-          { row: 1, col: 1, name: 'Carbón', img: '/images/items/coal.png' },
-          { row: 1, col: 2, name: 'Carbón', img: '/images/items/coal.png' },
-          { row: 2, col: 0, name: 'Carbón', img: '/images/items/coal.png' },
-          { row: 2, col: 1, name: 'Carbón', img: '/images/items/coal.png' }
+          { row: 0, col: 0, name: 'Hierro en bruto', count: 16, img: '/images/items/raw_iron.png' },
+          { row: 0, col: 1, name: 'Hierro en bruto', count: 16, img: '/images/items/raw_iron.png' },
+          { row: 0, col: 2, name: 'Hierro en bruto', count: 16, img: '/images/items/raw_iron.png' },
+          { row: 1, col: 0, name: 'Hierro en bruto', count: 16, img: '/images/items/raw_iron.png' },
+          { row: 1, col: 1, name: 'Carbón', count: 16, img: '/images/items/coal.png' },
+          { row: 1, col: 2, name: 'Carbón', count: 16, img: '/images/items/coal.png' },
+          { row: 2, col: 0, name: 'Carbón', count: 16, img: '/images/items/coal.png' },
+          { row: 2, col: 1, name: 'Carbón', count: 16, img: '/images/items/coal.png' }
         ],
         result: { row: 1, col: 2, name: 'Acero en bruto', img: '/images/items/raw_steel.png' }
       },
@@ -723,9 +702,9 @@ const PATCHES_DATA = [
         gridCols: 3,
         gridRows: 3,
         slots: [
-          { row: 1, col: 0, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' },
-          { row: 1, col: 1, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' },
-          { row: 1, col: 2, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' }
+          { row: 1, col: 0, name: 'Lingotes de acero', count: 2, img: '/images/items/steel_ingots.png' },
+          { row: 1, col: 1, name: 'Lingotes de acero', count: 2, img: '/images/items/steel_ingots.png' },
+          { row: 1, col: 2, name: 'Lingotes de acero', count: 2, img: '/images/items/steel_ingots.png' }
         ],
         result: { row: 1, col: 2, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' }
       },
@@ -735,16 +714,32 @@ const PATCHES_DATA = [
         gridCols: 3,
         gridRows: 3,
         slots: [
-          { row: 0, col: 0, name: 'Lana Verde', count: 2, img: '/images/items/green_wool.png' },
-          { row: 0, col: 1, name: 'Palo', count: 4, img: '/images/items/stick.png' },
-          { row: 0, col: 2, name: 'Lana Verde', count: 2, img: '/images/items/green_wool.png' },
-          { row: 1, col: 0, name: 'Tronco de Roble', count: 16, img: '/images/items/oak_log.png' },
-          { row: 1, col: 1, name: 'Tronco de Roble', count: 16, img: '/images/items/oak_log.png' },
-          { row: 1, col: 2, name: 'Tronco de Roble', count: 16, img: '/images/items/oak_log.png' },
-          { row: 2, col: 0, name: 'Pizarra profunda pulida', count: 12, img: '/images/items/polished_deepslate.png' },
-          { row: 2, col: 2, name: 'Pizarra profunda pulida', count: 12, img: '/images/items/polished_deepslate.png' }
+          { row: 0, col: 0, name: 'Lana Verde', count: 16, img: '/images/items/green_wool.png' },
+          { row: 0, col: 1, name: 'Millenary Jewels', count: 8, img: '/images/items/m_jewels.png' },
+          { row: 0, col: 2, name: 'Lana Verde', count: 16, img: '/images/items/green_wool.png' },
+          { row: 1, col: 0, name: 'Tronco de Roble', count: 64, img: '/images/items/oak_log.png' },
+          { row: 1, col: 1, name: 'Tronco de Roble', count: 64, img: '/images/items/oak_log.png' },
+          { row: 1, col: 2, name: 'Tronco de Roble', count: 64, img: '/images/items/oak_log.png' },
+          { row: 2, col: 0, name: 'Pizarra profunda pulida', count: 64, img: '/images/items/polished_deepslate.png' },
+          { row: 2, col: 2, name: 'Pizarra profunda pulida', count: 64, img: '/images/items/polished_deepslate.png' }
         ],
         result: { row: 1, col: 2, name: 'Mesa', img: '/images/placeholders/table_base_placeholder.svg' }
+      },
+      {
+        title: 'Mazo de acero',
+        type: 'crafting',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
+          { row: 0, col: 1, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
+          { row: 0, col: 2, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
+          { row: 1, col: 0, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
+          { row: 1, col: 1, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
+          { row: 1, col: 2, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
+          { row: 2, col: 1, name: 'Palo', img: '/images/items/stick.png' }
+        ],
+        result: { row: 1, col: 2, name: 'Mazo de acero', img: '/images/items/steel_mace.png' }
       },
       {
         title: 'OBLIVION WORKBENCH',
@@ -803,6 +798,26 @@ const PATCHES_DATA = [
         name: 'Pale Wasp',
         img: '/images/mobs/pale_wasp.png',
         description: 'Con su aguijón te dará una inyección letal de Veneno, Descomposición y Ceguera.'
+      },
+      {
+        name: 'Cyclone Skeleton',
+        img: '/images/mobs/cyclone_archer.png',
+        description: 'Sus flechas al impactar generan un rayo que aplica Weakness, Mining Fatigue y Slowness.'
+      },
+      {
+        name: 'Emperor Skeleton',
+        img: '/images/mobs/emperor_archer.png',
+        description: 'Sus ataques quitan una gran cantidad de vida.'
+      },
+      {
+        name: 'Magnetic Skeleton',
+        img: '/images/mobs/magnetic_archer.png',
+        description: 'Te atrae hacia él con cada disparo.'
+      },
+      {
+        name: 'Nightmare Skeleton',
+        img: '/images/mobs/nightmare_archer.png',
+        description: 'Sus flechas te queman infinitamente, aplican Blindness y remueven todos tus efectos activos.'
       }
     ],
     crafts: [
