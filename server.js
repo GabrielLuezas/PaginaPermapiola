@@ -721,6 +721,7 @@ const PATCHES_DATA = [
           { row: 1, col: 1, name: 'Tronco de Roble', count: 64, img: '/images/items/oak_log.png' },
           { row: 1, col: 2, name: 'Tronco de Roble', count: 64, img: '/images/items/oak_log.png' },
           { row: 2, col: 0, name: 'Pizarra profunda pulida', count: 64, img: '/images/items/polished_deepslate.png' },
+          { row: 2, col: 1, name: 'Palos', count: 64, img: '/images/items/stick.png' },
           { row: 2, col: 2, name: 'Pizarra profunda pulida', count: 64, img: '/images/items/polished_deepslate.png' }
         ],
         result: { row: 1, col: 2, name: 'Mesa', img: '/images/placeholders/table_base_placeholder.svg' }
