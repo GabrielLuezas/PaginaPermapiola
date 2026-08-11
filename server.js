@@ -693,7 +693,7 @@ const PATCHES_DATA = [
         title: 'Lingotes de acero',
         type: 'furnace',
         input: { row: 0, col: 0, name: 'Acero en bruto', img: '/images/items/raw_steel.png' },
-        fuel: { row: 0, col: 0, name: 'Cubo de Lava', img: '/images/items/lava_bucket.png' },
+        fuel: { row: 0, col: 0, name: 'Carbón', img: '/images/items/coal.png' },
         result: { row: 0, col: 0, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' }
       },
       {
