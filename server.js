@@ -762,7 +762,7 @@ const PATCHES_DATA = [
   {
     number: 3,
     day: 7,
-    revealDate: new Date('2026-08-08T00:00:00Z'),
+    revealDate: new Date('2026-08-15T00:00:00Z'),
     mechanics: [
       { tag: 'NUEVO', text: 'Todos los Creepers aparecen cargados / eléctricos.' },
       { tag: 'NUEVO', text: 'Al morir una tortuga, genera una explosión de nivel 10.' },
