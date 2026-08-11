@@ -732,12 +732,12 @@ const PATCHES_DATA = [
         gridCols: 3,
         gridRows: 3,
         slots: [
-          { row: 0, col: 0, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
-          { row: 0, col: 1, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
-          { row: 0, col: 2, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
-          { row: 1, col: 0, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
-          { row: 1, col: 1, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
-          { row: 1, col: 2, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
+          { row: 0, col: 0, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' },
+          { row: 0, col: 1, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' },
+          { row: 0, col: 2, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' },
+          { row: 1, col: 0, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' },
+          { row: 1, col: 1, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' },
+          { row: 1, col: 2, name: 'Lingotes de acero', img: '/images/items/steel_ingots.png' },
           { row: 2, col: 1, name: 'Palo', img: '/images/items/stick.png' }
         ],
         result: { row: 1, col: 2, name: 'Mazo de acero', img: '/images/items/steel_mace.png' }
@@ -762,58 +762,83 @@ const PATCHES_DATA = [
   {
     number: 3,
     day: 7,
-    revealDate: new Date('2026-08-14T19:00:00Z'),
+    revealDate: new Date('2026-08-08T00:00:00Z'),
     mechanics: [
-      { tag: 'NUEVO', text: '3 zonas de PVP forzado en el mapa. Los jugadores dentro tienen su posición visible en el mapa de todos.' },
-      { tag: 'NERFEO/BUFEO', text: 'Fuego amigo activo en zonas neutrales. Las PartyGUI siguen protegiendo dentro del grupo.' },
-      { tag: 'NERFEO/BUFEO', text: 'Te ahogas 10x más rápido sin Poción de Respiración Acuática (3 segundos sin poción = muerte).' },
-      { tag: 'NERFEO/BUFEO', text: 'Herramientas sin Netherite al romper roca quitan 8 corazones si no tienes Protección IV.' },
-      { tag: 'NERFEO/BUFEO', text: 'Los Endermans tienen Fuerza X permanente. Mirarlos activa modo Berserk.' }
+      { tag: 'NUEVO', text: 'Todos los Creepers aparecen cargados / eléctricos.' },
+      { tag: 'NUEVO', text: 'Al morir una tortuga, genera una explosión de nivel 10.' },
+      { tag: 'NUEVO', text: 'Al romper un alga existe cierta probabilidad de spawnear un Pufferfish.' },
+      { tag: 'NUEVO', text: 'Al morir un Iron Golem genera una explosión de nivel 3.' },
+      { tag: 'NUEVO', text: 'Al romper grava existe cierta probabilidad de que aparezca una TNT encendida.' },
+      { tag: 'NUEVO', text: 'Los Camellos ahora son reemplazados por Ravagers.' },
+      { tag: 'NUEVO', text: 'Los Hoglins ahora son Tenebris Hoglin y tienen un Piglin Brute montado encima.' },
+      { tag: 'NUEVO', text: 'Los Striders ahora son Ghasts.' },
+      { tag: 'NUEVO', text: 'Todos los esqueletos comunes ahora son Hollow Archer.' },
+      { tag: 'NERFEO/BUFEO', text: 'El daño por Cactus y Bayas Dulces causa 3 corazones de daño verdadero (ignora armadura).' },
+      { tag: 'NERFEO/BUFEO', text: 'Picar, talar o cavar con una herramienta que no sea de Netherite no dropeará el bloque (Hachas, Picos y Palas).' },
+      { tag: 'NERFEO/BUFEO', text: 'El daño por Congelación y Veneno se ha duplicado (x2).' },
+      { tag: 'NERFEO/BUFEO', text: 'El daño por Ahogamiento se ha duplicado (x2).' },
+      { tag: 'NERFEO/BUFEO', text: 'Tocar agua en biomas fríos te hace daño continuo, te congela y te da Slowness, Mining Fatigue y Weakness.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los disparos de ballesta de los Piglins te prenden fuego al impactar.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Piglins poseen x2 de Fuerza y x2 de Velocidad.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los mobs hostiles ya no pueden subirse a barcos ni vagonetas.' },
+      { tag: 'NERFEO/BUFEO', text: 'El ataque o embestida de las Cabras te elimina instantáneamente (Oneshot).' },
+      { tag: 'NERFEO/BUFEO', text: 'Consumir papas venenosas o alimentos crudos te resta vida en lugar de nutrirte.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Endermites al golpearte te aplican Ceguera.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Pufferfish al inflarse provocan una explosión de nivel 5.' },
+      { tag: 'NERFEO/BUFEO', text: 'Tocar bloques de Bedrock te aplica Ceguera y Descomposición (Wither).' },
+      { tag: 'NERFEO/BUFEO', text: 'Tocar o interactuar con una nota musical (Note Block) te provocará Oneshot.' },
+      { tag: 'NERFEO/BUFEO', text: 'Estar por debajo de la capa Y: -55 te aplica el efecto Oscuridad (Darkness).' },
+      { tag: 'NERFEO/BUFEO', text: 'Las vallas y puertas tienen un 5% de probabilidad de romperse cada vez que las interactúas/usas.' },
+      { tag: 'NERFEO/BUFEO', text: 'Picar Ancient Debris empieza a quemarte de inmediato.' },
+      { tag: 'NERFEO/BUFEO', text: 'Recibir daño por un Magma Block te prenderá fuego.' },
+      { tag: 'NERFEO/BUFEO', text: 'La Soul Sand (Arena de Almas) te aplica Lentitud III.' },
+      { tag: 'NERFEO/BUFEO', text: 'Las flechas de los Strays te inmovilizan por completo durante 3 segundos.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Enderman tienen x3 de daño, 10 corazones extra (+20 HP) y al golpearte te dan Ceguera.' }
     ],
     mobs: [
       {
-        name: 'Enderman Berserk',
+        name: 'Enderman (Día 7)',
         img: 'https://minecraft.wiki/images/Enderman.png',
-        hearts: 40,
-        equipment: ['Fuerza X', 'Modo Berserk al contacto visual', 'Daño: 8 corazones por golpe'],
-        drop: '25% — Perla de Ender'
+        hearts: 30,
+        equipment: ['x3 Daño', '+10 Corazones Extra', 'Ceguera al golpear'],
+        description: 'Enderman repotenciado para el Día 7 con vida adicional, daño triple y ceguera al golpear.'
       },
       {
-        name: 'Drowned Gigante',
-        img: 'https://minecraft.wiki/images/Drowned.png',
-        hearts: 60,
-        equipment: ['Trident Channeling permanente', 'Daño triple vs. jugadores', 'Aparece en aguas > 30 bloques'],
-        drop: '30% — Tridente Encantado'
+        name: 'Tenebris Hoglin',
+        img: '/images/mobs/father_hoglin.png',
+        hearts: 40,
+        equipment: ['Piglin Brute Rider'],
+        description: 'Hoglin mutado en Tenebris Hoglin con un Piglin Brute montado encima.'
+      },
+      {
+        name: 'Hollow Archer',
+        img: '/images/mobs/cyclone_archer.png',
+        hearts: 20,
+        description: 'Reemplaza a todos los esqueletos comunes del mundo.'
+      },
+      {
+        name: 'Strider Ghast',
+        img: 'https://minecraft.wiki/images/Ghast.png',
+        description: 'Los Striders ahora son temibles Ghasts.'
+      },
+      {
+        name: 'Camel Ravager',
+        img: '/images/mobs/ravager.png',
+        description: 'Los Camellos son sustituidos por letales Ravagers.'
       },
       {
         name: 'Kamikaze Machine',
         img: '/images/mobs/kamikaze_machine.png',
-        description: 'Esta antigua máquina kamikaze lleva en sus manos una antorcha de Redstone. La cual utilizará en el momento que se acerque a ti para prender la mecha de su barril con dinamita.'
+        description: 'Esta antigua máquina kamikaze lleva en sus manos una antorcha de Redstone para detonar su barril.'
       },
       {
         name: 'Pale Cyclops',
         img: '/images/mobs/pale_cyclops.png',
-        description: 'Su mordida es altamente mortal. Además de que al pegarte te dejará cegado durante varios segundos. Tiene una velocidad lenta y su vida es alta.'
+        description: 'Su mordida es altamente mortal y te deja cegado durante varios segundos.'
       },
       {
         name: 'Pale Wasp',
         img: '/images/mobs/pale_wasp.png',
-        description: 'Con su aguijón te dará una inyección letal de Veneno, Descomposición y Ceguera.'
-      },
-      {
-        name: 'Cyclone Skeleton',
-        img: '/images/mobs/cyclone_archer.png',
-        description: 'Sus flechas al impactar generan un rayo que aplica Weakness, Mining Fatigue y Slowness.'
-      },
-      {
-        name: 'Emperor Skeleton',
-        img: '/images/mobs/emperor_archer.png',
-        description: 'Sus ataques quitan una gran cantidad de vida.'
-      },
-      {
-        name: 'Magnetic Skeleton',
-        img: '/images/mobs/magnetic_archer.png',
-        description: 'Te atrae hacia él con cada disparo.'
       },
       {
         name: 'Nightmare Skeleton',
