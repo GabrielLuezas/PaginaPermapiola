@@ -221,7 +221,7 @@ const PATCHES_DATA = [
     npcs: [
       {
         name: 'REWARDS NPC',
-        img: '/images/npc_rewards.jpg',
+        img: '/images/npc_rewards.webp',
         description: 'Ubicado en el Pueblo del servidor. Este NPC permite a todos los jugadores reclamar su recompensa diaria de medallones cada 24 horas. La cantidad de medallones otorgados aumenta según tu rango.',
         cooldown: 'Cada 24 horas',
         rewards: [
