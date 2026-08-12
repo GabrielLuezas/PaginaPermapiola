@@ -822,7 +822,7 @@ const PATCHES_DATA = [
       { tag: 'NUEVO', text: 'Los Camellos ahora son reemplazados por Ravagers.' },
       { tag: 'NUEVO', text: 'Los Hoglins ahora son Tenebris Hoglin y tienen un Piglin Brute montado encima.' },
       { tag: 'NUEVO', text: 'Los Striders ahora son Ghasts.' },
-      { tag: 'NUEVO', text: 'Todos los esqueletos comunes ahora son Hollow Archer.' },
+      { tag: 'NUEVO', text: 'Todos los aldeanos libreros morirán al iniciar el Día 8.' },
       { tag: 'NERFEO/BUFEO', text: 'El daño por Cactus y Bayas Dulces causa 3 corazones de daño verdadero (ignora armadura).' },
       { tag: 'NERFEO/BUFEO', text: 'Picar, talar o cavar con una herramienta que no sea de Netherite no dropeará el bloque (Hachas, Picos y Palas).' },
       { tag: 'NERFEO/BUFEO', text: 'El daño por Congelación y Veneno se ha duplicado (x2).' },
