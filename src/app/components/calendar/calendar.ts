@@ -57,6 +57,7 @@ const SERVER_EVENTS: CalendarEvent[] = [
     title: 'Dungeon',
     description: 'Apertura de Dungeon.'
   },
+
   {
     id: 'dia7',
     day: 14, hour: 23, minute: 0,

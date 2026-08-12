@@ -764,6 +764,77 @@ const PATCHES_DATA = [
   },
   {
     number: 3,
+    day: 6,
+    revealDate: new Date('2026-08-13T21:00:00Z'),
+    mechanics: [],
+    mobs: [],
+    dungeonGuide: {
+      title: 'Trials Dungeons',
+      subtitle: 'Una peligrosa estructura subterránea llena de trampas, desafíos e Illagers modificados. Prepárate con tu party para afrontar las 12 salas aleatorias.',
+      mainImg: '/images/interfaces/dungeonpreview.png',
+      steps: [
+        {
+          title: 'Crear la party',
+          text: 'Primero, el líder de la party debe crear el grupo ejecutando el comando <code>/dungeonparty crear</code>.'
+        },
+        {
+          title: 'Interfaz de la Party',
+          text: 'Una vez creada, si usas el comando <code>/dungeonparty</code> se te abrirá la interfaz del grupo, donde podrás visualizar el estado actual de los miembros y los controles de la party.',
+          img: '/images/interfaces/interfazparty.png'
+        },
+        {
+          title: 'Invitar jugadores',
+          text: 'Puedes invitar a otros jugadores a unirse usando el comando <code>/dungeonparty invitar (NICKJUGADOR)</code>.'
+        },
+        {
+          title: 'Aceptar la invitación',
+          text: 'Los jugadores invitados pueden unirse aceptando la invitación mediante el comando <code>/dungeonparty aceptar</code>.'
+        },
+        {
+          title: 'Expulsar jugadores',
+          text: 'Si eres el líder, puedes echar a cualquier jugador de la party con el comando <code>/dungeonparty echar (NICKJUGADOR)</code>.'
+        },
+        {
+          title: 'Indicar que estás listo',
+          text: 'Cuando todos estén dentro del grupo, todos los jugadores deben marcar que están listos para empezar. Esto se hace usando el comando <code>/dungeonparty listo</code> o haciendo clic en la <strong>lana roja</strong> debajo de tu cabeza en la interfaz.',
+          img: '/images/interfaces/interfazpartylisto.png'
+        },
+        {
+          title: 'Seleccionar Instancia de Dungeon',
+          text: 'Una vez que todo el grupo esté listo, el líder deberá hacer clic en el ítem del <strong>Beacon (Faro)</strong> en la interfaz. Se abrirá un menú para seleccionar el slot o instancia de la dungeon.',
+          importantNote: 'Habrá un máximo de 8 dungeons concurrentes al mismo tiempo. Si están todas llenas, no podrás entrar y tendrás que esperar a que una quede libre.',
+          img: '/images/interfaces/seleccionarinstancia.png'
+        },
+        {
+          title: 'Sala de espera',
+          text: 'Tras seleccionar la instancia, todos los jugadores serán teletransportados automáticamente a una sala de espera.',
+          img: '/images/interfaces/salaespera.png'
+        },
+        {
+          title: 'Confirmar "Listo" en la sala de espera',
+          text: 'Una vez dentro de la sala de espera, todos los miembros de la party deberán volver a marcar que están listos (usando el comando o abriendo el menú y haciendo clic en la lana verde).',
+          img: '/images/interfaces/interfazpartylistosalaespera.png'
+        },
+        {
+          title: 'Inicio de la Mazmorra',
+          text: 'Cuando todos los jugadores estén listos en la sala de espera, serán teletransportados directamente al inicio de la mazmorra.',
+          importantNote: 'La dungeon consta de 12 salas aleatorias con un mini boss en cada recorrido. Cada run tiene salas aleatorias.',
+          img: '/images/interfaces/salainiciodungeon.png'
+        },
+        {
+          title: 'Abandonar la Dungeon',
+          text: 'Si necesitan salir antes de tiempo, cualquier jugador puede abandonar la mazmorra utilizando el comando <code>/dungeonparty abandonar</code>.'
+        },
+        {
+          title: 'Terminar y reclamar victoria',
+          text: 'Para completar la dungeon correctamente, los jugadores deben llegar a la sala final. Una vez que <strong>TODOS</strong> los jugadores de la party estén en dicha sala, el administrador/líder podrá finalizarla usando el comando <code>/dungeonparty terminar</code>.',
+          img: '/images/interfaces/salafinaldungeon.png'
+        }
+      ]
+    }
+  },
+  {
+    number: 4,
     day: 7,
     revealDate: new Date('2026-08-14T21:00:00Z'),
     raidsLevelUp: [
@@ -886,7 +957,7 @@ const PATCHES_DATA = [
     ]
   },
   {
-    number: 4,
+    number: 5,
     day: 10,
     revealDate: new Date('2026-08-17T19:00:00Z'),
     mechanics: [
@@ -914,7 +985,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 5,
+    number: 6,
     day: 14,
     revealDate: new Date('2026-08-21T19:00:00Z'),
     mechanics: [
@@ -925,7 +996,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 6,
+    number: 7,
     day: 18,
     revealDate: new Date('2026-08-25T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -934,7 +1005,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 7,
+    number: 8,
     day: 21,
     revealDate: new Date('2026-08-28T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -943,7 +1014,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 8,
+    number: 9,
     day: 23,
     revealDate: new Date('2026-08-30T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -952,7 +1023,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 9,
+    number: 10,
     day: 25,
     revealDate: new Date('2026-09-01T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -961,7 +1032,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 10,
+    number: 11,
     day: 28,
     revealDate: new Date('2026-09-04T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -998,7 +1069,8 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
   
   const processedPatches = PATCHES_DATA.map(patch => {
     const revealTime = patch.revealDate.getTime();
-    const isUnlocked = now >= (revealTime - bufferMs);
+    const effectiveBufferMs = patch.day === 6 ? 0 : bufferMs;
+    const isUnlocked = now >= (revealTime - effectiveBufferMs);
     
     if (isUnlocked) {
       return {
@@ -1016,9 +1088,14 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
         recipes: patch.recipes || [],
         amuletSystem: patch.amuletSystem,
         npcs: patch.npcs || [],
-        items: [...(patch.crafts || []), ...(patch.loot || [])]
+        items: [...(patch.crafts || []), ...(patch.loot || [])],
+        dungeonGuide: patch.dungeonGuide || null
       };
     } else {
+      if (patch.day === 6) {
+        return null;
+      }
+      
       const formattedDate = patch.revealDate.toLocaleString('es-ES', { 
         timeZone: 'UTC',
         day: '2-digit', 
@@ -1044,7 +1121,7 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
         items: []
       };
     }
-  });
+  }).filter(p => p !== null);
   
   return res.json({ patches: processedPatches, userRank });
 });
@@ -1074,7 +1151,7 @@ app.get('*', (_req, res) => {
   if (fs.existsSync(indexPath)) {
     res.sendFile(indexPath);
   } else {
-    res.status(404).send('Not Found: Application build index.html missing');
+    res.send('PermaPiola API Backend is running successfully.');
   }
 });
 

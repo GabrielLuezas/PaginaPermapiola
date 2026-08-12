@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://tu-url-de-render.onrender.com/api/:path*"
+    },
+    {
+      "source": "/((?!api|.*\\.).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -95,6 +95,20 @@ export interface NpcEntry {
   shopItems?: NpcShopItem[];
 }
 
+export interface GuideStep {
+  title: string;
+  text: string;
+  img?: string;
+  importantNote?: string;
+}
+
+export interface DungeonGuide {
+  title: string;
+  subtitle: string;
+  mainImg?: string;
+  steps: GuideStep[];
+}
+
 export interface Patch {
   number: number;
   day: number;
@@ -111,6 +125,7 @@ export interface Patch {
   amuletSystem?: AmuletSystemData;
   npcs?: NpcEntry[];
   items?: ItemEntry[];
+  dungeonGuide?: DungeonGuide;
 }
 
 /* ─── Component ─────────────────────────────────────────────── */

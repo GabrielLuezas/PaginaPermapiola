@@ -34,19 +34,21 @@
     <!-- ═══════════════════════════════════════════
          SECTION 1 — MECÁNICAS
     ════════════════════════════════════════════ -->
-    <section class="cl-section glass-card">
-      <div class="section-header">
-        <h2 class="section-title">MECÁNICAS</h2>
-      </div>
-      <ul class="mechanics-list">
-        @for (m of currentPatch().mechanics; track m.text) {
-          <li class="mechanic-row">
-            <span class="mechanic-tag" [class]="tagClass(m.tag)">{{ m.tag }}</span>
-            <span class="mechanic-text">{{ m.text }}</span>
-          </li>
-        }
-      </ul>
-    </section>
+    @if (currentPatch().mechanics && currentPatch().mechanics.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title">MECÁNICAS</h2>
+        </div>
+        <ul class="mechanics-list">
+          @for (m of currentPatch().mechanics; track m.text) {
+            <li class="mechanic-row">
+              <span class="mechanic-tag" [class]="tagClass(m.tag)">{{ m.tag }}</span>
+              <span class="mechanic-text">{{ m.text }}</span>
+            </li>
+          }
+        </ul>
+      </section>
+    }
 
     <!-- ═══════════════════════════════════════════
          SECTION — NPCS DEL PUEBLO
@@ -202,6 +204,53 @@
               <div class="dungeon-content">
                 <h3 class="dungeon-name">{{ dungeon.name }}</h3>
                 <p class="dungeon-desc">{{ dungeon.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — GUÍA DE MAZMORRA (DUNGEON GUIDE)
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().dungeonGuide) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title text-cyan">📖 {{ currentPatch().dungeonGuide!.title }}</h2>
+        </div>
+        
+        <div class="dungeon-guide-intro">
+          <p class="guide-subtitle-text">{{ currentPatch().dungeonGuide!.subtitle }}</p>
+          @if (currentPatch().dungeonGuide!.mainImg) {
+            <div class="guide-main-img-wrap" (click)="openZoom(currentPatch().dungeonGuide!.mainImg!)">
+              <img [src]="currentPatch().dungeonGuide!.mainImg" alt="Dungeon Main" class="guide-main-img" />
+              <div class="zoom-badge">🔍 Clic para ampliar vista general</div>
+            </div>
+          }
+        </div>
+
+        <div class="guide-steps-list">
+          @for (step of currentPatch().dungeonGuide!.steps; track step.title; let idx = $index) {
+            <div class="guide-step-card">
+              <div class="step-num-bubble">{{ idx + 1 }}</div>
+              <div class="guide-step-content">
+                <h3 class="guide-step-title">{{ step.title }}</h3>
+                <p class="guide-step-desc" [innerHTML]="step.text"></p>
+                
+                @if (step.importantNote) {
+                  <div class="guide-step-warning">
+                    <span class="warning-icon">⚠️</span>
+                    <span class="warning-text"><strong>IMPORTANTE:</strong> {{ step.importantNote }}</span>
+                  </div>
+                }
+
+                @if (step.img) {
+                  <div class="guide-step-img-wrap" (click)="openZoom(step.img)">
+                    <img [src]="step.img" [alt]="step.title" class="guide-step-img" />
+                    <div class="zoom-badge">🔍 Clic para ampliar interfaz</div>
+                  </div>
+                }
               </div>
             </div>
           }
