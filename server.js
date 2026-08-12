@@ -765,7 +765,7 @@ const PATCHES_DATA = [
   {
     number: 3,
     day: 7,
-    revealDate: new Date('2026-08-08T00:00:00Z'),
+    revealDate: new Date('2026-08-14T21:00:00Z'),
     raidsLevelUp: [
       {
         name: 'Pillager',
