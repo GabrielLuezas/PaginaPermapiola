@@ -1258,3 +1258,187 @@
 .guide-step-img-wrap:hover .guide-step-img {
   transform: scale(1.03);
 }
+
+/* --- DUNGEON LOOT Section --- */
+.text-gold {
+  color: #fbbf24 !important;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+}
+
+.loot-tables-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.loot-table-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.loot-table-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+.loot-table-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.loot-table-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.loot-items-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.loot-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.loot-item-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.loot-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  gap: 10px;
+}
+
+.loot-item-name {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.loot-item-chance {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(251, 191, 36, 0.15);
+}
+
+/* --- NEW AMULETS Section --- */
+.text-magenta {
+  color: #d946ef !important;
+  text-shadow: 0 0 10px rgba(217, 70, 239, 0.4);
+}
+
+.text-yellow {
+  color: #eab308 !important;
+}
+
+.text-purple {
+  color: #a855f7 !important;
+}
+
+.amulet-categories-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.amulet-category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.category-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.5px;
+  border-left: 4px solid currentColor;
+  padding-left: 12px;
+}
+
+.amulets-grid-small {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.amulet-entry-card-small {
+  display: flex;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  align-items: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.amulet-entry-card-small:hover {
+  transform: translateY(-2px);
+  border-color: rgba(217, 70, 239, 0.25);
+}
+
+.amulet-img-wrap-small {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amulet-img-small {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.amulet-info-small {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.amulet-name-small {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.amulet-desc-small {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}

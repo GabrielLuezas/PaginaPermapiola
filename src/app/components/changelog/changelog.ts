@@ -109,6 +109,31 @@ export interface DungeonGuide {
   steps: GuideStep[];
 }
 
+export interface LootItem {
+  name: string;
+  chance: string;
+  img: string;
+}
+
+export interface DungeonLootTable {
+  title: string;
+  subtitle: string;
+  items: LootItem[];
+}
+
+export interface AmuletEntry {
+  name: string;
+  description: string;
+  img: string;
+}
+
+export interface NewAmuletCategories {
+  craftable: AmuletEntry[];
+  normalVault: AmuletEntry[];
+  ominousVault: AmuletEntry[];
+  special: AmuletEntry[];
+}
+
 export interface Patch {
   number: number;
   day: number;
@@ -126,6 +151,8 @@ export interface Patch {
   npcs?: NpcEntry[];
   items?: ItemEntry[];
   dungeonGuide?: DungeonGuide;
+  dungeonLoot?: DungeonLootTable[];
+  newAmuletCategories?: NewAmuletCategories;
 }
 
 /* ─── Component ─────────────────────────────────────────────── */

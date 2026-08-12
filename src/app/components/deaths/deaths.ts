@@ -26,7 +26,7 @@ export class Deaths {
   protected readonly fallenList = signal<FallenWarrior[]>([
     {
       name: 'IzJampi',
-      avatar: 'https://minotar.net/helm/IzJampi/120.png',
+      avatar: 'https://minotar.net/helm/IzJampi/120.webp',
       cause: 'IzJampi was slain by Zombie',
       day: 1,
       deathNumber: 1,
@@ -35,7 +35,7 @@ export class Deaths {
     },
     {
       name: 'FL_billiken1905',
-      avatar: 'https://minotar.net/helm/FL_billiken1905/120.png',
+      avatar: 'https://minotar.net/helm/FL_billiken1905/120.webp',
       cause: 'FL_billiken1905 was slain by Vindicator',
       day: 1,
       deathNumber: 2,
@@ -44,7 +44,7 @@ export class Deaths {
     },
     {
       name: 'Sebasfs128_',
-      avatar: 'https://minotar.net/helm/Sebasfs128_/120.png',
+      avatar: 'https://minotar.net/helm/Sebasfs128_/120.webp',
       cause: 'Sebasfs128_ was blown up by Creeper',
       day: 1,
       deathNumber: 3,
@@ -53,7 +53,7 @@ export class Deaths {
     },
     {
       name: 'xanderssss',
-      avatar: 'https://minotar.net/helm/xanderssss/120.png',
+      avatar: 'https://minotar.net/helm/xanderssss/120.webp',
       cause: 'xanderssss was impaled on a stalagmite',
       day: 2,
       deathNumber: 4,
@@ -62,7 +62,7 @@ export class Deaths {
     },
     {
       name: 'Caubet',
-      avatar: 'https://minotar.net/helm/Caubet/120.png',
+      avatar: 'https://minotar.net/helm/Caubet/120.webp',
       cause: 'Caubet fell from a high place',
       day: 2,
       deathNumber: 5,
@@ -71,7 +71,7 @@ export class Deaths {
     },
     {
       name: 'Aaa_OnichanUwU',
-      avatar: 'https://minotar.net/helm/Aaa_OnichanUwU/120.png',
+      avatar: 'https://minotar.net/helm/Aaa_OnichanUwU/120.webp',
       cause: 'Aaa_OnichanUwU was slain by Vindicator',
       day: 2,
       deathNumber: 6,
@@ -80,7 +80,7 @@ export class Deaths {
     },
     {
       name: 'Imsixito_',
-      avatar: 'https://minotar.net/helm/Imsixito_/120.png',
+      avatar: 'https://minotar.net/helm/Imsixito_/120.webp',
       cause: 'Imsixito_ was slain by Millenary Guard',
       day: 3,
       deathNumber: 7,
@@ -89,7 +89,7 @@ export class Deaths {
     },
     {
       name: 'Rojeeto',
-      avatar: 'https://minotar.net/helm/Rojeeto/120.png',
+      avatar: 'https://minotar.net/helm/Rojeeto/120.webp',
       cause: 'Rojeeto was blown up by Creeper',
       day: 3,
       deathNumber: 8,
@@ -98,7 +98,7 @@ export class Deaths {
     },
     {
       name: 'LechugaMC',
-      avatar: 'https://minotar.net/helm/LechugaMC/120.png',
+      avatar: 'https://minotar.net/helm/LechugaMC/120.webp',
       cause: 'LechugaMC was slain by Millenary Golem',
       day: 3,
       deathNumber: 9,
@@ -107,7 +107,7 @@ export class Deaths {
     },
     {
       name: 'Darkvid',
-      avatar: 'https://minotar.net/helm/Darkvid/120.png',
+      avatar: 'https://minotar.net/helm/Darkvid/120.webp',
       cause: 'Darkvid was slain by Millenary Golem',
       day: 3,
       deathNumber: 10,
@@ -116,7 +116,7 @@ export class Deaths {
     },
     {
       name: 'Jzree',
-      avatar: 'https://minotar.net/helm/Jzree/120.png',
+      avatar: 'https://minotar.net/helm/Jzree/120.webp',
       cause: 'Jzree was slain by Millenary Golem',
       day: 3,
       deathNumber: 11,
@@ -125,7 +125,7 @@ export class Deaths {
     },
     {
       name: 'Souther55',
-      avatar: 'https://minotar.net/helm/Souther55/120.png',
+      avatar: 'https://minotar.net/helm/Souther55/120.webp',
       cause: 'Souther55 was slain by Iron Golem',
       day: 3,
       deathNumber: 12,
@@ -134,7 +134,7 @@ export class Deaths {
     },
     {
       name: 'WynautSGP',
-      avatar: 'https://minotar.net/helm/WynautSGP/120.png',
+      avatar: 'https://minotar.net/helm/WynautSGP/120.webp',
       cause: 'WynautSGP was slain by Wasted Walker',
       day: 3,
       deathNumber: 13,
@@ -143,7 +143,7 @@ export class Deaths {
     },
     {
       name: 'RolexHK',
-      avatar: 'https://minotar.net/helm/RolexHK/120.png',
+      avatar: 'https://minotar.net/helm/RolexHK/120.webp',
       cause: 'RolexHK fell off a ladder',
       day: 3,
       deathNumber: 14,
@@ -152,7 +152,7 @@ export class Deaths {
     },
     {
       name: 'MailsBowi',
-      avatar: 'https://minotar.net/helm/MailsBowi/120.png',
+      avatar: 'https://minotar.net/helm/MailsBowi/120.webp',
       cause: 'MailsBowi was blown up by Nebula Creeper',
       day: 3,
       deathNumber: 15,
@@ -162,7 +162,7 @@ export class Deaths {
     },
     {
       name: 'ItsNG266',
-      avatar: 'https://minotar.net/helm/ItsNG266/120.png',
+      avatar: 'https://minotar.net/helm/ItsNG266/120.webp',
       cause: 'ItsNG266 blew up',
       day: 4,
       deathNumber: 16,
@@ -171,7 +171,7 @@ export class Deaths {
     },
     {
       name: 'haloner7',
-      avatar: 'https://minotar.net/helm/haloner7/120.png',
+      avatar: 'https://minotar.net/helm/haloner7/120.webp',
       cause: 'haloner7 blew up',
       day: 4,
       deathNumber: 17,
@@ -180,7 +180,7 @@ export class Deaths {
     },
     {
       name: 'Benjaaaah',
-      avatar: 'https://minotar.net/helm/Benjaaaah/120.png',
+      avatar: 'https://minotar.net/helm/Benjaaaah/120.webp',
       cause: 'Benjaaaah was slain by Assasin Piglin',
       day: 4,
       deathNumber: 18,

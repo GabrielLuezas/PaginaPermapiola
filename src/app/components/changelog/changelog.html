@@ -86,7 +86,7 @@
                             <span class="reward-rank-name">{{ rew.rank }}</span>
                           </div>
                           <div class="reward-item-row">
-                            <img [src]="rew.icon || '/images/items/medallion.png'" alt="Medallion" class="reward-item-icon" />
+                            <img [src]="rew.icon || '/images/items/medallion.webp'" alt="Medallion" class="reward-item-icon" />
                             <span class="reward-amount-text">{{ rew.amount }}</span>
                           </div>
                         </div>
@@ -249,6 +249,132 @@
                   <div class="guide-step-img-wrap" (click)="openZoom(step.img)">
                     <img [src]="step.img" [alt]="step.title" class="guide-step-img" />
                     <div class="zoom-badge">🔍 Clic para ampliar interfaz</div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — LOOT DE DUNGEONS (DUNGEON LOOT)
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().dungeonLoot && currentPatch().dungeonLoot!.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title text-gold">💰 RECOMPENSAS DE LA MAZMORRA</h2>
+        </div>
+        <div class="loot-tables-grid">
+          @for (table of currentPatch().dungeonLoot; track table.title) {
+            <div class="loot-table-card">
+              <h3 class="loot-table-title">{{ table.title }}</h3>
+              <p class="loot-table-subtitle">{{ table.subtitle }}</p>
+              
+              <div class="loot-items-list">
+                @for (item of table.items; track item.name) {
+                  <div class="loot-item-row">
+                    <div class="loot-item-img-wrap item-slot-wrap">
+                      <img [src]="item.img" [alt]="item.name" class="loot-item-img" />
+                    </div>
+                    <div class="loot-item-info">
+                      <span class="loot-item-name">{{ item.name }}</span>
+                      <span class="loot-item-chance">{{ item.chance }}</span>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — NUEVOS AMULETOS (NEW AMULETS)
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().newAmuletCategories) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title text-magenta">✨ NUEVOS AMULETOS</h2>
+        </div>
+
+        <div class="amulet-categories-container">
+          <!-- Amuletos Crafteables -->
+          @if (currentPatch().newAmuletCategories!.craftable && currentPatch().newAmuletCategories!.craftable.length > 0) {
+            <div class="amulet-category-section">
+              <h3 class="category-title text-yellow">🛠️ Amuletos Crafteables</h3>
+              <div class="amulets-grid-small">
+                @for (amulet of currentPatch().newAmuletCategories!.craftable; track amulet.name) {
+                  <div class="amulet-entry-card-small">
+                    <div class="amulet-img-wrap-small item-slot-wrap">
+                      <img [src]="amulet.img" [alt]="amulet.name" class="amulet-img-small" />
+                    </div>
+                    <div class="amulet-info-small">
+                      <h4 class="amulet-name-small">{{ amulet.name }}</h4>
+                      <p class="amulet-desc-small">{{ amulet.description }}</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+
+          <!-- Amuletos Vaults Normales -->
+          @if (currentPatch().newAmuletCategories!.normalVault && currentPatch().newAmuletCategories!.normalVault.length > 0) {
+            <div class="amulet-category-section">
+              <h3 class="category-title text-cyan">🔑 Amuletos de Bóvedas Normales</h3>
+              <div class="amulets-grid-small">
+                @for (amulet of currentPatch().newAmuletCategories!.normalVault; track amulet.name) {
+                  <div class="amulet-entry-card-small">
+                    <div class="amulet-img-wrap-small item-slot-wrap">
+                      <img [src]="amulet.img" [alt]="amulet.name" class="amulet-img-small" />
+                    </div>
+                    <div class="amulet-info-small">
+                      <h4 class="amulet-name-small">{{ amulet.name }}</h4>
+                      <p class="amulet-desc-small">{{ amulet.description }}</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+
+          <!-- Amuletos Vaults Ominosos -->
+          @if (currentPatch().newAmuletCategories!.ominousVault && currentPatch().newAmuletCategories!.ominousVault.length > 0) {
+            <div class="amulet-category-section">
+              <h3 class="category-title text-red">💀 Amuletos de Bóvedas Ominosas</h3>
+              <div class="amulets-grid-small">
+                @for (amulet of currentPatch().newAmuletCategories!.ominousVault; track amulet.name) {
+                  <div class="amulet-entry-card-small">
+                    <div class="amulet-img-wrap-small item-slot-wrap">
+                      <img [src]="amulet.img" [alt]="amulet.name" class="amulet-img-small" />
+                    </div>
+                    <div class="amulet-info-small">
+                      <h4 class="amulet-name-small">{{ amulet.name }}</h4>
+                      <p class="amulet-desc-small">{{ amulet.description }}</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+
+          <!-- Amuletos Especiales -->
+          @if (currentPatch().newAmuletCategories!.special && currentPatch().newAmuletCategories!.special.length > 0) {
+            <div class="amulet-category-section">
+              <h3 class="category-title text-purple">⭐ Amuletos Especiales</h3>
+              <div class="amulets-grid-small">
+                @for (amulet of currentPatch().newAmuletCategories!.special; track amulet.name) {
+                  <div class="amulet-entry-card-small">
+                    <div class="amulet-img-wrap-small item-slot-wrap">
+                      <img [src]="amulet.img" [alt]="amulet.name" class="amulet-img-small" />
+                    </div>
+                    <div class="amulet-info-small">
+                      <h4 class="amulet-name-small">{{ amulet.name }}</h4>
+                      <p class="amulet-desc-small">{{ amulet.description }}</p>
+                    </div>
                   </div>
                 }
               </div>
