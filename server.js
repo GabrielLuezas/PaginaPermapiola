@@ -755,8 +755,8 @@ const PATCHES_DATA = [
           { row: 1, col: 1, name: 'Mesa', img: '/images/placeholders/table_base_placeholder.svg' },
           { row: 1, col: 2, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
           { row: 2, col: 0, name: 'Jade Jewels', img: '/images/items/jade_jewels.png' },
-          { row: 2, col: 1, name: 'Ruby Jewels', img: '/images/items/ruby_jewels.png' },
-          { row: 2, col: 2, name: 'Sapphire Jewels', img: '/images/items/sapphire_jewels.png' }
+          { row: 2, col: 1, name: 'Ruby Jewels', img: '/images/items/r_jewels.png' },
+          { row: 2, col: 2, name: 'Sapphire Jewels', img: '/images/items/s_jewels.png' }
         ],
         result: { row: 1, col: 2, name: 'Oblivion Workbench', img: '/images/placeholders/oblivion_workbench.svg' }
       }
