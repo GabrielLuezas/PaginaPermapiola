@@ -762,7 +762,54 @@ const PATCHES_DATA = [
   {
     number: 3,
     day: 7,
-    revealDate: new Date('2026-08-15T00:00:00Z'),
+    revealDate: new Date('2026-08-08T00:00:00Z'),
+    raidsLevelUp: [
+      {
+        name: 'Pillager',
+        img: '/images/placeholders/mob_placeholder.svg',
+        description: 'Ahora poseen Instant Damage I en sus proyectiles y sus flechas son explosivas.'
+      },
+      {
+        name: 'Vindicator',
+        img: '/images/placeholders/mob_placeholder.svg',
+        description: 'Su daño se ha visto incrementado significativamente y poseen Speed I de forma permanente.'
+      },
+      {
+        name: 'Giant Ravager',
+        img: '/images/placeholders/mob_placeholder.svg',
+        description: 'Un Ravager gigante con Speed II, una barra de vida adicional y daño aumentado.'
+      },
+      {
+        name: 'Sorcerer',
+        img: '/images/placeholders/mob_placeholder.svg',
+        description: 'Tiene un 50% de probabilidad de evitar ataques y ponerte a levitar durante unos segundos, invoca Decaying Ghoul en vez de vexes'
+      },
+      {
+        name: 'Decaying Ghoul',
+        img: '/images/placeholders/mob_placeholder.svg',
+        description: 'Poseen tamaño un poco más incrementado, su daño aumenta pero son más lentos. No llevan ningún ítem en la mano y pueden dar Congelación durante unos segundos.'
+      },
+      {
+        name: 'Witcher',
+        img: '/images/placeholders/mob_placeholder.svg',
+        description: 'Tiene un 30% de probabilidad de usar múltiples pociones a la vez al recibir golpes (Invisibilidad, Speed II, Regeneración I, Fire Resistance), te da Ceguera al golpearla, invoca pequeños Ghasts en lugar de Vexes, y puede invocar una horda de mini esqueletos y mini zombies al ser golpeada.'
+      },
+      {
+        name: 'Mime',
+        img: '/images/placeholders/mob_placeholder.svg',
+        description: 'Totalmente silencioso. Lleva frascos misteriosos en sus manos. Al golpearte tiene un 10% de probabilidad de lanzarte un frasco que otorga Ceguera y Descomposición, dejándote cegado con cada golpe. Al ser golpeado, tiene un 20% de probabilidad de volverse enorme con Fuerza aumentada (pero volviéndose más lento), y un 20% de probabilidad de obtener Velocidad V por unos segundos.'
+      },
+      {
+        name: 'Executioner',
+        img: '/images/placeholders/mob_placeholder.svg',
+        description: 'Pillager verdugo que porta un hacha gigante e inflige daño letal. Es el mob más fuerte de las Raids.'
+      },
+      {
+        name: 'Jester',
+        img: '/images/placeholders/mob_placeholder.svg',
+        description: 'Al golpearte tiene un 30% de probabilidad de dejar una TNT y huir. Al ser golpeado, su tamaño disminuye pero su velocidad y fuerza aumentan (se acumula hasta morir). Al morir, genera una Gift Box que al romperse explota con nivel 3.'
+      }
+    ],
     mechanics: [
       { tag: 'NUEVO', text: 'Todos los Creepers aparecen cargados / eléctricos.' },
       { tag: 'NUEVO', text: 'Al morir una tortuga, genera una explosión de nivel 10.' },
@@ -797,35 +844,26 @@ const PATCHES_DATA = [
     ],
     mobs: [
       {
-        name: 'Enderman (Día 7)',
-        img: 'https://minecraft.wiki/images/Enderman.png',
-        hearts: 30,
-        equipment: ['x3 Daño', '+10 Corazones Extra', 'Ceguera al golpear'],
-        description: 'Enderman repotenciado para el Día 7 con vida adicional, daño triple y ceguera al golpear.'
-      },
-      {
-        name: 'Tenebris Hoglin',
-        img: '/images/mobs/father_hoglin.png',
-        hearts: 40,
-        equipment: ['Piglin Brute Rider'],
-        description: 'Hoglin mutado en Tenebris Hoglin con un Piglin Brute montado encima.'
-      },
-      {
-        name: 'Hollow Archer',
+        name: 'Cyclone Skeleton',
         img: '/images/mobs/cyclone_archer.png',
-        hearts: 20,
-        description: 'Reemplaza a todos los esqueletos comunes del mundo.'
+        description: 'Sus flechas al impactar generan un rayo que aplica Weakness, Mining Fatigue y Slowness.'
       },
       {
-        name: 'Strider Ghast',
-        img: 'https://minecraft.wiki/images/Ghast.png',
-        description: 'Los Striders ahora son temibles Ghasts.'
+        name: 'Emperor Skeleton',
+        img: '/images/mobs/emperor_archer.png',
+        description: 'Sus ataques quitan una gran cantidad de vida.'
       },
       {
-        name: 'Camel Ravager',
-        img: '/images/mobs/ravager.png',
-        description: 'Los Camellos son sustituidos por letales Ravagers.'
+        name: 'Magnetic Skeleton',
+        img: '/images/mobs/magnetic_archer.png',
+        description: 'Te atrae hacia él con cada disparo.'
       },
+      {
+        name: 'Nightmare Skeleton',
+        img: '/images/mobs/nightmare_archer.png',
+        description: 'Sus flechas te queman infinitamente, aplican Blindness y remueven todos tus efectos activos.'
+      },
+      /*
       {
         name: 'Kamikaze Machine',
         img: '/images/mobs/kamikaze_machine.png',
@@ -839,29 +877,9 @@ const PATCHES_DATA = [
       {
         name: 'Pale Wasp',
         img: '/images/mobs/pale_wasp.png',
-      },
-      {
-        name: 'Nightmare Skeleton',
-        img: '/images/mobs/nightmare_archer.png',
-        description: 'Sus flechas te queman infinitamente, aplican Blindness y remueven todos tus efectos activos.'
+        description: 'Inyecta una dosis letal de Veneno, Descomposición y Ceguera.'
       }
-    ],
-    crafts: [
-      {
-        name: 'Poción Invisibilidad Permanente',
-        img: 'https://minecraft.wiki/images/Potion_of_Invisibility.png',
-        description: 'Dura 10 min. Se cancela al atacar. Crafteable con 8 Fermented Spider Eyes + Botella Mágica.',
-        droppedBy: 'Crafteable — 8 Fermented Spider Eyes + Botella Mágica',
-        craftIngredients: '8 Fermented Spider Eyes + Botella Mágica'
-      }
-    ],
-    loot: [
-      {
-        name: 'Tridente Encantado',
-        img: 'https://minecraft.wiki/images/Trident.png',
-        description: 'Tridente con Channeling permanente. Solo se obtiene del Drowned Gigante.',
-        droppedBy: '30% drop — Drowned Gigante (océano profundo > 30 bloques)'
-      }
+      */
     ]
   },
   {
@@ -988,6 +1006,7 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
         mechanics: patch.mechanics,
         dungeons: patch.dungeons || [],
         effects: patch.effects || [],
+        raidsLevelUp: patch.raidsLevelUp || [],
         mobs: patch.mobs,
         crafts: patch.crafts || [],
         loot: patch.loot || [],

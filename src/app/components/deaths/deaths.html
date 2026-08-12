@@ -1,15 +1,67 @@
 <div class="deaths-page-bg">
   <div class="container deaths-container">
-    <header class="page-header">
-      <h1 class="page-title gradient-text-death glow-text-death">ALMAS CAÍDAS</h1>
+    
+    <header class="page-header text-center">
+      <h1 class="page-title gradient-text-death glow-text-death">CEMENTERIO DE CAÍDOS</h1>
     </header>
 
-    <div class="not-available-wrapper">
-      <div class="glass-card not-available-card border-danger">
-        <span class="not-available-icon flicker">💀</span>
-        <h3>Aún no está esta funcionalidad</h3>
-        <p>El cementerio de almas se abrirá en cuanto comiencen a registrarse las primeras bajas definitivas en el servidor.</p>
+
+
+    <!-- Grid of Fallen Warriors -->
+    @if (filteredFallen().length > 0) {
+      <div class="deaths-grid">
+        @for (warrior of filteredFallen(); track warrior.name + '-' + warrior.deathNumber) {
+          <div class="death-card glass-card border-danger">
+            <!-- Death info banners -->
+            <div class="death-card-banners">
+              <span class="death-number-badge">MUERTE #{{ warrior.deathNumber }}</span>
+              <span class="death-day-badge">DÍA {{ warrior.day }}</span>
+            </div>
+
+            <!-- Avatar -->
+            <div class="death-avatar-wrapper">
+              <img [src]="warrior.avatar" [alt]="warrior.name" class="death-avatar" />
+            </div>
+
+            <!-- Content -->
+            <div class="death-card-content">
+              <h2 class="death-player-name">{{ warrior.name }}</h2>
+              
+              <!-- Cause of Death -->
+              <div class="death-cause-box">
+                <span class="cause-label">LOG DE MUERTE:</span>
+                <p class="death-cause-text">"{{ warrior.cause }}"</p>
+              </div>
+
+              <!-- Location -->
+              <div class="death-location-box">
+                <div class="location-coord">
+                  <span class="loc-icon">📍</span>
+                  <code>{{ warrior.location }}</code>
+                </div>
+                <span class="dimension-badge" [class]="'dim-' + warrior.world.toLowerCase()">
+                  {{ warrior.world }}
+                </span>
+              </div>
+
+              <!-- Last Words -->
+              @if (warrior.lastWords) {
+                <div class="last-words-box">
+                  <span class="words-quote">💬</span>
+                  <p class="last-words-text">"{{ warrior.lastWords }}"</p>
+                </div>
+              }
+            </div>
+          </div>
+        }
       </div>
-    </div>
+    } @else {
+      <div class="no-results-card glass-card">
+        <span class="no-results-icon">👻</span>
+        <h3>Ningún alma coincide con tu búsqueda</h3>
+        <p>Prueba con otros términos o limpia el buscador.</p>
+      </div>
+    }
+
   </div>
 </div>

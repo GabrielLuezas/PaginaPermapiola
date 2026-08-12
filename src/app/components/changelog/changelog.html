@@ -234,6 +234,52 @@
     }
 
     <!-- ═══════════════════════════════════════════
+         SECTION — RAIDS LEVEL UP
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().raidsLevelUp && currentPatch().raidsLevelUp!.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title text-red"> RAIDS LEVEL UP </h2>
+        </div>
+        <p class="raids-summary-text" style="color: #fda4af; font-size: 0.95rem; margin-top: -10px; margin-bottom: 20px; line-height: 1.6; border-left: 3px solid #f43f5e; padding-left: 12px;">
+          Se han agregado nuevas variantes de Illagers y todas las criaturas de raid poseen x2 de Vida base. ¡Las invasiones ahora son mucho más brutales!
+        </p>
+        <div class="entries-list">
+          @for (mob of currentPatch().raidsLevelUp; track mob.name) {
+            <div class="entry-card mob-entry-card border-red-glow">
+              <div class="entry-img-wrap">
+                <img [src]="mob.img" [alt]="mob.name" class="entry-img" />
+              </div>
+              <div class="entry-content">
+                <div class="entry-header-row">
+                  <h3 class="entry-name text-light-red">{{ mob.name }}</h3>
+                  @if (mob.hearts && mob.hearts > 0) {
+                    <span class="mob-hp-badge badge-red">{{ mob.hearts }} HP</span>
+                  }
+                </div>
+                @if (mob.description) {
+                  <p class="entry-desc">{{ mob.description }}</p>
+                }
+                @if (mob.equipment && mob.equipment.length > 0) {
+                  <ul class="mob-stats">
+                    @for (eq of mob.equipment; track eq) {
+                      <li>{{ eq }}</li>
+                    }
+                  </ul>
+                }
+                @if (mob.drop) {
+                  <div class="mob-drop">
+                    <span class="drop-text text-green">{{ mob.drop }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
          SECTION 4 — MOBS NUEVOS
     ════════════════════════════════════════════ -->
     @if (currentPatch().mobs && currentPatch().mobs.length > 0) {

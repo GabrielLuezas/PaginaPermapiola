@@ -1092,3 +1092,24 @@
   from { opacity: 0; transform: scale(0.96); }
   to { opacity: 1; transform: scale(1); }
 }
+
+/* --- RAIDS LEVEL UP Section --- */
+.text-red {
+  color: #f43f5e !important;
+  text-shadow: 0 0 10px rgba(244, 63, 94, 0.4);
+}
+
+.text-light-red {
+  color: #fda4af !important;
+}
+
+.border-red-glow:hover {
+  border-color: rgba(244, 63, 94, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(244, 63, 94, 0.15);
+}
+
+.badge-red {
+  color: #f43f5e !important;
+  background: rgba(244, 63, 94, 0.08) !important;
+  border: 1px solid rgba(244, 63, 94, 0.2) !important;
+}

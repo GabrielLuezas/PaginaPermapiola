@@ -7,9 +7,10 @@ interface FallenWarrior {
   avatar: string;
   cause: string;
   day: number;
-  date: string;
+  deathNumber: number;
   location: string;
-  rank: string;
+  world: string;
+  lastWords?: string;
 }
 
 @Component({
@@ -20,72 +21,190 @@ interface FallenWarrior {
 })
 export class Deaths {
   protected readonly searchQuery = signal('');
-  protected readonly sortBy = signal<'day' | 'name'>('day');
+  protected readonly sortBy = signal<'deathNumber' | 'day' | 'name'>('deathNumber');
 
-  // List of fallen players. 
-  // Once the server starts, this list can be populated dynamically or updated statically.
   protected readonly fallenList = signal<FallenWarrior[]>([
     {
-      name: 'SrGatoLoco',
-      avatar: 'https://minotar.net/helm/SrGatoLoco/64.png',
-      cause: 'Fue empujado al vacío por EvokerBoss durante la Fase 1',
-      day: 3,
-      date: '20 de Julio, 2026',
-      location: 'Arena del Invocador (X: 120, Z: -350)',
-      rank: 'Participante'
-    },
-    {
-      name: 'MrSteve_98',
-      avatar: 'https://minotar.net/helm/MrSteve_98/64.png',
-      cause: 'Trató de nadar en lava intentando escapar de un Creeper cargado',
-      day: 2,
-      date: '19 de Julio, 2026',
-      location: 'Subsuelo del Spawn (X: 50, Z: 40)',
-      rank: 'Participante'
-    },
-    {
-      name: 'lola_play',
-      avatar: 'https://minotar.net/helm/lola_play/64.png',
-      cause: 'Fue fulminado por un rayo del guerrero invocador (EvokerBoss)',
-      day: 3,
-      date: '20 de Julio, 2026',
-      location: 'Arena del Invocador (X: 145, Z: -340)',
-      rank: 'Veterano'
-    },
-    {
-      name: 'xX_GamerPro_Xx',
-      avatar: 'https://minotar.net/helm/xX_GamerPro_Xx/64.png',
-      cause: 'Olvidó equiparse las Elytras cayendo desde la torre de su base',
+      name: 'IzJampi',
+      avatar: 'https://minotar.net/helm/IzJampi/120.png',
+      cause: 'IzJampi was slain by Zombie',
       day: 1,
-      date: '18 de Julio, 2026',
-      location: 'Base de Alianza (X: -1200, Z: 890)',
-      rank: 'Participante'
+      deathNumber: 1,
+      location: '5446 -32 455',
+      world: 'Over'
     },
     {
-      name: 'AlexSurvival',
-      avatar: 'https://minotar.net/helm/AlexSurvival/64.png',
-      cause: 'Asesinado por comertetass en el evento de inicio de la Purga',
-      day: 5,
-      date: '22 de Julio, 2026',
-      location: 'Tierras Salvajes (X: 450, Z: -120)',
-      rank: 'Cazador'
+      name: 'FL_billiken1905',
+      avatar: 'https://minotar.net/helm/FL_billiken1905/120.png',
+      cause: 'FL_billiken1905 was slain by Vindicator',
+      day: 1,
+      deathNumber: 2,
+      location: '-3942 126 -2546',
+      world: 'Over'
+    },
+    {
+      name: 'Sebasfs128_',
+      avatar: 'https://minotar.net/helm/Sebasfs128_/120.png',
+      cause: 'Sebasfs128_ was blown up by Creeper',
+      day: 1,
+      deathNumber: 3,
+      location: '3077 135 3831',
+      world: 'Over'
+    },
+    {
+      name: 'xanderssss',
+      avatar: 'https://minotar.net/helm/xanderssss/120.png',
+      cause: 'xanderssss was impaled on a stalagmite',
+      day: 2,
+      deathNumber: 4,
+      location: '-2613 -45 1826',
+      world: 'Over'
+    },
+    {
+      name: 'Caubet',
+      avatar: 'https://minotar.net/helm/Caubet/120.png',
+      cause: 'Caubet fell from a high place',
+      day: 2,
+      deathNumber: 5,
+      location: '3 68 -523',
+      world: 'Over'
+    },
+    {
+      name: 'Aaa_OnichanUwU',
+      avatar: 'https://minotar.net/helm/Aaa_OnichanUwU/120.png',
+      cause: 'Aaa_OnichanUwU was slain by Vindicator',
+      day: 2,
+      deathNumber: 6,
+      location: '765 89 -1505',
+      world: 'Over'
+    },
+    {
+      name: 'Imsixito_',
+      avatar: 'https://minotar.net/helm/Imsixito_/120.png',
+      cause: 'Imsixito_ was slain by Millenary Guard',
+      day: 3,
+      deathNumber: 7,
+      location: '-481 75 4190',
+      world: 'Over'
+    },
+    {
+      name: 'Rojeeto',
+      avatar: 'https://minotar.net/helm/Rojeeto/120.png',
+      cause: 'Rojeeto was blown up by Creeper',
+      day: 3,
+      deathNumber: 8,
+      location: '-767 -2 4728',
+      world: 'Over'
+    },
+    {
+      name: 'LechugaMC',
+      avatar: 'https://minotar.net/helm/LechugaMC/120.png',
+      cause: 'LechugaMC was slain by Millenary Golem',
+      day: 3,
+      deathNumber: 9,
+      location: '-452 85 4172',
+      world: 'Over'
+    },
+    {
+      name: 'Darkvid',
+      avatar: 'https://minotar.net/helm/Darkvid/120.png',
+      cause: 'Darkvid was slain by Millenary Golem',
+      day: 3,
+      deathNumber: 10,
+      location: '-452 84 4176',
+      world: 'Over'
+    },
+    {
+      name: 'Jzree',
+      avatar: 'https://minotar.net/helm/Jzree/120.png',
+      cause: 'Jzree was slain by Millenary Golem',
+      day: 3,
+      deathNumber: 11,
+      location: '-498 75 549',
+      world: 'Over'
+    },
+    {
+      name: 'Souther55',
+      avatar: 'https://minotar.net/helm/Souther55/120.png',
+      cause: 'Souther55 was slain by Iron Golem',
+      day: 3,
+      deathNumber: 12,
+      location: '-790 72 4364',
+      world: 'Over'
+    },
+    {
+      name: 'WynautSGP',
+      avatar: 'https://minotar.net/helm/WynautSGP/120.png',
+      cause: 'WynautSGP was slain by Wasted Walker',
+      day: 3,
+      deathNumber: 13,
+      location: '1909 88 1923',
+      world: 'Over'
+    },
+    {
+      name: 'RolexHK',
+      avatar: 'https://minotar.net/helm/RolexHK/120.png',
+      cause: 'RolexHK fell off a ladder',
+      day: 3,
+      deathNumber: 14,
+      location: '1957 27 -412',
+      world: 'Over'
+    },
+    {
+      name: 'MailsBowi',
+      avatar: 'https://minotar.net/helm/MailsBowi/120.png',
+      cause: 'MailsBowi was blown up by Nebula Creeper',
+      day: 3,
+      deathNumber: 15,
+      location: '5065 64 3394',
+      world: 'Over',
+      lastWords: 'Buenos días, buenas tardes y buenas noches'
+    },
+    {
+      name: 'ItsNG266',
+      avatar: 'https://minotar.net/helm/ItsNG266/120.png',
+      cause: 'ItsNG266 blew up',
+      day: 4,
+      deathNumber: 16,
+      location: '3309 71 3513',
+      world: 'Over'
+    },
+    {
+      name: 'haloner7',
+      avatar: 'https://minotar.net/helm/haloner7/120.png',
+      cause: 'haloner7 blew up',
+      day: 4,
+      deathNumber: 17,
+      location: '34 43 -624',
+      world: 'Over'
+    },
+    {
+      name: 'Benjaaaah',
+      avatar: 'https://minotar.net/helm/Benjaaaah/120.png',
+      cause: 'Benjaaaah was slain by Assasin Piglin',
+      day: 4,
+      deathNumber: 18,
+      location: '99 57 -533',
+      world: 'Nether',
+      lastWords: 'Puto el que muere despues de mi...'
     }
   ]);
 
-  // Computed signal to filter and sort the fallen players list
   protected readonly filteredFallen = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
     const sort = this.sortBy();
 
     let list = this.fallenList().filter(warrior => 
-      warrior.name.toLowerCase().includes(query) || warrior.cause.toLowerCase().includes(query)
+      warrior.name.toLowerCase().includes(query) || 
+      warrior.cause.toLowerCase().includes(query) || 
+      (warrior.lastWords && warrior.lastWords.toLowerCase().includes(query))
     );
 
-    if (sort === 'day') {
-      // Sort by survival day descending (longer survivors first)
-      list = list.sort((a, b) => b.day - a.day);
+    if (sort === 'deathNumber') {
+      list = list.sort((a, b) => a.deathNumber - b.deathNumber);
+    } else if (sort === 'day') {
+      list = list.sort((a, b) => a.day - b.day || a.deathNumber - b.deathNumber);
     } else {
-      // Sort alphabetically by name
       list = list.sort((a, b) => a.name.localeCompare(b.name));
     }
 
@@ -99,6 +218,6 @@ export class Deaths {
 
   protected updateSort(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
-    this.sortBy.set(selectElement.value as 'day' | 'name');
+    this.sortBy.set(selectElement.value as 'deathNumber' | 'day' | 'name');
   }
 }

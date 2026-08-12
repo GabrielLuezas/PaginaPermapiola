@@ -103,6 +103,7 @@ export interface Patch {
   mechanics: Mechanic[];
   dungeons?: DungeonEntry[];
   effects?: EffectEntry[];
+  raidsLevelUp?: MobEntry[];
   mobs: MobEntry[];
   crafts?: ItemEntry[];
   loot?: ItemEntry[];

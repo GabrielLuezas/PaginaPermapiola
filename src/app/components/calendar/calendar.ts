@@ -24,7 +24,7 @@ export interface CalendarDay {
 const SERVER_EVENTS: CalendarEvent[] = [
   {
     id: 'dia1',
-    day: 8, hour: 19, minute: 0,
+    day: 8, hour: 23, minute: 0,
     type: 'inicio',
     title: 'Día 1 (Inicio)',
     description: 'Apertura oficial de Permapiola Survival Temporada 6. Todos los participantes entran con 1 sola vida. El permadeath comienza.'
@@ -38,105 +38,105 @@ const SERVER_EVENTS: CalendarEvent[] = [
   },
   {
     id: 'nether_aug10',
-    day: 10, hour: 19, minute: 0,
+    day: 10, hour: 23, minute: 0,
     type: 'evento',
     title: 'Apertura del Nether',
     description: 'El Nether abre sus puertas. Los jugadores podrán acceder al Nether a partir de este momento.'
   },
   {
     id: 'dungeon_aug11',
-    day: 11, hour: 19, minute: 0,
+    day: 11, hour: 23, minute: 0,
     type: 'dungeon',
     title: 'Dungeon',
     description: 'Apertura de Dungeon.'
   },
   {
     id: 'dungeon_aug13',
-    day: 13, hour: 19, minute: 0,
+    day: 13, hour: 23, minute: 0,
     type: 'dungeon',
     title: 'Dungeon',
     description: 'Apertura de Dungeon.'
   },
   {
     id: 'dia7',
-    day: 14, hour: 19, minute: 0,
+    day: 14, hour: 23, minute: 0,
     type: 'cambios',
     title: 'Día 7',
     description: 'Parche de cambios y ajustes.'
   },
   {
     id: 'boss_aug15',
-    day: 15, hour: 19, minute: 0,
+    day: 15, hour: 23, minute: 0,
     type: 'boss',
     title: 'Boss',
     description: 'Aparición de Boss.'
   },
   {
     id: 'dia10',
-    day: 17, hour: 19, minute: 0,
+    day: 17, hour: 23, minute: 0,
     type: 'cambios',
     title: 'Día 10',
     description: 'Parche de cambios y ajustes.'
   },
   {
     id: 'boss_aug19',
-    day: 19, hour: 19, minute: 0,
+    day: 19, hour: 23, minute: 0,
     type: 'boss',
     title: 'Boss',
     description: 'Aparición de Boss.'
   },
   {
     id: 'dia14',
-    day: 21, hour: 19, minute: 0,
+    day: 21, hour: 23, minute: 0,
     type: 'cambios',
     title: 'Día 14',
     description: 'Parche de cambios y ajustes.'
   },
   {
     id: 'megadungeon_aug23',
-    day: 23, hour: 19, minute: 0,
+    day: 23, hour: 23, minute: 0,
     type: 'megadungeon',
     title: 'MegaDungeon',
     description: 'Apertura de la MegaDungeon.'
   },
   {
     id: 'dia18',
-    day: 25, hour: 19, minute: 0,
+    day: 25, hour: 23, minute: 0,
     type: 'cambios',
     title: 'Día 18',
     description: 'Parche de cambios y ajustes.'
   },
   {
     id: 'dia21',
-    day: 28, hour: 19, minute: 0,
+    day: 28, hour: 23, minute: 0,
     type: 'cambios',
     title: 'Día 21',
     description: 'Parche de cambios y ajustes.'
   },
   {
     id: 'dia23',
-    day: 30, hour: 19, minute: 0,
+    day: 30, hour: 23, minute: 0,
     type: 'cambios',
     title: 'Día 23',
     description: 'Parche de cambios (End open).'
   },
   {
     id: 'dia23_dragon',
-    day: 30, hour: 20, minute: 0,
+    day: 30, hour: 23, minute: 0,
     type: 'dragonfight',
     title: 'Evento del Dragón',
     description: 'La batalla definitiva contra el Dragón del Fin. (End open)'
   },
   {
     id: 'dia25',
-    day: 32, hour: 19, minute: 0,
+    day: 32, hour: 23, minute: 0,
     type: 'cambios',
     title: 'Día 25',
     description: 'Parche de cambios y ajustes.'
   },
   {
     id: 'dia28',
-    day: 35, hour: 19, minute: 0,
+    day: 35, hour: 23, minute: 0,
     type: 'fin',
     title: 'Día 28 (Fin)',
     description: 'Último parche y fin de la temporada.'

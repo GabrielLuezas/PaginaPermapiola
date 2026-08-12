@@ -14,7 +14,6 @@
     <!-- Desktop navigation links (hidden on mobile via CSS) -->
     <nav class="nav-menu-desktop">
       <a routerLink="/home" routerLinkActive="active" class="nav-link">Inicio</a>
-      <a routerLink="/players" routerLinkActive="active" class="nav-link">Jugadores</a>
       <a routerLink="/ranks" routerLinkActive="active" class="nav-link">Rangos</a>
       <a routerLink="/rules" routerLinkActive="active" class="nav-link">Reglas</a>
       <a routerLink="/calendar" routerLinkActive="active" class="nav-link">Calendario</a>
@@ -42,7 +41,6 @@
 <div class="mobile-nav-overlay" [class.open]="isMobileMenuOpen()">
   <nav class="mobile-nav-links">
     <a routerLink="/home" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Inicio</a>
-    <a routerLink="/players" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Jugadores</a>
     <a routerLink="/ranks" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Rangos</a>
     <a routerLink="/rules" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Reglas</a>
     <a routerLink="/calendar" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">Calendario</a>
