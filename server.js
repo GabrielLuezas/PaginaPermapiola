@@ -764,13 +764,47 @@ const PATCHES_DATA = [
   },
   {
     number: 3,
+    day: 5,
+    revealDate: new Date('2026-08-11T21:00:00Z'),
+    mechanics: [],
+    effects: [],
+    dungeons: [],
+    npcs: [],
+    crafts: [],
+    loot: [],
+    recipes: [],
+    mobs: [
+      {
+        name: 'Cyclone Skeleton',
+        img: '/images/mobs/cyclone_archer.webp',
+        description: 'Sus flechas al impactar generan un rayo que aplica Weakness, Mining Fatigue y Slowness.'
+      },
+      {
+        name: 'Emperor Skeleton',
+        img: '/images/mobs/emperor_archer.webp',
+        description: 'Sus ataques quitan una gran cantidad de vida.'
+      },
+      {
+        name: 'Magnetic Skeleton',
+        img: '/images/mobs/magnetic_archer.webp',
+        description: 'Te atrae hacia él con cada disparo.'
+      },
+      {
+        name: 'Nightmare Skeleton',
+        img: '/images/mobs/nightmare_archer.webp',
+        description: 'Sus flechas te queman infinitamente, aplican Blindness y remueven todos tus efectos activos.'
+      }
+    ]
+  },
+  {
+    number: 4,
     day: 6,
     revealDate: new Date('2026-08-13T21:00:00Z'),
     mechanics: [],
     mobs: [],
     dungeonGuide: {
       title: 'Trials Dungeons',
-      subtitle: 'Una peligrosa estructura subterránea llena de trampas, desafíos e Illagers modificados. Prepárate con tu party para afrontar las 12 salas aleatorias.',
+      subtitle: 'Una peligrosa estructura subterránea llena de desafios y tesoros.',
       mainImg: '/images/interfaces/dungeonpreview.webp',
       steps: [
         {
@@ -837,84 +871,530 @@ const PATCHES_DATA = [
         title: 'Recompensa de SPAWNER NORMAL',
         subtitle: 'Al superar la horda Normal',
         items: [
-          { chance: '40%', name: 'Llave Normal Custom', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '10%', name: 'Fragmento de Trial', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '30%', name: 'Botella Ominosa (Niveles 1 a 5)', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '10%', name: '10 Zanahorias de Oro', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '5%', name: '5 Recompensas Doradas', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '5%', name: '2 Escombros Ancestrales', img: '/images/placeholders/item_placeholder.svg' }
+          { chance: '40%', name: 'Llave Normal Custom', img: '/images/items/Trial_Key.webp' },
+          { chance: '10%', name: 'Fragmento de Trial', img: '/images/items/prismarine_shard.webp' },
+          { chance: '30%', name: 'Botella Ominosa (Niveles 1 a 5)', img: '/images/items/ominous_bottle.webp' },
+          { chance: '10%', name: '10 Zanahorias de Oro', img: '/images/items/golden_carrot.webp' },
+          { chance: '5%', name: '5 Manzanas Doradas', img: '/images/items/Golden_Apple.webp' },
+          { chance: '5%', name: '2 Escombros Ancestrales', img: '/images/items/Ancient_Debris.webp' }
         ]
       },
       {
         title: 'Recompensa de SPAWNER OMINOSO',
         subtitle: 'Al superar la horda Ominosa',
         items: [
-          { chance: '30%', name: 'Llave Ominosa Custom', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '15%', name: 'Fragmento Ominoso', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '15%', name: '20 Zanahorias de Oro', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '20%', name: '10 Manzanas Doradas', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '1%', name: '1 Manzana de Oro Encantada', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '4%', name: 'Botella Ominosa (Niveles 1 a 5)', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '5%', name: 'Drop Random de Mob Especial de Mazmorra', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '5%', name: '1 Lingote de Netherite', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '5%', name: '1 Bloque de Diamante', img: '/images/placeholders/item_placeholder.svg' }
+          { chance: '30%', name: 'Llave Ominosa Custom', img: '/images/items/Ominous_Trial_Key.webp' },
+          { chance: '15%', name: 'Fragmento Ominoso', img: '/images/items/amethyst_shard.webp' },
+          { chance: '15%', name: '20 Zanahorias de Oro', img: '/images/items/golden_carrot.webp' },
+          { chance: '20%', name: '10 Manzanas Doradas', img: '/images/items/Golden_Apple.webp' },
+          { chance: '1%', name: '1 Manzana de Oro Encantada', img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { chance: '4%', name: 'Botella Ominosa (Niveles 1 a 5)', img: '/images/items/ominous_bottle.webp' },
+          { chance: '5%', name: 'Drop Random de Mob Especial de Mazmorra', img: '/images/items/drop_random.webp' },
+          { chance: '5%', name: '1 Lingote de Netherite', img: '/images/items/netherite_ingot.webp' },
+          { chance: '5%', name: '1 Bloque de Diamante', img: '/images/items/block_diamond.webp' }
         ]
       },
       {
         title: 'Recompensa de BÓVEDA NORMAL',
         subtitle: 'Al usar Llave de Trial Normal',
         items: [
-          { chance: '5%', name: 'Tridente (1x)', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '5%', name: 'Lingote de Netherite (1x)', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '10%', name: '10 Bloques de Esmeralda', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '10%', name: '8 Bloques de Oro', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '30%', name: 'Botella de Mal Presagio (Niveles 1 a 5)', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '10%', name: '5 Recompensas Doradas', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '1%', name: 'Recompensa de Oro Encantada (1x)', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '5%', name: 'Cualquier Trim del juego', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '10%', name: '10 Bloques de Hierro', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '4%', name: 'Tótem de la Inmortalidad (1x)', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '10%', name: 'Amuleto de Bóveda Normal', img: '/images/placeholders/item_placeholder.svg' }
+          { chance: '5%', name: 'Tridente (1x)', img: '/images/items/Trident.webp' },
+          { chance: '5%', name: 'Lingote de Netherite (1x)', img: '/images/items/netherite_ingot.webp' },
+          { chance: '10%', name: '10 Bloques de Esmeralda', img: '/images/items/emerald_block.webp' },
+          { chance: '10%', name: '8 Bloques de Oro', img: '/images/items/block_gold.webp' },
+          { chance: '30%', name: 'Botella de Mal Presagio (Niveles 1 a 5)', img: '/images/items/ominous_bottle.webp' },
+          { chance: '10%', name: '5 Manzanas Doradas', img: '/images/items/Golden_Apple.webp' },
+          { chance: '1%', name: 'Manzana de Oro Encantada (1x)', img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { chance: '5%', name: 'Cualquier Trim del juego', img: '/images/items/trim_random.webp' },
+          { chance: '10%', name: '10 Bloques de Hierro', img: '/images/items/Block_iron.webp' },
+          { chance: '4%', name: 'Tótem de la Inmortalidad (1x)', img: '/images/items/totem.webp' },
+          { chance: '10%', name: 'Amuleto de Bóveda Normal', img: '/images/items/vital_pendant.webp' }
         ]
       },
       {
         title: 'Recompensa de BÓVEDA OMINOSA',
         subtitle: 'Al usar Llave Ominosa',
         items: [
-          { chance: '10%', name: 'Pieza de Netherite Encantada', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '10%', name: 'Amuleto de Bóveda Ominosa', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '5%', name: 'Heavy Core', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '1%', name: 'Estrella del Nether', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '10%', name: 'Libro Encantado (Wind Burst 1, Soul Speed 2-3, Swift Sneak 2-3)', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '30%', name: '10 Recompensas Doradas', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '5%', name: 'Recompensa de Oro Encantada', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '1%', name: '1 Bloque de Netherite', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '14%', name: '3 Bloques de Diamante', img: '/images/placeholders/item_placeholder.svg' },
-          { chance: '14%', name: '8 Bloques de Esmeralda', img: '/images/placeholders/item_placeholder.svg' }
+          { chance: '10%', name: 'Pieza de Netherite Reforzada', img: '/images/items/Peto.webp' },
+          { chance: '10%', name: 'Amuleto de Bóveda Ominosa', img: '/images/items/shadow_eye.webp' },
+          { chance: '5%', name: 'Heavy Core', img: '/images/items/Heavy_Core.webp' },
+          { chance: '1%', name: 'Estrella del Nether', img: '/images/items/Nether_Star.webp' },
+          { chance: '10%', name: 'Libro Encantado (Wind Burst 1, Soul Speed 2-3, Swift Sneak 2-3)', img: '/images/items/oblivion_book.webp' },
+          { chance: '30%', name: '10 Manzanas Doradas', img: '/images/items/Golden_Apple.webp' },
+          { chance: '5%', name: 'Manzana de Oro Encantada', img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { chance: '1%', name: '1 Bloque de Netherite', img: '/images/items/Block_Netherite.webp' },
+          { chance: '14%', name: '3 Bloques de Diamante', img: '/images/items/block_diamond.webp' },
+          { chance: '14%', name: '8 Bloques de Esmeralda', img: '/images/items/emerald_block.webp' }
         ]
       }
     ],
     newAmuletCategories: {
       craftable: [
-        { name: 'Amuleto de Regeneración', description: 'Otorga Regeneración I. Crafteable en la Oblivion Workbench.', img: '/images/placeholders/item_placeholder.svg' },
-        { name: 'Amuleto de Resistencia', description: 'Otorga Resistencia I. Crafteable en la Oblivion Workbench.', img: '/images/placeholders/item_placeholder.svg' }
+        {
+          name: 'Wind Shriek',
+          description: 'Al borde de la muerte, el viento grita tu nombre. Al romperse un Tótem de la Inmortalidad, genera una ráfaga de viento radial que empuja hacia atrás a todos los enemigos en un radio de 8 bloques. Enfriamiento: 5 minutos.',
+          img: '/images/items/wind_shriek.webp'
+        },
+        {
+          name: 'Monarch Wings',
+          description: 'Las alas eólicas del Monarca te impulsan a gran altura en el aire. Pulsa dos veces la tecla de salto en el aire para impulsarte con una ráfaga de viento y anular todo el daño por caída. Enfriamiento: 20 segundos.',
+          img: '/images/items/monarch_wings.webp'
+        },
+        {
+          name: 'Soul of the Hunt',
+          description: 'Extrae la esencia vital de las criaturas derrotadas. Otorga +0.5 corazones (1 HP) de vida por cada criatura (pacífica u hostil) eliminada. No funciona con soportes de armadura.',
+          img: '/images/items/soul_of_the_hunt.webp'
+        },
+        {
+          name: 'Golden Idol',
+          description: 'Los Piglins te respetan como si llevaras puesta una pieza de armadura de oro sagrada. Otorga inmunidad total al agro de los Piglins sin necesidad de vestir oro. (Pasivo - siempre activo).',
+          img: '/images/items/golden_idol.webp'
+        },
+        {
+          name: 'Herald\'s Badge IV',
+          description: 'El símbolo de los protectores de todas las aldeas. Otorga Héroe de la Aldea IV permanente. (Pasivo - siempre activo).',
+          img: '/images/items/herald\'s_badge_IV.webp'
+        },
+        {
+          name: 'Herald\'s Badge V',
+          description: 'El símbolo máximo de los protectores de todas las aldeas. Otorga Héroe de la Aldea V permanente. (Pasivo - siempre activo).',
+          img: '/images/items/herald\'s_badge_V.webp'
+        }
       ],
       normalVault: [
-        { name: 'Amuleto de Prisa Minera', description: 'Otorga Haste I. Obtenido con baja probabilidad de bóvedas normales.', img: '/images/placeholders/item_placeholder.svg' },
-        { name: 'Amuleto de Velocidad', description: 'Otorga Speed I. Obtenido con baja probabilidad de bóvedas normales.', img: '/images/placeholders/item_placeholder.svg' }
+        {
+          name: 'Vital Pendant',
+          description: 'El calor de la vida misma fluye a través de este colgante. Al romperse un Tótem de la Inmortalidad, te otorga +4 corazones adicionales de vida instantánea y el efecto de Resistencia II. Enfriamiento: 1 minuto.',
+          img: '/images/items/vital_pendant.webp'
+        },
+        {
+          name: 'Cloak of Deception',
+          description: 'La sombra te abraza en el sigilo. Te otorga invisibilidad completa al agacharse (shift). Se desactiva al moverte. (Pasivo - reactivo al movimiento).',
+          img: '/images/items/cloak_of_deception.webp'
+        },
+        {
+          name: 'Lava Shield',
+          description: 'La calidez del magma protege tu piel frente a cualquier llama. Otorga el efecto de Resistencia al Fuego de forma infinita, haciéndote inmune al daño por fuego y lava. (Pasivo - siempre activo).',
+          img: '/images/items/lava_shield.webp'
+        },
+        {
+          name: 'Ocean\'s Grace',
+          description: 'El poder de las profundidades marinas restaura tus fuerzas. Otorga de forma pasiva los efectos de Regeneración II y Saturación I constante mientras te encuentres sumergido en agua. (Pasivo - siempre activo).',
+          img: '/images/items/ocean\'s_grace.webp'
+        },
+        {
+          name: 'Berserker\'s Heart',
+          description: 'La furia se despiela cuando te acorralan los enemigos. Otorga el efecto de Fuerza II si te encuentras rodeado por 6 o más monstruos hostiles a menos de 12 bloques de distancia. (Pasivo - siempre activo).',
+          img: '/images/items/berserker\'s_heart.webp'
+        },
+        {
+          name: 'Spider\'s Claw',
+          description: 'Las patas adosadas de una araña del vacío te permiten escalar superficies sólidas. Para trepar, mantén presionadas las teclas Shift + W al estar pegado a una pared.',
+          img: '/images/items/spider\'s_claw.webp'
+        },
+        {
+          name: 'Mushroom Hide',
+          description: 'La piel fúngica endurecida repele las toxinas y la podredumbre del Nether. Cancela por completo los efectos dañinos de Veneno I y II, y Wither I y II. (Pasivo - siempre activo).',
+          img: '/images/items/mushroom_hide.webp'
+        },
+        {
+          name: 'Archer\'s Eye',
+          description: 'Otorga precisión legendaria y potencia tus proyectiles a larga distancia. Aumenta un +10% el daño base de tus disparos con arco y un +1% de daño adicional por cada bloque de distancia a partir de los 30 bloques. (Pasivo - siempre activo).',
+          img: '/images/items/archer\'s_eye.webp'
+        }
       ],
       ominousVault: [
-        { name: 'Amuleto de Fuerza Superior', description: 'Otorga Fuerza I de forma permanente. Obtenido de bóvedas ominosas.', img: '/images/placeholders/item_placeholder.svg' },
-        { name: 'Amuleto de Resistencia al Fuego', description: 'Otorga Fire Resistance I. Obtenido de bóvedas ominosas.', img: '/images/placeholders/item_placeholder.svg' }
+        {
+          name: 'Shadow Eye',
+          description: 'La oscuridad no puede tocarte mientras lo lleves equipado. Cancela por completo los efectos de Oscuridad (Darkness) y Ceguera (Blindness). (Pasivo - siempre activo).',
+          img: '/images/items/shadow_eye.webp'
+        },
+        {
+          name: 'Void Feather',
+          description: 'Una pluma bendecida por el vacío eterno. Te salva de morir en el vacío al primer tick de daño, teletransportándote hacia la superficie segura del End y otorgándote Caída Lenta (Slow Falling). ¡Se consume al activarse!',
+          img: '/images/items/void_feather.webp'
+        },
+        {
+          name: 'Iron Guardians',
+          description: 'Los protectores de metal acuden a tu llamado en momentos críticos. Al romperse un Tótem de la Inmortalidad, invoca inmediatamente 2 Golems de Hierro potenciados durante 20 segundos. Enfriamiento: 3 minutos.',
+          img: '/images/items/iron_guardians.webp'
+        },
+        {
+          name: 'Clock of Time',
+          description: 'Doblega el flujo temporal a tu voluntad. Reduce el enfriamiento de todos los amuletos en 10 segundos.',
+          img: '/images/items/clock_of_time.webp'
+        },
+        {
+          name: 'Veil of Evasion',
+          description: 'Permite esquivar golpes con reflejos sobrenaturales. Otorga un 5% de probabilidad de esquivar cualquier ataque y realizar automáticamente un dash evasivo de 5 bloques. (Pasivo - siempre activo).',
+          img: '/images/items/veil_of_evasion.webp'
+        },
+        {
+          name: 'Soul Reaper',
+          description: 'Atrapa las almas de las criaturas caídas para absorber su esencia (+1 alma por mob eliminado, máx 200). Acumular almas otorga efectos permanentes: Velocidad I (25), Fuerza I (50), Resistencia I (75), +2 corazones (100), Velocidad II (125), Fuerza II (150), Resistencia II (175), y Regeneración II junto a +4 corazones (200). Consumir un Tótem de la Inmortalidad reduce un 35% tus almas. (Pasivo - siempre activo).',
+          img: '/images/items/soul_reaper.webp'
+        },
+        {
+          name: 'Shadow Decoy',
+          description: 'Muestra un reflejo ilusorio en momentos de peligro fatal. Al recibir daño de muerte, cancela la muerte dejándote a 1 corazón, te otorga invisibilidad por 5 segundos y crea un clon falso en tu posición actual. Enfriamiento: 10 minutos.',
+          img: '/images/items/shadow_decoy.webp'
+        }
       ],
       special: [
-        { name: 'Amuleto del Invocador', description: 'Amuleto especial de evento. Edita su descripción en server.js', img: '/images/placeholders/item_placeholder.svg' },
-        { name: 'Amuleto del Vacío', description: 'Amuleto especial de evento. Edita su descripción en server.js', img: '/images/placeholders/item_placeholder.svg' }
+        {
+          name: 'Abyssal Key',
+          description: 'Artefacto forjado en las profundidades de las Cámaras de Desafío (Trial Chambers). Duplica de forma automática cualquier llave (Trial Key u Ominous Key) obtenida al abrir Bóvedas (Vaults). (Pasivo - siempre activo).',
+          img: '/images/items/abyssal_key.webp'
+        }
       ]
-    }
+    },
+    dungeonDrops: {
+      note: 'Estos materiales mientras estás en la dungeon se guardan en una interfaz a la que puedes acceder con el comando <code>/dungeonparty botin</code> donde se irán acumulando. Una vez finalizada la mazmorra, tendrás un tiempo de <strong>10 minutos</strong> para recoger todos los ítems acumulados antes de que se borren.',
+      items: [
+        { name: 'Fragmento de Trial', id: 'fragmento_trial', mcItem: 'PRISMARINE_SHARD', img: '/images/items/prismarine_shard.webp' },
+        { name: 'Fragmento Ominoso', id: 'fragmento_ominoso', mcItem: 'AMETHYST_SHARD', img: '/images/items/amethyst_shard.webp' },
+        { name: 'Montura Reforzada con Cobre', id: 'copper_reinforced_saddle', mcItem: 'SADDLE', img: '/images/items/Saddle.webp' },
+        { name: 'Ballesta con Resortes de Cobre', id: 'copper_spring_crossbow', mcItem: 'CROSSBOW', img: '/images/items/Crossbow.webp' },
+        { name: 'Hacha de Hierro Encobrada', id: 'copper_iron_axe', mcItem: 'IRON_AXE', img: '/images/items/Iron_axe.webp' },
+        { name: 'Esmeralda Engarzada en Cobre', id: 'copper_mounted_emerald', mcItem: 'EMERALD', img: '/images/items/Emerald.webp' },
+        { name: 'Matraz de Cobre Alquímico', id: 'alchemical_copper_flask', mcItem: 'GLASS_BOTTLE', img: '/images/items/Glass_Bottle.webp' },
+        { name: 'Aleación Bruta de Oro y Cobre', id: 'raw_gold_copper_alloy', mcItem: 'RAW_GOLD', img: '/images/items/Raw_Gold.webp' },
+        { name: 'Hongo Carmesí Metalizado', id: 'metallic_crimson_fungus', mcItem: 'CRIMSON_FUNGUS', img: '/images/items/Crimson_Fungus.webp' },
+        { name: 'Vara Ígnea con Anillos de Cobre', id: 'copper_ringed_blaze_rod', mcItem: 'BLAZE_ROD', img: '/images/items/blaze_rod.webp' },
+        { name: 'Lódo de Magma Cobrizo', id: 'copper_magma_mud', mcItem: 'MAGMA_CREAM', img: '/images/items/magma_cream.webp' },
+        { name: 'Polvo de Arena Cobriza', id: 'copper_sand_dust', mcItem: 'RED_SAND', img: '/images/items/RedSand.webp' },
+        { name: 'Núcleo Eólico Galvanizado', id: 'galvanized_wind_core', mcItem: 'BREEZE_ROD', img: '/images/items/breeze_rod.webp' },
+        { name: 'Caparazón de Nautilus con Pátina', id: 'patina_nautilus_shell', mcItem: 'NAUTILUS_SHELL', img: '/images/items/nautilus_shell.webp' },
+        { name: 'Lingote de Cobre Resonante', id: 'resonant_copper_ingot', mcItem: 'COPPER_INGOT', img: '/images/items/Copper_Ingotwebp.webp' },
+        { name: 'Fragmento de Sculk Resonante', id: 'resonant_sculk_shard', mcItem: 'ECHO_SHARD', img: '/images/items/echo_shard.webp' },
+        { name: 'Membrana Nocturna Conductora', id: 'conductive_phantom_membrane', mcItem: 'PHANTOM_MEMBRANE', img: '/images/items/Phantom_Membrane.webp' },
+        { name: 'Rosa Mecánica de Cobre', id: 'copper_mechanical_rose', mcItem: 'POPPY', img: '/images/items/Rosa.webp' },
+        { name: 'Gelatina con Limaduras de Cobre', id: 'copper_slime_gelatin', mcItem: 'SLIME_BALL', img: '/images/items/Slimeball.webp' },
+        { name: 'Lágrima de Cobre Solidificada', id: 'solidified_copper_tear', mcItem: 'GHAST_TEAR', img: '/images/items/Ghast_Tear.webp' },
+        { name: 'Ceniza Ósea Cobriza', id: 'copper_bone_ash', mcItem: 'BONE_MEAL', img: '/images/items/Bone_Meal.webp' },
+        { name: 'Carne Putrefacta con Esquirlas de Cobre', id: 'copper_rotten_flesh', mcItem: 'ROTTEN_FLESH', img: '/images/items/Rotten_Flesh.webp' },
+        { name: 'Fémur Chapado en Cobre', id: 'copper_plated_femur', mcItem: 'BONE', img: '/images/items/Bone.webp' },
+        { name: 'Filamento de Cobre Sedoso', id: 'silky_copper_filament', mcItem: 'STRING', img: '/images/items/String.webp' },
+        { name: 'Pólvora de Cobre Volátil', id: 'volatile_copper_gunpowder', mcItem: 'GUNPOWDER', img: '/images/items/Gunpowder.webp' },
+        { name: 'Cristal de Hielo Conductor', id: 'conductive_ice_crystal', mcItem: 'AMETHYST_SHARD', img: '/images/items/amethyst_shard.webp' },
+        { name: 'Espora Tóxica de Cobre', id: 'copper_toxic_spore', mcItem: 'SLIME_BALL', img: '/images/items/Slimeball.webp' },
+        { name: 'Vendaje Resecado con Cobre', id: 'copper_dried_bandage', mcItem: 'PAPER', img: '/images/items/Paper.webp' },
+        { name: 'Óptica Arácnida Oxidada', id: 'oxidized_spider_eye', mcItem: 'SPIDER_EYE', img: '/images/items/Spider_Eye.webp' },
+        { name: 'Esponja Abisal Filtradora de Cobre', id: 'copper_abyssal_sponge', mcItem: 'WET_SPONGE', img: '/images/items/Wet_Sponge.webp' },
+        { name: 'Escama de Prismarina Cobriza', id: 'copper_prismarine_scale', mcItem: 'PRISMARINE_SHARD', img: '/images/items/prismarine_shard.webp' }
+      ]
+    },
+    recipes: [
+      {
+        title: 'Wind Shriek',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Fragmento de Trial', count: 8, img: '/images/items/prismarine_shard.webp' },
+          { row: 0, col: 1, name: 'Lodo de Magma Cobrizo', count: 8, img: '/images/items/magma_cream.webp' },
+          { row: 0, col: 2, name: 'Polvo de Arena Cobriza', count: 8, img: '/images/items/RedSand.webp' },
+          { row: 1, col: 0, name: 'Núcleo Eólico Galvanizado', count: 8, img: '/images/items/breeze_rod.webp' },
+          { row: 1, col: 1, name: 'Esmeralda Engarzada en Cobre', count: 8, img: '/images/items/Emerald.webp' },
+          { row: 1, col: 2, name: 'Núcleo Eólico Galvanizado', count: 8, img: '/images/items/breeze_rod.webp' },
+          { row: 2, col: 0, name: 'Caparazón de Nautilus con Pátina', count: 8, img: '/images/items/nautilus_shell.webp' },
+          { row: 2, col: 1, name: 'Matraz de Cobre Alquímico', count: 8, img: '/images/items/Glass_Bottle.webp' },
+          { row: 2, col: 2, name: 'Fragmento Ominoso', count: 8, img: '/images/items/amethyst_shard.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Wind Shriek', img: '/images/items/wind_shriek.webp' }
+      },
+      {
+        title: 'Monarch Wings',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Fragmento de Trial', count: 8, img: '/images/items/prismarine_shard.webp' },
+          { row: 0, col: 1, name: 'Fragmento de Sculk Resonante', count: 8, img: '/images/items/echo_shard.webp' },
+          { row: 0, col: 2, name: 'Lingote de Cobre Resonante', count: 8, img: '/images/items/Copper_Ingotwebp.webp' },
+          { row: 1, col: 0, name: 'Membrana Nocturna Conductora', count: 8, img: '/images/items/Phantom_Membrane.webp' },
+          { row: 1, col: 1, name: 'Rosa Mecánica de Cobre', count: 8, img: '/images/items/Rosa.webp' },
+          { row: 1, col: 2, name: 'Membrana Nocturna Conductora', count: 8, img: '/images/items/Phantom_Membrane.webp' },
+          { row: 2, col: 0, name: 'Gelatina con Limaduras de Cobre', count: 8, img: '/images/items/Slimeball.webp' },
+          { row: 2, col: 1, name: 'Núcleo Eólico Galvanizado', count: 8, img: '/images/items/breeze_rod.webp' },
+          { row: 2, col: 2, name: 'Fragmento Ominoso', count: 8, img: '/images/items/amethyst_shard.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Monarch Wings', img: '/images/items/monarch_wings.webp' }
+      },
+      {
+        title: 'Soul of the Hunt',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Lágrima de Cobre Solidificada', count: 5, img: '/images/items/Ghast_Tear.webp' },
+          { row: 0, col: 1, name: 'Ceniza Ósea Cobriza', count: 5, img: '/images/items/Bone_Meal.webp' },
+          { row: 0, col: 2, name: 'Carne Putrefacta con Esquirlas de Cobre', count: 5, img: '/images/items/Rotten_Flesh.webp' },
+          { row: 1, col: 0, name: 'Fragmento Ominoso', count: 5, img: '/images/items/amethyst_shard.webp' },
+          { row: 1, col: 1, name: 'Manzana de Oro Encantada', count: 2, img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { row: 1, col: 2, name: 'Fragmento de Trial', count: 5, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 0, name: 'Fémur Chapado en Cobre', count: 5, img: '/images/items/Bone.webp' },
+          { row: 2, col: 1, name: 'Filamento de Cobre Sedoso', count: 5, img: '/images/items/String.webp' },
+          { row: 2, col: 2, name: 'Pólvora de Cobre Volátil', count: 5, img: '/images/items/Gunpowder.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Soul of the Hunt', img: '/images/items/soul_of_the_hunt.webp' }
+      },
+      {
+        title: 'Golden Idol',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Hongo Carmesí Metalizado', count: 8, img: '/images/items/Crimson_Fungus.webp' },
+          { row: 0, col: 1, name: 'Aleación Bruta de Oro y Cobre', count: 8, img: '/images/items/Raw_Gold.webp' },
+          { row: 0, col: 2, name: 'Vara Ígnea con Anillos de Cobre', count: 8, img: '/images/items/blaze_rod.webp' },
+          { row: 1, col: 0, name: 'Aleación Bruta de Oro y Cobre', count: 8, img: '/images/items/Raw_Gold.webp' },
+          { row: 1, col: 1, name: 'Bloque de Oro', count: 32, img: '/images/items/block_gold.webp' },
+          { row: 1, col: 2, name: 'Aleación Bruta de Oro y Cobre', count: 8, img: '/images/items/Raw_Gold.webp' },
+          { row: 2, col: 0, name: 'Vara Ígnea con Anillos de Cobre', count: 8, img: '/images/items/blaze_rod.webp' },
+          { row: 2, col: 1, name: 'Aleación Bruta de Oro y Cobre', count: 8, img: '/images/items/Raw_Gold.webp' },
+          { row: 2, col: 2, name: 'Hongo Carmesí Metalizado', count: 8, img: '/images/items/Crimson_Fungus.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Golden Idol', img: '/images/items/golden_idol.webp' }
+      },
+      {
+        title: 'Herald\'s Badge IV (Héroe de la Aldea IV)',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Esmeralda Reforzada', count: 1, img: '/images/items/emerald_block.webp' },
+          { row: 0, col: 1, name: 'Ballesta con Resortes de Cobre', count: 5, img: '/images/items/Crossbow.webp' },
+          { row: 0, col: 2, name: 'Esmeralda Reforzada', count: 1, img: '/images/items/emerald_block.webp' },
+          { row: 1, col: 0, name: 'Esmeralda Engarzada en Cobre', count: 5, img: '/images/items/Emerald.webp' },
+          { row: 1, col: 1, name: 'Herald\'s Badge III', count: 1, img: '/images/items/herald\'s_badge_III.webp' },
+          { row: 1, col: 2, name: 'Matraz de Cobre Alquímico', count: 5, img: '/images/items/Glass_Bottle.webp' },
+          { row: 2, col: 0, name: 'Esmeralda Reforzada', count: 1, img: '/images/items/emerald_block.webp' },
+          { row: 2, col: 1, name: 'Hacha de Hierro Encobrada', count: 5, img: '/images/items/Iron_axe.webp' },
+          { row: 2, col: 2, name: 'Esmeralda Reforzada', count: 1, img: '/images/items/emerald_block.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Herald\'s Badge IV', img: '/images/items/herald\'s_badge_IV.webp' }
+      },
+      {
+        title: 'Herald\'s Badge V (Héroe de la Aldea V)',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Esmeralda Reforzada', count: 1, img: '/images/items/emerald_block.webp' },
+          { row: 0, col: 1, name: 'Montura Reforzada con Cobre', count: 1, img: '/images/items/Saddle.webp' },
+          { row: 0, col: 2, name: 'Esmeralda Reforzada', count: 1, img: '/images/items/emerald_block.webp' },
+          { row: 1, col: 0, name: 'Montura Reforzada con Cobre', count: 1, img: '/images/items/Saddle.webp' },
+          { row: 1, col: 1, name: 'Herald\'s Badge IV', count: 1, img: '/images/items/herald\'s_badge_IV.webp' },
+          { row: 1, col: 2, name: 'Montura Reforzada con Cobre', count: 1, img: '/images/items/Saddle.webp' },
+          { row: 2, col: 0, name: 'Esmeralda Reforzada', count: 1, img: '/images/items/emerald_block.webp' },
+          { row: 2, col: 1, name: 'Montura Reforzada con Cobre', count: 1, img: '/images/items/Saddle.webp' },
+          { row: 2, col: 2, name: 'Esmeralda Reforzada', count: 1, img: '/images/items/emerald_block.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Herald\'s Badge V', img: '/images/items/herald\'s_badge_V.webp' }
+      },
+      {
+        title: 'Lingote de la Mazmorra',
+        description: '<span style="color:#cbd5e1;">Lingote místico forjado con las reliquias de la mazmorra.</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Caparazón de Nautilus con Pátina', count: 10, img: '/images/items/nautilus_shell.webp' },
+          { row: 0, col: 1, name: 'Escama de Prismarina Cobriza / Fragmento de Trial', count: 10, img: '/images/items/prismarine_shard.webp' },
+          { row: 0, col: 2, name: 'Aleación Bruta de Oro y Cobre', count: 10, img: '/images/items/Raw_Gold.webp' },
+          { row: 1, col: 0, name: 'Rosa Mecánica de Cobre', count: 10, img: '/images/items/Rosa.webp' },
+          { row: 1, col: 1, name: 'Esponja Abisal Filtradora de Cobre', count: 4, img: '/images/items/Wet_Sponge.webp' },
+          { row: 1, col: 2, name: 'Lingote de Cobre Resonante', count: 10, img: '/images/items/Copper_Ingotwebp.webp' },
+          { row: 2, col: 0, name: 'Fémur Chapado en Cobre', count: 10, img: '/images/items/Bone.webp' },
+          { row: 2, col: 1, name: 'Carne Putrefacta con Esquirlas de Cobre', count: 10, img: '/images/items/Rotten_Flesh.webp' },
+          { row: 2, col: 2, name: 'Cristal de Hielo Conductor', count: 10, img: '/images/items/amethyst_shard.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Lingote de la Mazmorra', img: '/images/items/netherite_ingot.webp' }
+      },
+      {
+        title: 'Escudo de la Mazmorra',
+        description: '<span style="color:#cbd5e1;">Escudo de alta resistencia obtenido de reliquias de la mazmorra.</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Fragmento Ominoso', count: 3, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 1, name: 'Lingote de la Mazmorra', count: 1, img: '/images/items/netherite_ingot.webp' },
+          { row: 0, col: 2, name: 'Fragmento Ominoso', count: 3, img: '/images/items/amethyst_shard.webp' },
+          { row: 1, col: 0, name: 'Fragmento de Trial', count: 3, img: '/images/items/prismarine_shard.webp' },
+          { row: 1, col: 1, name: 'Fragmento de Trial', count: 3, img: '/images/items/prismarine_shard.webp' },
+          { row: 1, col: 2, name: 'Fragmento de Trial', count: 3, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 1, name: 'Fragmento Ominoso', count: 3, img: '/images/items/amethyst_shard.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Escudo de la Mazmorra', img: '/images/items/Shield.webp' }
+      },
+      {
+        title: 'Diamante Electrificado',
+        description: '<span style="color:#cbd5e1;">Diamante sobrecargado de energía eléctrica y reliquias arcanas.</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Vendaje Resecado con Cobre', count: 10, img: '/images/items/Paper.webp' },
+          { row: 0, col: 1, name: 'Matraz de Cobre Alquímico', count: 10, img: '/images/items/Glass_Bottle.webp' },
+          { row: 0, col: 2, name: 'Lodo de Magma Cobrizo', count: 10, img: '/images/items/magma_cream.webp' },
+          { row: 1, col: 0, name: 'Lágrima de Cobre Solidificada', count: 10, img: '/images/items/Ghast_Tear.webp' },
+          { row: 1, col: 1, name: 'Pólvora de Cobre Volátil', count: 10, img: '/images/items/Gunpowder.webp' },
+          { row: 1, col: 2, name: 'Ceniza Ósea Cobriza', count: 10, img: '/images/items/Bone_Meal.webp' },
+          { row: 2, col: 0, name: 'Ballesta con Resortes de Cobre', count: 10, img: '/images/items/Crossbow.webp' },
+          { row: 2, col: 1, name: 'Hacha de Hierro Encobrada', count: 10, img: '/images/items/Iron_axe.webp' },
+          { row: 2, col: 2, name: 'Vara Ígnea con Anillos de Cobre', count: 10, img: '/images/items/blaze_rod.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Diamante Electrificado', img: '/images/items/Diamond.webp' }
+      },
+      {
+        title: 'Espada Electrificada',
+        description: '<span style="color:#55ff55; font-weight:bold;">Sharpness V</span> &nbsp;•&nbsp; <span style="color:#55ff55; font-weight:bold;">Smite V</span> &nbsp;•&nbsp; <span style="color:#55ff55; font-weight:bold;">Bane of Arthropods V</span><br><span style="color:#ff5555; font-weight:bold;">No se puede transformar a Netherita.</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 1, name: 'Diamante Electrificado', count: 1, img: '/images/items/diamond_rank.webp' },
+          { row: 1, col: 1, name: 'Diamante Electrificado', count: 1, img: '/images/items/diamond_rank.webp' },
+          { row: 2, col: 1, name: 'Palo', count: 1, img: '/images/items/stick.webp' }
+        ],
+        result: {
+          row: 1,
+          col: 2,
+          name: 'Espada Electrificada',
+          img: '/images/items/Diamond_Sword.webp'
+        }
+      },
+      {
+        title: 'Arco Infinito',
+        description: '<span style="color:#55ff55; font-weight:bold;">Mending I</span> &nbsp;•&nbsp; <span style="color:#55ff55; font-weight:bold;">Infinity I</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 1, name: 'Fragmento de Trial', count: 12, img: '/images/items/prismarine_shard.webp' },
+          { row: 0, col: 2, name: 'Filamento de Cobre Sedoso', count: 12, img: '/images/items/String.webp' },
+          { row: 1, col: 0, name: 'Fragmento Ominoso', count: 12, img: '/images/items/amethyst_shard.webp' },
+          { row: 1, col: 2, name: 'Óptica Arácnida Oxidada', count: 12, img: '/images/items/Spider_Eye.webp' },
+          { row: 2, col: 1, name: 'Fragmento de Trial', count: 12, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 2, name: 'Filamento de Cobre Sedoso', count: 12, img: '/images/items/String.webp' }
+        ],
+        result: {
+          row: 1,
+          col: 2,
+          name: 'Arco Infinito',
+          img: '/images/items/Bow.webp'
+        }
+      },
+      {
+        title: 'Hacha de la Mazmorra',
+        description: '<span style="color:#55ff55; font-weight:bold;">Unbreaking V</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 1, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 2, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 1, col: 0, name: 'Fragmento de Sculk Resonante', count: 6, img: '/images/items/echo_shard.webp' },
+          { row: 1, col: 1, name: 'Hacha de Netherite', count: 1, img: '/images/items/Netherite_Axe.webp' },
+          { row: 1, col: 2, name: 'Montura Reforzada con Cobre', count: 6, img: '/images/items/Saddle.webp' },
+          { row: 2, col: 0, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 1, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 2, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' }
+        ],
+        result: {
+          row: 1,
+          col: 2,
+          name: 'Hacha de la Mazmorra',
+          img: '/images/items/Netherite_Axe.webp'
+        }
+      },
+      {
+        title: 'Lanza de la Mazmorra',
+        description: '<span style="color:#55ff55; font-weight:bold;">Unbreaking V</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 1, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 2, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 1, col: 0, name: 'Fragmento de Sculk Resonante', count: 6, img: '/images/items/echo_shard.webp' },
+          { row: 1, col: 1, name: 'Lanza de Netherite', count: 1, img: '/images/items/Netherite_Spear.webp' },
+          { row: 1, col: 2, name: 'Montura Reforzada con Cobre', count: 6, img: '/images/items/Saddle.webp' },
+          { row: 2, col: 0, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 1, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 2, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' }
+        ],
+        result: {
+          row: 1,
+          col: 2,
+          name: 'Lanza de la Mazmorra',
+          img: '/images/items/Netherite_Spear.webp'
+        }
+      },
+      {
+        title: 'Pico de la Mazmorra',
+        description: '<span style="color:#55ff55; font-weight:bold;">Unbreaking V</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 1, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 2, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 1, col: 0, name: 'Fragmento de Sculk Resonante', count: 6, img: '/images/items/echo_shard.webp' },
+          { row: 1, col: 1, name: 'Pico de Netherite', count: 1, img: '/images/items/Netherite_Pickaxe.webp' },
+          { row: 1, col: 2, name: 'Montura Reforzada con Cobre', count: 6, img: '/images/items/Saddle.webp' },
+          { row: 2, col: 0, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 1, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 2, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' }
+        ],
+        result: {
+          row: 1,
+          col: 2,
+          name: 'Pico de la Mazmorra',
+          img: '/images/items/Netherite_Pickaxe.webp'
+        }
+      },
+      {
+        title: 'Pala de la Mazmorra',
+        description: '<span style="color:#55ff55; font-weight:bold;">Unbreaking V</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 1, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 2, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 1, col: 0, name: 'Fragmento de Sculk Resonante', count: 6, img: '/images/items/echo_shard.webp' },
+          { row: 1, col: 1, name: 'Pala de Netherite', count: 1, img: '/images/items/Netherite_Shovel.webp' },
+          { row: 1, col: 2, name: 'Montura Reforzada con Cobre', count: 6, img: '/images/items/Saddle.webp' },
+          { row: 2, col: 0, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 1, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 2, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' }
+        ],
+        result: {
+          row: 1,
+          col: 2,
+          name: 'Pala de la Mazmorra',
+          img: '/images/items/Netherite_Shovel.webp'
+        }
+      },
+      {
+        title: 'Azada de la Mazmorra',
+        description: '<span style="color:#55ff55; font-weight:bold;">Unbreaking V</span>',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 1, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 0, col: 2, name: 'Fragmento Ominoso', count: 4, img: '/images/items/amethyst_shard.webp' },
+          { row: 1, col: 0, name: 'Fragmento de Sculk Resonante', count: 6, img: '/images/items/echo_shard.webp' },
+          { row: 1, col: 1, name: 'Azada de Netherite', count: 1, img: '/images/items/Netherite_Hoe.webp' },
+          { row: 1, col: 2, name: 'Montura Reforzada con Cobre', count: 6, img: '/images/items/Saddle.webp' },
+          { row: 2, col: 0, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 1, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' },
+          { row: 2, col: 2, name: 'Fragmento de Trial', count: 4, img: '/images/items/prismarine_shard.webp' }
+        ],
+        result: {
+          row: 1,
+          col: 2,
+          name: 'Azada de la Mazmorra',
+          img: '/images/items/Netherite_Hoe.webp'
+        }
+      }
+    ]
   },
   {
-    number: 4,
+    number: 5,
     day: 7,
     revealDate: new Date('2026-08-14T21:00:00Z'),
     raidsLevelUp: [
@@ -996,48 +1476,10 @@ const PATCHES_DATA = [
       { tag: 'NERFEO/BUFEO', text: 'Las flechas de los Strays te inmovilizan por completo durante 3 segundos.' },
       { tag: 'NERFEO/BUFEO', text: 'Los Enderman tienen x3 de daño, 10 corazones extra (+20 HP) y al golpearte te dan Ceguera.' }
     ],
-    mobs: [
-      {
-        name: 'Cyclone Skeleton',
-        img: '/images/mobs/cyclone_archer.webp',
-        description: 'Sus flechas al impactar generan un rayo que aplica Weakness, Mining Fatigue y Slowness.'
-      },
-      {
-        name: 'Emperor Skeleton',
-        img: '/images/mobs/emperor_archer.webp',
-        description: 'Sus ataques quitan una gran cantidad de vida.'
-      },
-      {
-        name: 'Magnetic Skeleton',
-        img: '/images/mobs/magnetic_archer.webp',
-        description: 'Te atrae hacia él con cada disparo.'
-      },
-      {
-        name: 'Nightmare Skeleton',
-        img: '/images/mobs/nightmare_archer.webp',
-        description: 'Sus flechas te queman infinitamente, aplican Blindness y remueven todos tus efectos activos.'
-      },
-      /*
-      {
-        name: 'Kamikaze Machine',
-        img: '/images/mobs/kamikaze_machine.webp',
-        description: 'Esta antigua máquina kamikaze lleva en sus manos una antorcha de Redstone para detonar su barril.'
-      },
-      {
-        name: 'Pale Cyclops',
-        img: '/images/mobs/pale_cyclops.webp',
-        description: 'Su mordida es altamente mortal y te deja cegado durante varios segundos.'
-      },
-      {
-        name: 'Pale Wasp',
-        img: '/images/mobs/pale_wasp.webp',
-        description: 'Inyecta una dosis letal de Veneno, Descomposición y Ceguera.'
-      }
-      */
-    ]
+    mobs: []
   },
   {
-    number: 5,
+    number: 6,
     day: 10,
     revealDate: new Date('2026-08-17T19:00:00Z'),
     mechanics: [
@@ -1065,7 +1507,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 6,
+    number: 7,
     day: 14,
     revealDate: new Date('2026-08-21T19:00:00Z'),
     mechanics: [
@@ -1076,7 +1518,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 7,
+    number: 8,
     day: 18,
     revealDate: new Date('2026-08-25T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1085,7 +1527,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 8,
+    number: 9,
     day: 21,
     revealDate: new Date('2026-08-28T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1094,7 +1536,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 9,
+    number: 10,
     day: 23,
     revealDate: new Date('2026-08-30T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1103,7 +1545,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 10,
+    number: 11,
     day: 25,
     revealDate: new Date('2026-09-01T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1112,7 +1554,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 11,
+    number: 12,
     day: 28,
     revealDate: new Date('2026-09-04T19:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1170,7 +1612,8 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
         items: [...(patch.crafts || []), ...(patch.loot || [])],
         dungeonGuide: patch.dungeonGuide || null,
         dungeonLoot: patch.dungeonLoot || [],
-        newAmuletCategories: patch.newAmuletCategories || null
+        newAmuletCategories: patch.newAmuletCategories || null,
+        dungeonDrops: patch.dungeonDrops || null
       };
     } else {
       const formattedDate = patch.revealDate.toLocaleString('es-ES', { 

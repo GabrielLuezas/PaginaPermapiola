@@ -1,5 +1,6 @@
 import { Component, signal, computed, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AuthService } from '../../services/auth.service';
 
 /* ─── Data types ───────────────────────────────────────────── */
@@ -44,6 +45,7 @@ export interface RecipeSlot {
   name: string;
   count?: number;
   img?: string;
+  tooltip?: string;
 }
 
 export interface RecipeEntry {
@@ -55,6 +57,7 @@ export interface RecipeEntry {
   input?: RecipeSlot;
   fuel?: RecipeSlot;
   result?: RecipeSlot;
+  description?: string;
 }
 
 export interface AmuletSystemData {
@@ -134,6 +137,18 @@ export interface NewAmuletCategories {
   special: AmuletEntry[];
 }
 
+export interface DungeonDropItem {
+  name: string;
+  id: string;
+  mcItem: string;
+  img: string;
+}
+
+export interface DungeonDropsData {
+  note: string;
+  items: DungeonDropItem[];
+}
+
 export interface Patch {
   number: number;
   day: number;
@@ -153,6 +168,7 @@ export interface Patch {
   dungeonGuide?: DungeonGuide;
   dungeonLoot?: DungeonLootTable[];
   newAmuletCategories?: NewAmuletCategories;
+  dungeonDrops?: DungeonDropsData;
 }
 
 /* ─── Component ─────────────────────────────────────────────── */
@@ -165,6 +181,84 @@ export interface Patch {
 })
 export class Changelog implements OnInit {
   private authService = inject(AuthService);
+  private sanitizer = inject(DomSanitizer);
+
+  protected getSafeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
+  protected formatMcText(text: string): string {
+    if (!text) return '';
+    if (!text.includes('§')) {
+      return text.replace(/\n/g, '<br>');
+    }
+    
+    const parts = text.split('§');
+    let html = parts[0];
+    let openSpansCount = 0;
+    
+    const colorMap: { [key: string]: string } = {
+      '0': '#000000',
+      '1': '#0000aa',
+      '2': '#00aa00',
+      '3': '#00aaaa',
+      '4': '#aa0000',
+      '5': '#aa00aa',
+      '6': '#ffaa00',
+      '7': '#aaaaaa',
+      '8': '#555555',
+      '9': '#5555ff',
+      'a': '#55ff55',
+      'b': '#55ffff',
+      'c': '#ff5555',
+      'd': '#ff55ff',
+      'e': '#ffff55',
+      'f': '#ffffff'
+    };
+
+    const styleMap: { [key: string]: string } = {
+      'l': 'font-weight: bold;',
+      'm': 'text-decoration: line-through;',
+      'n': 'text-decoration: underline;',
+      'o': 'font-style: italic;'
+    };
+
+    for (let i = 1; i < parts.length; i++) {
+      const part = parts[i];
+      if (part.length === 0) continue;
+      const code = part[0].toLowerCase();
+      const content = part.substring(1);
+      
+      if (code === 'r') {
+        while (openSpansCount > 0) {
+          html += '</span>';
+          openSpansCount--;
+        }
+        html += content;
+      } else if (colorMap[code]) {
+        while (openSpansCount > 0) {
+          html += '</span>';
+          openSpansCount--;
+        }
+        html += `<span style="color: ${colorMap[code]};">`;
+        openSpansCount++;
+        html += content;
+      } else if (styleMap[code]) {
+        html += `<span style="${styleMap[code]}">`;
+        openSpansCount++;
+        html += content;
+      } else {
+        html += '§' + part;
+      }
+    }
+    
+    while (openSpansCount > 0) {
+      html += '</span>';
+      openSpansCount--;
+    }
+    
+    return html.replace(/\n/g, '<br>');
+  }
 
   protected readonly selectedPatch = signal<number>(1);
   protected readonly patches = signal<Patch[]>([]);

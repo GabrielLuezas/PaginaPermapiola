@@ -112,7 +112,7 @@
                                   @if (slot.img) {
                                     <img [src]="slot.img" [alt]="slot.name" class="mc-slot-img" />
                                   }
-                                  <div class="mc-tooltip">{{ slot.name }}</div>
+                                  <div class="mc-tooltip" [innerHTML]="getSafeHtml(slot.tooltip || slot.name)"></div>
                                 }
                               </div>
                             }
@@ -156,7 +156,7 @@
                         @if (slot.img) {
                           <img [src]="slot.img" [alt]="slot.name" class="mc-slot-img" />
                         }
-                        <div class="mc-tooltip">{{ slot.name }}</div>
+                        <div class="mc-tooltip" [innerHTML]="getSafeHtml(slot.tooltip || slot.name)"></div>
                       }
                     </div>
                   }
@@ -175,7 +175,7 @@
                     </div>
                     <div class="entry-content">
                       <h4 class="entry-name">{{ amulet.name }}</h4>
-                      <p class="entry-desc">{{ amulet.description }}</p>
+                      <p class="entry-desc" [innerHTML]="getSafeHtml(formatMcText(amulet.description))"></p>
                     </div>
                   </div>
                 }
@@ -300,20 +300,20 @@
           <h2 class="section-title text-magenta">✨ NUEVOS AMULETOS</h2>
         </div>
 
-        <div class="amulet-categories-container">
+        <div class="amulet-categories-container" style="display: flex; flex-direction: column; gap: 32px;">
           <!-- Amuletos Crafteables -->
           @if (currentPatch().newAmuletCategories!.craftable && currentPatch().newAmuletCategories!.craftable.length > 0) {
             <div class="amulet-category-section">
-              <h3 class="category-title text-yellow">🛠️ Amuletos Crafteables</h3>
-              <div class="amulets-grid-small">
+              <h3 class="amulet-sub-title text-yellow" style="color: #eab308; margin-bottom: 14px; font-size: 1.05rem; font-weight: 800; letter-spacing: 1px;">- Amuletos Crafteables</h3>
+              <div class="entries-list">
                 @for (amulet of currentPatch().newAmuletCategories!.craftable; track amulet.name) {
-                  <div class="amulet-entry-card-small">
-                    <div class="amulet-img-wrap-small item-slot-wrap">
-                      <img [src]="amulet.img" [alt]="amulet.name" class="amulet-img-small" />
+                  <div class="entry-card amulet-entry-card">
+                    <div class="entry-img-wrap item-slot-wrap">
+                      <img [src]="amulet.img" [alt]="amulet.name" class="entry-img" />
                     </div>
-                    <div class="amulet-info-small">
-                      <h4 class="amulet-name-small">{{ amulet.name }}</h4>
-                      <p class="amulet-desc-small">{{ amulet.description }}</p>
+                    <div class="entry-content">
+                      <h3 class="entry-name">{{ amulet.name }}</h3>
+                      <p class="entry-desc" [innerHTML]="getSafeHtml(formatMcText(amulet.description))"></p>
                     </div>
                   </div>
                 }
@@ -324,16 +324,16 @@
           <!-- Amuletos Vaults Normales -->
           @if (currentPatch().newAmuletCategories!.normalVault && currentPatch().newAmuletCategories!.normalVault.length > 0) {
             <div class="amulet-category-section">
-              <h3 class="category-title text-cyan">🔑 Amuletos de Bóvedas Normales</h3>
-              <div class="amulets-grid-small">
+              <h3 class="amulet-sub-title text-cyan" style="color: #06b6d4; margin-bottom: 14px; font-size: 1.05rem; font-weight: 800; letter-spacing: 1px;">- Amuletos de Bóvedas Normales</h3>
+              <div class="entries-list">
                 @for (amulet of currentPatch().newAmuletCategories!.normalVault; track amulet.name) {
-                  <div class="amulet-entry-card-small">
-                    <div class="amulet-img-wrap-small item-slot-wrap">
-                      <img [src]="amulet.img" [alt]="amulet.name" class="amulet-img-small" />
+                  <div class="entry-card amulet-entry-card">
+                    <div class="entry-img-wrap item-slot-wrap">
+                      <img [src]="amulet.img" [alt]="amulet.name" class="entry-img" />
                     </div>
-                    <div class="amulet-info-small">
-                      <h4 class="amulet-name-small">{{ amulet.name }}</h4>
-                      <p class="amulet-desc-small">{{ amulet.description }}</p>
+                    <div class="entry-content">
+                      <h3 class="entry-name">{{ amulet.name }}</h3>
+                      <p class="entry-desc" [innerHTML]="getSafeHtml(formatMcText(amulet.description))"></p>
                     </div>
                   </div>
                 }
@@ -344,16 +344,16 @@
           <!-- Amuletos Vaults Ominosos -->
           @if (currentPatch().newAmuletCategories!.ominousVault && currentPatch().newAmuletCategories!.ominousVault.length > 0) {
             <div class="amulet-category-section">
-              <h3 class="category-title text-red">💀 Amuletos de Bóvedas Ominosas</h3>
-              <div class="amulets-grid-small">
+              <h3 class="amulet-sub-title text-red" style="color: #ef4444; margin-bottom: 14px; font-size: 1.05rem; font-weight: 800; letter-spacing: 1px;">- Amuletos de Bóvedas Ominosas</h3>
+              <div class="entries-list">
                 @for (amulet of currentPatch().newAmuletCategories!.ominousVault; track amulet.name) {
-                  <div class="amulet-entry-card-small">
-                    <div class="amulet-img-wrap-small item-slot-wrap">
-                      <img [src]="amulet.img" [alt]="amulet.name" class="amulet-img-small" />
+                  <div class="entry-card amulet-entry-card">
+                    <div class="entry-img-wrap item-slot-wrap">
+                      <img [src]="amulet.img" [alt]="amulet.name" class="entry-img" />
                     </div>
-                    <div class="amulet-info-small">
-                      <h4 class="amulet-name-small">{{ amulet.name }}</h4>
-                      <p class="amulet-desc-small">{{ amulet.description }}</p>
+                    <div class="entry-content">
+                      <h3 class="entry-name">{{ amulet.name }}</h3>
+                      <p class="entry-desc" [innerHTML]="getSafeHtml(formatMcText(amulet.description))"></p>
                     </div>
                   </div>
                 }
@@ -361,22 +361,55 @@
             </div>
           }
 
-          <!-- Amuletos Especiales -->
+          <!-- Amuletos Especiales (En Cofres) -->
           @if (currentPatch().newAmuletCategories!.special && currentPatch().newAmuletCategories!.special.length > 0) {
             <div class="amulet-category-section">
-              <h3 class="category-title text-purple">⭐ Amuletos Especiales</h3>
-              <div class="amulets-grid-small">
+              <h3 class="amulet-sub-title text-purple" style="color: #a855f7; margin-bottom: 14px; font-size: 1.05rem; font-weight: 800; letter-spacing: 1px;">- En Cofres</h3>
+              <div class="entries-list">
                 @for (amulet of currentPatch().newAmuletCategories!.special; track amulet.name) {
-                  <div class="amulet-entry-card-small">
-                    <div class="amulet-img-wrap-small item-slot-wrap">
-                      <img [src]="amulet.img" [alt]="amulet.name" class="amulet-img-small" />
+                  <div class="entry-card amulet-entry-card">
+                    <div class="entry-img-wrap item-slot-wrap">
+                      <img [src]="amulet.img" [alt]="amulet.name" class="entry-img" />
                     </div>
-                    <div class="amulet-info-small">
-                      <h4 class="amulet-name-small">{{ amulet.name }}</h4>
-                      <p class="amulet-desc-small">{{ amulet.description }}</p>
+                    <div class="entry-content">
+                      <h3 class="entry-name">{{ amulet.name }}</h3>
+                      <p class="entry-desc" [innerHTML]="getSafeHtml(formatMcText(amulet.description))"></p>
                     </div>
                   </div>
                 }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — DROPS DE MAZMORRA (DUNGEON DROPS)
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().dungeonDrops) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title text-cyan">🧟 DROPS DE MOBS DE MAZMORRA</h2>
+        </div>
+
+        <div class="dungeon-drops-info-box">
+          <span class="info-box-icon">ℹ️</span>
+          <p class="info-box-text" [innerHTML]="currentPatch().dungeonDrops!.note"></p>
+        </div>
+
+        <div class="dungeon-drops-grid">
+          @for (item of currentPatch().dungeonDrops!.items; track item.id) {
+            <div class="dungeon-drop-card">
+              <div class="dungeon-drop-img-wrap item-slot-wrap">
+                <img [src]="item.img" [alt]="item.name" class="dungeon-drop-img" />
+              </div>
+              <div class="dungeon-drop-info">
+                <h4 class="dungeon-drop-name">{{ item.name }}</h4>
+                <div class="dungeon-drop-meta">
+                  <span class="meta-tag id-tag">{{ item.id }}</span>
+                  <span class="meta-tag mc-tag">{{ item.mcItem }}</span>
+                </div>
               </div>
             </div>
           }
@@ -572,6 +605,9 @@
           @for (recipe of currentPatch().recipes; track recipe.title) {
             <div class="recipe-card">
               <h3 class="recipe-title">{{ recipe.title }}</h3>
+              @if (recipe.description) {
+                <p class="recipe-description" [innerHTML]="getSafeHtml(recipe.description)"></p>
+              }
               <div class="mc-gui-wrapper">
                 @if (recipe.type === 'furnace') {
                   <!-- Furnace Smelting GUI -->
@@ -582,7 +618,7 @@
                         @if (recipe.input.count && recipe.input.count > 1) {
                           <span class="mc-slot-count">{{ recipe.input.count }}</span>
                         }
-                        <div class="mc-tooltip">{{ recipe.input.name }}</div>
+                        <div class="mc-tooltip" [innerHTML]="getSafeHtml(recipe.input.tooltip || recipe.input.name)"></div>
                       }
                     </div>
                     <div class="mc-furnace-fire">🔥</div>
@@ -592,7 +628,7 @@
                         @if (recipe.fuel.count && recipe.fuel.count > 1) {
                           <span class="mc-slot-count">{{ recipe.fuel.count }}</span>
                         }
-                        <div class="mc-tooltip">{{ recipe.fuel.name }}</div>
+                        <div class="mc-tooltip" [innerHTML]="getSafeHtml(recipe.fuel.tooltip || recipe.fuel.name)"></div>
                       }
                     </div>
                   </div>
@@ -606,7 +642,7 @@
                         @if (recipe.result.count && recipe.result.count > 1) {
                           <span class="mc-slot-count">{{ recipe.result.count }}</span>
                         }
-                        <div class="mc-tooltip">{{ recipe.result.name }}</div>
+                        <div class="mc-tooltip" [innerHTML]="getSafeHtml(recipe.result.tooltip || recipe.result.name)"></div>
                       </div>
                     </div>
                   }
@@ -623,7 +659,7 @@
                               @if (slot.count && slot.count > 1) {
                                 <span class="mc-slot-count">{{ slot.count }}</span>
                               }
-                              <div class="mc-tooltip">{{ slot.name }}</div>
+                              <div class="mc-tooltip" [innerHTML]="getSafeHtml(slot.tooltip || slot.name)"></div>
                             }
                           </div>
                         }
@@ -640,7 +676,7 @@
                         @if (recipe.result.count && recipe.result.count > 1) {
                           <span class="mc-slot-count">{{ recipe.result.count }}</span>
                         }
-                        <div class="mc-tooltip">{{ recipe.result.name }}</div>
+                        <div class="mc-tooltip" [innerHTML]="getSafeHtml(recipe.result.tooltip || recipe.result.name)"></div>
                       </div>
                     </div>
                   }

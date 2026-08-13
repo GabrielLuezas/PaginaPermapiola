@@ -773,6 +773,16 @@
   text-shadow: 0 0 10px rgba(255, 183, 3, 0.3);
 }
 
+.recipe-description {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  margin-top: 6px;
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
 .mc-gui-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -863,11 +873,14 @@
   background: #100a1c;
   border: 2px solid #a78bfa;
   border-radius: 6px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   color: #ffffff;
   font-size: 0.78rem;
   font-weight: 700;
-  white-space: nowrap;
+  white-space: pre;
+  width: max-content;
+  text-align: left;
+  line-height: 1.4;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s ease, transform 0.15s ease;
@@ -1319,10 +1332,19 @@
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
+.loot-item-img-wrap.item-slot-wrap {
+  width: 44px;
+  height: 44px;
+  padding: 5px;
+  flex-shrink: 0;
+}
+
 .loot-item-img {
-  width: 28px;
-  height: 28px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 4px rgba(255, 183, 3, 0.15));
 }
 
 .loot-item-info {
@@ -1441,4 +1463,111 @@
   color: var(--text-muted);
   margin: 0;
   line-height: 1.4;
+}
+
+/* --- DUNGEON DROPS Section --- */
+.dungeon-drops-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(6, 182, 212, 0.05);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  box-shadow: inset 0 0 12px rgba(6, 182, 212, 0.05);
+}
+
+.info-box-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #06b6d4;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+}
+
+.info-box-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.dungeon-drops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.dungeon-drop-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dungeon-drop-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+.dungeon-drop-img-wrap {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dungeon-drop-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.dungeon-drop-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.dungeon-drop-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.dungeon-drop-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.meta-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.2px;
+}
+
+.id-tag {
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mc-tag {
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.15);
 }
