@@ -799,12 +799,19 @@ const PATCHES_DATA = [
   {
     number: 4,
     day: 6,
-    revealDate: new Date('2026-08-13T21:00:00Z'),
+    revealDate: new Date('2026-08-13T20:00:00Z'),
     mechanics: [],
     mobs: [],
     dungeonGuide: {
       title: 'Trials Dungeons',
-      subtitle: 'Una peligrosa estructura subterránea llena de desafios y tesoros.',
+      subtitle: 'Una peligrosa estructura subterránea llena de desafíos y tesoros.',
+      rules: [
+        '<strong>Máximo de 6 jugadores</strong> por party.',
+        'Solo puedes añadir hasta <strong>2 personas de otro team</strong>.',
+        '<strong>No se podrá ni romper ni colocar</strong> ningún bloque.',
+        '<strong>No se podrá poner</strong> ni agua ni lava ni nieve.',
+        'Se podrán colocar y romper <strong>Ender Chests</strong>.'
+      ],
       mainImg: '/images/interfaces/dungeonpreview.webp',
       steps: [
         {
@@ -868,63 +875,86 @@ const PATCHES_DATA = [
     },
     dungeonLoot: [
       {
+        title: 'Recompensa de COFRE DE ESMERALDA',
+        subtitle: 'Cofres situados sobre un bloque de esmeralda',
+        items: [
+          { chance: '80%', name: 'Bloques de Esmeralda (2 a 5x)', img: '/images/items/emerald_block.webp' },
+          { chance: '80%', name: 'Bloques de Hierro (4 a 8x)', img: '/images/items/Block_iron.webp' },
+          { chance: '80%', name: '10 a 20 Manzanas Doradas', img: '/images/items/Golden_Apple.webp' },
+          { chance: '75%', name: 'Bloques de Oro (3 a 6x)', img: '/images/items/block_gold.webp' },
+          { chance: '75%', name: 'Frascos de Experiencia (6 a 16x)', img: '/images/items/purifying_antidote.webp' },
+          { chance: '70%', name: 'Bloques de Diamante (2 a 4x)', img: '/images/items/block_diamond.webp' },
+          { chance: '50%', name: 'Llave de Mazmorra / Trial Key (1 a 2x)', img: '/images/items/Trial_Key.webp' },
+          { chance: '30%', name: 'Botella Ominosa Nv 1 a 5 (1x)', img: '/images/items/ominous_bottle.webp' },
+          { chance: '25%', name: 'Fragmentos de Netherite / Scrap (1 a 2x)', img: '/images/items/Ancient_Debris.webp' },
+          { chance: '20%', name: 'Llave Ominosa de Mazmorra (1x)', img: '/images/items/Ominous_Trial_Key.webp' },
+          { chance: '10%', name: 'Papel "Medallones gratis x[1-10]" (1x) [Nuevo]', img: '/images/items/Paper.webp' },
+          { chance: '5%', name: 'Manzana de Oro Encantada / Notch (1x)', img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { chance: '5%', name: 'Amuleto Duplicador de Llaves', img: '/images/items/abyssal_key.webp' },
+          { chance: '0.5%', name: 'Papel "Mystery gratis" (1x) [Nuevo]', img: '/images/items/Paper.webp' }
+        ]
+      },
+      {
         title: 'Recompensa de SPAWNER NORMAL',
         subtitle: 'Al superar la horda Normal',
         items: [
-          { chance: '40%', name: 'Llave Normal Custom', img: '/images/items/Trial_Key.webp' },
-          { chance: '10%', name: 'Fragmento de Trial', img: '/images/items/prismarine_shard.webp' },
-          { chance: '30%', name: 'Botella Ominosa (Niveles 1 a 5)', img: '/images/items/ominous_bottle.webp' },
-          { chance: '10%', name: '10 Zanahorias de Oro', img: '/images/items/golden_carrot.webp' },
-          { chance: '5%', name: '5 Manzanas Doradas', img: '/images/items/Golden_Apple.webp' },
-          { chance: '5%', name: '2 Escombros Ancestrales', img: '/images/items/Ancient_Debris.webp' }
+          { chance: '40%', name: 'Llave de Mazmorra (1x) (2x con amuleto duplicador)', img: '/images/items/Trial_Key.webp' },
+          { chance: '30%', name: 'Botella Ominosa Nv 1 a 5 (1x)', img: '/images/items/ominous_bottle.webp' },
+          { chance: '10%', name: 'Fragmento de Trial (1x)', img: '/images/items/prismarine_shard.webp' },
+          { chance: '10%', name: 'Zanahorias de Oro (10x)', img: '/images/items/golden_carrot.webp' },
+          { chance: '5%', name: 'Manzanas Doradas (5x)', img: '/images/items/Golden_Apple.webp' },
+          { chance: '5%', name: 'Escombros Ancestrales / Ancient Debris (2x)', img: '/images/items/Ancient_Debris.webp' }
         ]
       },
       {
         title: 'Recompensa de SPAWNER OMINOSO',
         subtitle: 'Al superar la horda Ominosa',
         items: [
-          { chance: '30%', name: 'Llave Ominosa Custom', img: '/images/items/Ominous_Trial_Key.webp' },
-          { chance: '15%', name: 'Fragmento Ominoso', img: '/images/items/amethyst_shard.webp' },
-          { chance: '15%', name: '20 Zanahorias de Oro', img: '/images/items/golden_carrot.webp' },
-          { chance: '20%', name: '10 Manzanas Doradas', img: '/images/items/Golden_Apple.webp' },
-          { chance: '1%', name: '1 Manzana de Oro Encantada', img: '/images/items/Enchanted_Golden_Apple.gif' },
-          { chance: '4%', name: 'Botella Ominosa (Niveles 1 a 5)', img: '/images/items/ominous_bottle.webp' },
-          { chance: '5%', name: 'Drop Random de Mob Especial de Mazmorra', img: '/images/items/drop_random.webp' },
-          { chance: '5%', name: '1 Lingote de Netherite', img: '/images/items/netherite_ingot.webp' },
-          { chance: '5%', name: '1 Bloque de Diamante', img: '/images/items/block_diamond.webp' }
+          { chance: '30%', name: 'Llave Ominosa de Mazmorra (1x) (2x con amuleto duplicador)', img: '/images/items/Ominous_Trial_Key.webp' },
+          { chance: '20%', name: 'Manzanas Doradas (10x)', img: '/images/items/Golden_Apple.webp' },
+          { chance: '15%', name: 'Fragmento Ominoso (1x)', img: '/images/items/amethyst_shard.webp' },
+          { chance: '15%', name: 'Zanahorias de Oro (20x)', img: '/images/items/golden_carrot.webp' },
+          { chance: '5%', name: 'Drop Random de Mob Especial de Mazmorra (1 a 3x)', img: '/images/items/drop_random.webp' },
+          { chance: '5%', name: 'Lingote de Netherite (1x)', img: '/images/items/netherite_ingot.webp' },
+          { chance: '5%', name: 'Bloque de Diamante (1x)', img: '/images/items/block_diamond.webp' },
+          { chance: '4%', name: 'Botella Ominosa Nv 1 a 5 (1x)', img: '/images/items/ominous_bottle.webp' },
+          { chance: '1%', name: 'Manzana de Oro Encantada (1x)', img: '/images/items/Enchanted_Golden_Apple.gif' }
         ]
       },
       {
         title: 'Recompensa de BÓVEDA NORMAL',
         subtitle: 'Al usar Llave de Trial Normal',
         items: [
+          { chance: '30%', name: 'Botella Ominosa Nv 1 a 5 (1x)', img: '/images/items/ominous_bottle.webp' },
+          { chance: '10%', name: 'Bloques de Esmeralda (10x)', img: '/images/items/emerald_block.webp' },
+          { chance: '10%', name: 'Bloques de Oro (8x)', img: '/images/items/block_gold.webp' },
+          { chance: '10%', name: 'Bloques de Hierro (10x)', img: '/images/items/Block_iron.webp' },
+          { chance: '10%', name: 'Manzanas Doradas (5x)', img: '/images/items/Golden_Apple.webp' },
+          { chance: '10%', name: 'Amuleto de Bóveda Normal (1 al azar)', img: '/images/items/vital_pendant.webp' },
           { chance: '5%', name: 'Tridente (1x)', img: '/images/items/Trident.webp' },
           { chance: '5%', name: 'Lingote de Netherite (1x)', img: '/images/items/netherite_ingot.webp' },
-          { chance: '10%', name: '10 Bloques de Esmeralda', img: '/images/items/emerald_block.webp' },
-          { chance: '10%', name: '8 Bloques de Oro', img: '/images/items/block_gold.webp' },
-          { chance: '30%', name: 'Botella de Mal Presagio (Niveles 1 a 5)', img: '/images/items/ominous_bottle.webp' },
-          { chance: '10%', name: '5 Manzanas Doradas', img: '/images/items/Golden_Apple.webp' },
-          { chance: '1%', name: 'Manzana de Oro Encantada (1x)', img: '/images/items/Enchanted_Golden_Apple.gif' },
-          { chance: '5%', name: 'Cualquier Trim del juego', img: '/images/items/trim_random.webp' },
-          { chance: '10%', name: '10 Bloques de Hierro', img: '/images/items/Block_iron.webp' },
-          { chance: '4%', name: 'Tótem de la Inmortalidad (1x)', img: '/images/items/totem.webp' },
-          { chance: '10%', name: 'Amuleto de Bóveda Normal', img: '/images/items/vital_pendant.webp' }
+          { chance: '5%', name: 'Plantilla de Herrería / Armor Trim (1x al azar)', img: '/images/items/trim_random.webp' },
+          { chance: '2%', name: 'Tótem de la Inmortalidad (1x)', img: '/images/items/totem.webp' },
+          { chance: '2%', name: 'Papel "Medallones gratis x[1-10]" (1x) [Nuevo]', img: '/images/items/Paper.webp' },
+          { chance: '1%', name: 'Manzana de Oro Encantada (1x)', img: '/images/items/Enchanted_Golden_Apple.gif' }
         ]
       },
       {
         title: 'Recompensa de BÓVEDA OMINOSA',
         subtitle: 'Al usar Llave Ominosa',
         items: [
-          { chance: '10%', name: 'Pieza de Netherite Reforzada', img: '/images/items/Peto.webp' },
-          { chance: '10%', name: 'Amuleto de Bóveda Ominosa', img: '/images/items/shadow_eye.webp' },
-          { chance: '5%', name: 'Heavy Core', img: '/images/items/Heavy_Core.webp' },
-          { chance: '1%', name: 'Estrella del Nether', img: '/images/items/Nether_Star.webp' },
-          { chance: '10%', name: 'Libro Encantado (Wind Burst 1, Soul Speed 2-3, Swift Sneak 2-3)', img: '/images/items/oblivion_book.webp' },
-          { chance: '30%', name: '10 Manzanas Doradas', img: '/images/items/Golden_Apple.webp' },
-          { chance: '5%', name: 'Manzana de Oro Encantada', img: '/images/items/Enchanted_Golden_Apple.gif' },
-          { chance: '1%', name: '1 Bloque de Netherite', img: '/images/items/Block_Netherite.webp' },
-          { chance: '14%', name: '3 Bloques de Diamante', img: '/images/items/block_diamond.webp' },
-          { chance: '14%', name: '8 Bloques de Esmeralda', img: '/images/items/emerald_block.webp' }
+          { chance: '30%', name: 'Manzanas Doradas (10x)', img: '/images/items/Golden_Apple.webp' },
+          { chance: '14%', name: 'Bloques de Diamante (3x)', img: '/images/items/block_diamond.webp' },
+          { chance: '14%', name: 'Bloques de Esmeralda (8x)', img: '/images/items/emerald_block.webp' },
+          { chance: '10%', name: 'Pieza de Netherite Encantada con Durabilidad Aumentada', img: '/images/items/Peto.webp' },
+          { chance: '10%', name: 'Amuleto de Bóveda Ominosa (1 al azar)', img: '/images/items/shadow_eye.webp' },
+          { chance: '10%', name: 'Libro Encantado Especial (Wind Burst I, Soul Speed II/III, Swift Sneak II/III)', img: '/images/items/oblivion_book.webp' },
+          { chance: '4.5%', name: 'Manzana de Oro Encantada (1x)', img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { chance: '2.5%', name: 'Heavy Core (1x)', img: '/images/items/Heavy_Core.webp' },
+          { chance: '2.5%', name: 'Papel "Medallones gratis x[1-10]" (1x) [Nuevo]', img: '/images/items/Paper.webp' },
+          { chance: '1%', name: 'Bloque de Netherite (1x)', img: '/images/items/Block_Netherite.webp' },
+          { chance: '1%', name: 'Estrella del Nether (1x)', img: '/images/items/Nether_Star.webp' },
+          { chance: '0.5%', name: 'Papel "Mystery gratis" (1x) [Nuevo]', img: '/images/items/Paper.webp' }
         ]
       }
     ],

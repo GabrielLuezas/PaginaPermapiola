@@ -221,7 +221,7 @@
         </div>
         
         <div class="dungeon-guide-intro">
-          <p class="guide-subtitle-text">{{ currentPatch().dungeonGuide!.subtitle }}</p>
+          <p class="guide-subtitle-text" [innerHTML]="getSafeHtml(currentPatch().dungeonGuide!.subtitle)"></p>
           @if (currentPatch().dungeonGuide!.mainImg) {
             <div class="guide-main-img-wrap" (click)="openZoom(currentPatch().dungeonGuide!.mainImg!)">
               <img [src]="currentPatch().dungeonGuide!.mainImg" alt="Dungeon Main" class="guide-main-img" />
@@ -229,6 +229,18 @@
             </div>
           }
         </div>
+
+        <!-- Dungeon Rules Section -->
+        @if (currentPatch().dungeonGuide!.rules && currentPatch().dungeonGuide!.rules!.length > 0) {
+          <div class="dungeon-rules-section glass-card" style="margin: 25px 0; border: 1px solid rgba(239, 68, 68, 0.25); background: rgba(239, 68, 68, 0.04); padding: 24px; border-radius: 16px; box-shadow: inset 0 0 15px rgba(239, 68, 68, 0.05);">
+            <h3 style="color: #f87171; font-size: 1.35rem; font-weight: 800; margin-top: 0; margin-bottom: 16px; letter-spacing: 0.5px; text-shadow: 0 0 10px rgba(239, 68, 68, 0.2); display: flex; align-items: center; gap: 8px;">🛡️ REGLAS DE LA MAZMORRA</h3>
+            <ul style="margin: 0; padding-left: 24px; color: #cbd5e1; font-size: 1.05rem; line-height: 1.8; display: flex; flex-direction: column; gap: 10px;">
+              @for (rule of currentPatch().dungeonGuide!.rules!; track rule) {
+                <li [innerHTML]="getSafeHtml(rule)"></li>
+              }
+            </ul>
+          </div>
+        }
 
         <div class="guide-steps-list">
           @for (step of currentPatch().dungeonGuide!.steps; track step.title; let idx = $index) {

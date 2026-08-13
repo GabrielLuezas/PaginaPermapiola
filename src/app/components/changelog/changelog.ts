@@ -109,6 +109,7 @@ export interface DungeonGuide {
   title: string;
   subtitle: string;
   mainImg?: string;
+  rules?: string[];
   steps: GuideStep[];
 }
 
