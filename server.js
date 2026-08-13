@@ -1591,7 +1591,9 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
   
   const processedPatches = PATCHES_DATA.map(patch => {
     const revealTime = patch.revealDate.getTime();
-    const isUnlocked = now >= (revealTime - bufferMs);
+    // El Día 6 es especial y se revela para todos al mismo tiempo, sin acceso anticipado
+    const effectiveBufferMs = (patch.day === 6) ? 0 : bufferMs;
+    const isUnlocked = now >= (revealTime - effectiveBufferMs);
     
     if (isUnlocked) {
       return {
