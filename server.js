@@ -754,9 +754,9 @@ const PATCHES_DATA = [
           { row: 1, col: 0, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
           { row: 1, col: 1, name: 'Mesa', img: '/images/placeholders/table_base_placeholder.svg' },
           { row: 1, col: 2, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
-          { row: 2, col: 0, name: 'Jade Jewels', img: '/images/items/jade_jewels.webp' },
-          { row: 2, col: 1, name: 'Ruby Jewels', img: '/images/items/r_jewels.webp' },
-          { row: 2, col: 2, name: 'Sapphire Jewels', img: '/images/items/s_jewels.webp' }
+          { row: 2, col: 0, name: 'Jade Jewels', count: 64, img: '/images/items/jade_jewels.webp' },
+          { row: 2, col: 1, name: 'Ruby Jewels', count: 64, img: '/images/items/r_jewels.webp' },
+          { row: 2, col: 2, name: 'Sapphire Jewels', count: 64, img: '/images/items/s_jewels.webp' }
         ],
         result: { row: 1, col: 2, name: 'Oblivion Workbench', img: '/images/placeholders/oblivion_workbench.svg' }
       }
