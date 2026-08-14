@@ -972,7 +972,7 @@ const PATCHES_DATA = [
         },
         {
           name: 'Soul of the Hunt',
-          description: 'Extrae la esencia vital de las criaturas derrotadas. Otorga +0.5 corazones (1 HP) de vida por cada criatura (pacífica u hostil) eliminada. No funciona con soportes de armadura.',
+          description: 'Extrae la esencia vital de las criaturas derrotadas. Otorga +1 corazones (2 HP) y 2 segundos de saturacion por cada criatura (hostil) eliminada. No funciona con soportes de armadura.',
           img: '/images/items/soul_of_the_hunt.webp'
         },
         {
@@ -1014,7 +1014,7 @@ const PATCHES_DATA = [
         },
         {
           name: 'Berserker\'s Heart',
-          description: 'La furia se despiela cuando te acorralan los enemigos. Otorga el efecto de Fuerza II si te encuentras rodeado por 6 o más monstruos hostiles a menos de 12 bloques de distancia. (Pasivo - siempre activo).',
+          description: 'La furia se despiela cuando te acorralan los enemigos. Otorga el efecto de Fuerza IV si te encuentras rodeado por 6 o más monstruos hostiles a menos de 6 bloques de distancia. (Pasivo - siempre activo).',
           img: '/images/items/berserker\'s_heart.webp'
         },
         {
@@ -1061,7 +1061,7 @@ const PATCHES_DATA = [
         },
         {
           name: 'Soul Reaper',
-          description: 'Atrapa las almas de las criaturas caídas para absorber su esencia (+1 alma por mob eliminado, máx 200). Acumular almas otorga efectos permanentes: Velocidad I (25), Fuerza I (50), Resistencia I (75), +2 corazones (100), Velocidad II (125), Fuerza II (150), Resistencia II (175), y Regeneración II junto a +4 corazones (200). Consumir un Tótem de la Inmortalidad reduce un 35% tus almas. (Pasivo - siempre activo).',
+          description: 'Atrapa las almas de las criaturas caídas para absorber su esencia (+1 alma por mob eliminado, máx 200). Acumular almas otorga efectos permanentes: Velocidad I (25), Fuerza I (50), Resistencia I (75), +1 corazón (100), Velocidad II (125), Fuerza II (150), Vision nocturna (175), y Regeneración I junto a +1 corazón (200). Consumir un Tótem de la Inmortalidad reduce un 35% tus almas. (Pasivo - siempre activo).',
           img: '/images/items/soul_reaper.webp'
         },
         {
