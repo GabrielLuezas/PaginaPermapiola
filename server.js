@@ -1512,28 +1512,9 @@ const PATCHES_DATA = [
     number: 6,
     day: 10,
     revealDate: new Date('2026-08-17T19:00:00Z'),
-    mechanics: [
-      { tag: 'NUEVO', text: 'El Warden ahora dropea Corazón del Abismo. Permite craftear la Armadura de Warden.' },
-      { tag: 'NERFEO/BUFEO', text: 'Rango de detección acústica del Sculk Sensor aumentado un 20%.' },
-      { tag: 'NERFEO/BUFEO', text: 'La oscuridad inflige lentitud III de forma intermitente.' }
-    ],
-    mobs: [
-      {
-        name: 'Warden Colosal',
-        img: 'https://minecraft.wiki/images/Warden.webp',
-        hearts: 500,
-        equipment: ['Sonic Boom mejorado', 'Inmunidad a pociones de daño'],
-        drop: '100% — Corazón del Abismo'
-      }
-    ],
-    crafts: [
-      {
-        name: 'Armadura de Warden',
-        img: 'https://minecraft.wiki/images/Netherite_Chestplate.webp',
-        description: 'Te hace inmune al efecto de Oscuridad y reduce el daño de proyectiles un 25%.',
-        droppedBy: 'Crafteable con Corazón del Abismo + Armadura de Netherite'
-      }
-    ],
+    mechanics: [],
+    mobs: [],
+    crafts: [],
     loot: []
   },
   {
