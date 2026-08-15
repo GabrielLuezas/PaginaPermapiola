@@ -1061,7 +1061,7 @@ const PATCHES_DATA = [
         },
         {
           name: 'Soul Reaper',
-          description: 'Atrapa las almas de las criaturas caídas para absorber su esencia (+1 alma por mob eliminado, máx 200). Acumular almas otorga efectos permanentes: Velocidad I (25), Fuerza I (50), Resistencia I (75), +1 corazón (100), Velocidad II (125), Fuerza II (150), Vision nocturna (175), y Regeneración I junto a +1 corazón (200). Consumir un Tótem de la Inmortalidad reduce un 35% tus almas. (Pasivo - siempre activo).',
+          description: 'Atrapa las almas de las criaturas caídas para absorber su esencia (+1 alma por mob eliminado, máx 200). Acumular almas otorga efectos permanentes: Velocidad I (25), Fuerza I (50), Resistencia I (75),  Velocidad II (125), Fuerza II (150), Vision nocturna (175), y Regeneración I junto a +4 corazones de absorcion que se restauran cada 2 minutos y 30 segundos (200). Consumir un Tótem de la Inmortalidad reduce un 35% tus almas. (Pasivo - siempre activo).',
           img: '/images/items/soul_reaper.webp'
         },
         {
@@ -1481,7 +1481,6 @@ const PATCHES_DATA = [
       { tag: 'NUEVO', text: 'Al morir un Iron Golem genera una explosión de nivel 3.' },
       { tag: 'NUEVO', text: 'Al romper grava existe cierta probabilidad de que aparezca una TNT encendida.' },
       { tag: 'NUEVO', text: 'Los Camellos ahora son reemplazados por Ravagers.' },
-      { tag: 'NUEVO', text: 'Los Hoglins ahora son Tenebris Hoglin y tienen un Piglin Brute montado encima.' },
       { tag: 'NUEVO', text: 'Los Striders ahora son Ghasts.' },
       { tag: 'NUEVO', text: 'Todos los aldeanos libreros morirán al iniciar el Día 8.' },
       { tag: 'NERFEO/BUFEO', text: 'El daño por Cactus y Bayas Dulces causa 3 corazones de daño verdadero (ignora armadura).' },
