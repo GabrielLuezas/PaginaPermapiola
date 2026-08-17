@@ -1547,7 +1547,7 @@ const PATCHES_DATA = [
       {
         name: 'Cryptic Stalker',
         img: '/images/mobs/cryptic_stalker.webp',
-        description: 'Ravager lento y muy resistente. Su golpe te inflige 5 corazones de daño, te otorga Lentitud (Slowness) y muere al asestar el golpe.',
+        description: 'Husk resistente. Su golpe te inflige 5 corazones de daño, te otorga el efecto Memoria Encadenada (Chained Memory) durante 2 minutos y Lentitud (Slowness), y muere al asestar el golpe.',
         drop: 'Drop: Cryptic Cloth'
       },
       {
@@ -1601,7 +1601,7 @@ const PATCHES_DATA = [
       },
       {
         name: 'Cryptic Template',
-        img: '/images/items/cryptic_infuser.webp',
+        img: '/images/items/infuser_template.png',
         description: 'Plantilla ritual forjada a partir de botellas ominosas, pizarra profunda y una calavera. Componente central para forjar el Cryptic Infuser.'
       },
       {
@@ -1700,7 +1700,7 @@ const PATCHES_DATA = [
           { row: 2, col: 1, name: 'Sangre', count: 4, img: '/images/items/blood.webp' },
           { row: 2, col: 2, name: 'Bloque de Hierro Reforzado', count: 2, img: '/images/items/Block_iron.webp' }
         ],
-        result: { row: 1, col: 2, name: 'Cryptic Template', img: '/images/items/cryptic_infuser.webp' }
+        result: { row: 1, col: 2, name: 'Cryptic Template', img: '/images/items/infuser_template.png' }
       },
       {
         title: 'Cryptic Infuser',
@@ -1712,7 +1712,7 @@ const PATCHES_DATA = [
           { row: 0, col: 1, name: 'Cryptic Ectoplasm', count: 64, img: '/images/items/cryptic_essence.webp' },
           { row: 0, col: 2, name: 'Cryptic Bone', count: 64, img: '/images/items/cryptic_bone.webp' },
           { row: 1, col: 0, name: 'Cryptic Flesh', count: 64, img: '/images/items/cryptic_flesh.webp' },
-          { row: 1, col: 1, name: 'Cryptic Template', img: '/images/items/cryptic_infuser.webp' },
+          { row: 1, col: 1, name: 'Cryptic Template', img: '/images/items/infuser_template.png' },
           { row: 1, col: 2, name: 'Cryptic Tear', count: 64, img: '/images/items/cryptic_tear.webp' },
           { row: 2, col: 0, name: 'Cryptic Gunpowder', count: 64, img: '/images/items/cryptic_gunpowder.webp' },
           { row: 2, col: 1, name: 'Cryptic Cloth', count: 64, img: '/images/items/cryptic_cloth.webp' },
