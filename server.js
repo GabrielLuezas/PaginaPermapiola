@@ -1655,6 +1655,11 @@ const PATCHES_DATA = [
         description: 'Armadura ritual de las catacumbas. El set completo te otorga 1 corazón extra (+2 HP).'
       },
       {
+        name: 'Durability Mender',
+        img: '/images/items/durability_mender.png',
+        description: 'Artefacto utilitario ritual forjado con bloques de oro, netherita y experiencia para reparar y restaurar la durabilidad del equipamiento.'
+      },
+      {
         name: 'Cryptic Idols',
         img: '/images/items/cryptic_idol.webp',
         description: 'Tótems de inmortalidad con energía críptica. Al tener todas las herramientas Cryptic y el set de armadura Cryptic en tu posesión, recibirás 5 Cryptic Idols automáticamente.'
@@ -1714,6 +1719,22 @@ const PATCHES_DATA = [
           { row: 2, col: 2, name: 'Cryptic Weave', count: 64, img: '/images/items/cryptic_weave.webp' }
         ],
         result: { row: 1, col: 2, name: 'Cryptic Infuser', img: '/images/items/cryptic_infuser.webp' }
+      },
+      {
+        title: 'Durability Mender (x3)',
+        type: 'crafting',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Bloque de Oro', count: 32, img: '/images/items/block_gold.webp' },
+          { row: 0, col: 1, name: 'Bloque de Oro', count: 32, img: '/images/items/block_gold.webp' },
+          { row: 0, col: 2, name: 'Bloque de Oro', count: 32, img: '/images/items/block_gold.webp' },
+          { row: 1, col: 1, name: 'Lingote de Oro', count: 64, img: '/images/items/Gold_Ingot.webp' },
+          { row: 2, col: 0, name: 'Lingote de Netherita', count: 4, img: '/images/items/netherite_ingot.webp' },
+          { row: 2, col: 1, name: 'Botella de Experiencia', count: 64, img: '/images/items/Bottle_Enchanting.webp' },
+          { row: 2, col: 2, name: 'Lingote de Netherita', count: 4, img: '/images/items/netherite_ingot.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Durability Mender', count: 3, img: '/images/items/durability_mender.png' }
       },
       {
         title: 'Mejora de Equipamiento Cryptic (Oblivion Workbench)',
