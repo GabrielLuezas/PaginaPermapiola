@@ -1430,47 +1430,47 @@ const PATCHES_DATA = [
     raidsLevelUp: [
       {
         name: 'Pillager',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/Pillager.webp',
         description: 'Ahora poseen Instant Damage I en sus proyectiles y sus flechas son explosivas.'
       },
       {
         name: 'Vindicator',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/vindicator.webp',
         description: 'Su daño se ha visto incrementado significativamente y poseen Speed I de forma permanente.'
       },
       {
         name: 'Giant Ravager',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/giant_ravager.webp',
         description: 'Un Ravager gigante con Speed II, una barra de vida adicional y daño aumentado.'
       },
       {
         name: 'Sorcerer',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/sorcerer.webp',
         description: 'Tiene un 50% de probabilidad de evitar ataques y ponerte a levitar durante unos segundos, invoca Decaying Ghoul en vez de vexes'
       },
       {
         name: 'Decaying Ghoul',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/Vex.gif',
         description: 'Poseen tamaño un poco más incrementado, su daño aumenta pero son más lentos. No llevan ningún ítem en la mano y pueden dar Congelación durante unos segundos.'
       },
       {
         name: 'Witcher',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/witcher.webp',
         description: 'Tiene un 30% de probabilidad de usar múltiples pociones a la vez al recibir golpes (Invisibilidad, Speed II, Regeneración I, Fire Resistance), te da Ceguera al golpearla, invoca pequeños Ghasts en lugar de Vexes, y puede invocar una horda de mini esqueletos y mini zombies al ser golpeada.'
       },
       {
         name: 'Mime',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/mime.webp',
         description: 'Totalmente silencioso. Lleva frascos misteriosos en sus manos. Al golpearte tiene un 10% de probabilidad de lanzarte un frasco que otorga Ceguera y Descomposición, dejándote cegado con cada golpe. Al ser golpeado, tiene un 20% de probabilidad de volverse enorme con Fuerza aumentada (pero volviéndose más lento), y un 20% de probabilidad de obtener Velocidad V por unos segundos.'
       },
       {
         name: 'Executioner',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/executioner.webp',
         description: 'Pillager verdugo que porta un hacha gigante e inflige daño letal. Es el mob más fuerte de las Raids.'
       },
       {
         name: 'Jester',
-        img: '/images/placeholders/mob_placeholder.svg',
+        img: '/images/mobs/jester.webp',
         description: 'Al golpearte tiene un 30% de probabilidad de dejar una TNT y huir. Al ser golpeado, su tamaño disminuye pero su velocidad y fuerza aumentan (se acumula hasta morir). Al morir, genera una Gift Box que al romperse explota con nivel 3.'
       }
     ],
@@ -1510,11 +1510,250 @@ const PATCHES_DATA = [
   {
     number: 6,
     day: 10,
-    revealDate: new Date('2026-08-17T19:00:00Z'),
+    revealDate: new Date('2026-08-16T12:00:00Z'),
     mechanics: [],
-    mobs: [],
-    crafts: [],
-    loot: []
+    dungeons: [
+      {
+        name: 'CRYPTIC CATACOMBS',
+        img: '/images/items/dungeon.webp',
+        description: 'Catacumbas antiguas e infestadas de criaturas imbuidas con energía críptica. Albergan materiales míticos para forjar el conjunto de armadura, herramientas y tótems Cryptic.'
+      }
+    ],
+    mobs: [
+      {
+        name: 'Cryptic Creeper',
+        img: '/images/mobs/cryptic_creeper.webp',
+        description: 'Tiene el daño explosivo de un Creeper Cargado y el doble de vida que un Creeper normal. Su explosión te aplicará Oscuridad (Darkness) y Descomposición (Wither).',
+        drop: 'Drop: Cryptic Gunpowder'
+      },
+      {
+        name: 'Cryptic Undead',
+        img: '/images/mobs/cryptic_undead.webp',
+        description: 'Zombie veloz que quita 2 corazones por golpe y te ciega con cada impacto.',
+        drop: 'Drop: Cryptic Flesh'
+      },
+      {
+        name: 'Cryptic Archer',
+        img: '/images/mobs/cryptic_archer.webp',
+        description: 'Esqueleto tirador mortífero. Quita 1.5 corazones por flechazo y dispara ráfagas de 2 a 3 flechas.',
+        drop: 'Drop: Cryptic Bone'
+      },
+      {
+        name: 'Cryptic Widow',
+        img: '/images/mobs/cryptic_arachnyd.webp',
+        description: 'Araña de las profundidades. Cada golpe te deja con Fatiga Minera durante unos segundos y coloca una telaraña (cobweb) en tu posición.',
+        drop: 'Drop: Cryptic Weave'
+      },
+      {
+        name: 'Cryptic Stalker',
+        img: '/images/mobs/cryptic_stalker.webp',
+        description: 'Ravager lento y muy resistente. Su golpe te inflige 5 corazones de daño, te otorga Lentitud (Slowness) y muere al asestar el golpe.',
+        drop: 'Drop: Cryptic Cloth'
+      },
+      {
+        name: 'Cryptic Wailer',
+        img: '/images/mobs/cryptic_wailer.webp',
+        description: 'Ghast espectral. Lanza fireballs que no hacen daño, pero al pegarle te dará Ceguera y Descomposición por varios segundos.',
+        drop: 'Drop: Cryptic Tear'
+      }
+    ],
+    crafts: [
+      {
+        name: 'Cryptic Bone',
+        img: '/images/items/cryptic_bone.webp',
+        description: 'Hueso imbuido con energía espectral.',
+        droppedBy: 'Cryptic Archer'
+      },
+      {
+        name: 'Cryptic Cloth',
+        img: '/images/items/cryptic_cloth.webp',
+        description: 'Tela resistente forjada en las catacumbas.',
+        droppedBy: 'Cryptic Stalker'
+      },
+      {
+        name: 'Cryptic Gunpowder',
+        img: '/images/items/cryptic_gunpowder.webp',
+        description: 'Pólvora volátil impregnada de descomposición.',
+        droppedBy: 'Cryptic Creeper'
+      },
+      {
+        name: 'Cryptic Flesh',
+        img: '/images/items/cryptic_flesh.webp',
+        description: 'Carne podrida imbuida de oscuridad.',
+        droppedBy: 'Cryptic Undead'
+      },
+      {
+        name: 'Cryptic Weave',
+        img: '/images/items/cryptic_weave.webp',
+        description: 'Tejido arácnido denso y resistente.',
+        droppedBy: 'Cryptic Widow'
+      },
+      {
+        name: 'Cryptic Tear',
+        img: '/images/items/cryptic_tear.webp',
+        description: 'Lágrima mística de lamento críptico.',
+        droppedBy: 'Cryptic Wailer'
+      },
+      {
+        name: 'Cryptic Ectoplasm',
+        img: '/images/items/cryptic_essence.webp',
+        description: 'Esencia pura de las catacumbas obtenida en el Cryptic Infuser.'
+      },
+      {
+        name: 'Cryptic Template',
+        img: '/images/items/cryptic_infuser.webp',
+        description: 'Plantilla ritual forjada a partir de botellas ominosas, pizarra profunda y una calavera. Componente central para forjar el Cryptic Infuser.'
+      },
+      {
+        name: 'Cryptic Infuser',
+        img: '/images/items/cryptic_infuser.webp',
+        description: 'Estación ritual necesaria para infundir los componentes de las catacumbas y crear el equipamiento Cryptic.'
+      },
+      {
+        name: 'Cryptic Blade',
+        img: '/images/items/cryptic_sword.webp',
+        description: 'Espada sagrada y filosa. Encantamientos: Smite V y Sharpness V.'
+      },
+      {
+        name: 'Cryptic Bow',
+        img: '/images/items/Bow.webp',
+        description: 'Arco legendario. Encantamientos: Power VI, Mending, Infinity, Unbreaking III, Flame. Habilidad: Al acertar un flechazo hay cierta probabilidad de colocar una cobweb en la posición del objetivo y otorgarte Velocidad I. Cada flechazo deja descomposición que aumenta el daño recibido en un 60%.'
+      },
+      {
+        name: 'Cryptic Pickaxe',
+        img: '/images/items/cryptic_pickaxe.webp',
+        description: 'Pico abisal. Encantamiento: Efficiency VI. Habilidad: Durante la noche recibes Haste I. Picar por debajo de capa -1 otorga Haste I.'
+      },
+      {
+        name: 'Cryptic Axe',
+        img: '/images/items/cryptic_axe.webp',
+        description: 'Hacha de guerra críptica. Encantamiento: Efficiency VI. Habilidad: Durante la oscuridad de la noche recibes Haste I.'
+      },
+      {
+        name: 'Cryptic Shield',
+        img: '/images/items/Shield.webp',
+        description: 'Escudo protector. Habilidad: Durante la noche, al tener este objeto en la mano principal o secundaria recibes Velocidad I. Cada mob que te golpee con el escudo lo empujas lejos.'
+      },
+      {
+        name: 'Cryptic Shovel',
+        img: '/images/items/cryptic_shovel.webp',
+        description: 'Pala de excavación nocturna. Encantamiento: Efficiency VI. Habilidad: Durante la oscuridad de la noche recibes Haste I.'
+      },
+      {
+        name: 'Bloque de Hierro Reforzado',
+        img: '/images/items/Block_iron.webp',
+        description: 'Bloque de hierro condensado y reforzado con mineral de hierro bruto. Componente esencial para la creación de plantillas rituales.'
+      },
+      {
+        name: 'Sangre',
+        img: '/images/items/blood.webp',
+        description: 'Obtenida usando la Sacrifice Knife teniendo una botella vacía en el inventario. Se utiliza como ingrediente místico en recetas rituales.'
+      },
+      {
+        name: 'Cryptic Armor Set',
+        img: '/images/items/Peto.webp',
+        description: 'Armadura ritual de las catacumbas. El set completo te otorga 1 corazón extra (+2 HP).'
+      },
+      {
+        name: 'Cryptic Idols',
+        img: '/images/items/cryptic_idol.webp',
+        description: 'Tótems de inmortalidad con energía críptica. Al tener todas las herramientas Cryptic y el set de armadura Cryptic en tu posesión, recibirás 5 Cryptic Idols automáticamente.'
+      }
+    ],
+    recipes: [
+      {
+        title: 'Bloque de Hierro Reforzado',
+        type: 'crafting',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Bloque de Hierro', count: 4, img: '/images/items/Block_iron.webp' },
+          { row: 0, col: 1, name: 'Hierro Bruto', count: 8, img: '/images/items/raw_iron.webp' },
+          { row: 0, col: 2, name: 'Bloque de Hierro', count: 4, img: '/images/items/Block_iron.webp' },
+          { row: 1, col: 0, name: 'Hierro Bruto', count: 8, img: '/images/items/raw_iron.webp' },
+          { row: 1, col: 1, name: 'Lingote de Hierro', count: 64, img: '/images/items/Iron_Ingot.webp' },
+          { row: 1, col: 2, name: 'Hierro Bruto', count: 8, img: '/images/items/raw_iron.webp' },
+          { row: 2, col: 0, name: 'Bloque de Hierro', count: 4, img: '/images/items/Block_iron.webp' },
+          { row: 2, col: 1, name: 'Hierro Bruto', count: 8, img: '/images/items/raw_iron.webp' },
+          { row: 2, col: 2, name: 'Bloque de Hierro', count: 4, img: '/images/items/Block_iron.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Bloque de Hierro Reforzado', img: '/images/items/Block_iron.webp' }
+      },
+      {
+        title: 'Cryptic Template',
+        type: 'crafting',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Bloque de Hierro Reforzado', count: 2, img: '/images/items/Block_iron.webp' },
+          { row: 0, col: 1, name: 'Sangre', count: 4, img: '/images/items/blood.webp' },
+          { row: 0, col: 2, name: 'Bloque de Hierro Reforzado', count: 2, img: '/images/items/Block_iron.webp' },
+          { row: 1, col: 0, name: 'Sangre', count: 4, img: '/images/items/blood.webp' },
+          { row: 1, col: 1, name: 'Skeleton Skull', img: '/images/items/Skeleton_Skull.webp' },
+          { row: 1, col: 2, name: 'Sangre', count: 4, img: '/images/items/blood.webp' },
+          { row: 2, col: 0, name: 'Bloque de Hierro Reforzado', count: 2, img: '/images/items/Block_iron.webp' },
+          { row: 2, col: 1, name: 'Sangre', count: 4, img: '/images/items/blood.webp' },
+          { row: 2, col: 2, name: 'Bloque de Hierro Reforzado', count: 2, img: '/images/items/Block_iron.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Cryptic Template', img: '/images/items/cryptic_infuser.webp' }
+      },
+      {
+        title: 'Cryptic Infuser',
+        type: 'crafting',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Cryptic Bone', count: 64, img: '/images/items/cryptic_bone.webp' },
+          { row: 0, col: 1, name: 'Cryptic Ectoplasm', count: 64, img: '/images/items/cryptic_essence.webp' },
+          { row: 0, col: 2, name: 'Cryptic Bone', count: 64, img: '/images/items/cryptic_bone.webp' },
+          { row: 1, col: 0, name: 'Cryptic Flesh', count: 64, img: '/images/items/cryptic_flesh.webp' },
+          { row: 1, col: 1, name: 'Cryptic Template', img: '/images/items/cryptic_infuser.webp' },
+          { row: 1, col: 2, name: 'Cryptic Tear', count: 64, img: '/images/items/cryptic_tear.webp' },
+          { row: 2, col: 0, name: 'Cryptic Gunpowder', count: 64, img: '/images/items/cryptic_gunpowder.webp' },
+          { row: 2, col: 1, name: 'Cryptic Cloth', count: 64, img: '/images/items/cryptic_cloth.webp' },
+          { row: 2, col: 2, name: 'Cryptic Weave', count: 64, img: '/images/items/cryptic_weave.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Cryptic Infuser', img: '/images/items/cryptic_infuser.webp' }
+      },
+      {
+        title: 'Mejora de Equipamiento Cryptic (Oblivion Workbench)',
+        description: 'Interfaz ritual de la Oblivion Workbench. Coloca el Cryptic Infuser, el objeto base (debe ser de Netherita para herramientas y armaduras; o un Arco/Escudo normal) y las Placas de Acero en la mesa. Al momento de juntarlo, consumirá 15 niveles de experiencia y 2 bloques de Netherita de tu inventario.',
+        type: 'crafting',
+        gridCols: 9,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Límite', img: '/images/items/green_wool.webp' },
+          { row: 1, col: 0, name: 'Límite', img: '/images/items/green_wool.webp' },
+          { row: 2, col: 0, name: 'Límite', img: '/images/items/green_wool.webp' },
+          { row: 0, col: 8, name: 'Límite', img: '/images/items/green_wool.webp' },
+          { row: 1, col: 8, name: 'Límite', img: '/images/items/green_wool.webp' },
+          { row: 2, col: 8, name: 'Límite', img: '/images/items/green_wool.webp' },
+          { row: 1, col: 2, name: 'Cryptic Infuser', img: '/images/items/cryptic_infuser.webp' },
+          { row: 1, col: 6, name: 'Objeto Base (Netherita / Arco / Escudo)', img: '/images/items/Netherite_Sword2.webp' },
+          { row: 2, col: 2, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' },
+          { row: 2, col: 4, name: 'Martillo de Forja', img: '/images/items/steel_mace.webp' },
+          { row: 2, col: 6, name: 'Placas de acero', img: '/images/placeholders/dark_ingot_placeholder.svg' }
+        ],
+        result: { row: 1, col: 2, name: 'Equipamiento Cryptic Mejorado', img: '/images/items/cryptic_sword.webp' }
+      }
+    ],
+    loot: [
+      {
+        name: 'Sacrifice Knife',
+        img: '/images/items/sacrifice_knife.webp',
+        description: 'Cuchilla abandonada en las profundidades de las catacumbas, forjada para usarse en antiguos sacrificios. Encantamiento: Mending. Habilidad: Self Sacrifice — Al dar clic derecho teniendo una botella vacía en el inventario, la llenarás de tu sangre para usarla en recetas pero perderás mucha vida al usarlo. (Enfriamiento: 1 minuto).'
+      },
+      {
+        name: 'Old Coin',
+        img: '/images/items/old_coin.webp',
+        description: 'Antigua moneda hallada como botín en los cofres y tesoros de las Cryptic Catacombs.'
+      },
+      {
+        name: 'Cryptic Pendant',
+        img: '/images/items/catacombs_pendant.webp',
+        description: 'Reliquia y místico colgante hallado como botín exclusivo en las Cryptic Catacombs.'
+      }
+    ]
   },
   {
     number: 7,

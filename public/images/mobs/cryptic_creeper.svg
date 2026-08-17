@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <rect width="128" height="128" rx="16" fill="#0d0914"/>
+  <rect x="24" y="24" width="80" height="80" rx="8" fill="#1b4332" stroke="#00f5d4" stroke-width="2"/>
+  <!-- Creeper Face -->
+  <rect x="40" y="44" width="16" height="16" fill="#03071e"/>
+  <rect x="72" y="44" width="16" height="16" fill="#03071e"/>
+  <rect x="52" y="60" width="24" height="24" fill="#03071e"/>
+  <rect x="44" y="72" width="12" height="20" fill="#03071e"/>
+  <rect x="72" y="72" width="12" height="20" fill="#03071e"/>
+  <!-- Charged Lightning Aura -->
+  <path d="M16 24 L28 16 L22 40 L36 32 L20 64" stroke="#00f5d4" stroke-width="3" fill="none"/>
+  <path d="M112 24 L100 16 L106 40 L92 32 L108 64" stroke="#00f5d4" stroke-width="3" fill="none"/>
+  <circle cx="64" cy="64" r="54" fill="none" stroke="#7b2cbf" stroke-width="2" stroke-dasharray="4 4"/>
+</svg>

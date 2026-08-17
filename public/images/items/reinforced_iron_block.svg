@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
+  <rect width="64" height="64" rx="10" fill="#0d0914"/>
+  <!-- Reinforced Iron Block -->
+  <rect x="12" y="12" width="40" height="40" rx="4" fill="#cfd8dc" stroke="#90a4ae" stroke-width="2"/>
+  <rect x="16" y="16" width="32" height="32" rx="2" fill="#b0bec5" stroke="#eceff1" stroke-width="1.5"/>
+  <!-- Purple Gilded Glow -->
+  <path d="M12 12 L52 12 L52 22 L12 22 Z" fill="#7b2cbf" opacity="0.3"/>
+  <circle cx="20" cy="20" r="2" fill="#e0e0e0"/>
+  <circle cx="44" cy="20" r="2" fill="#e0e0e0"/>
+  <circle cx="20" cy="44" r="2" fill="#e0e0e0"/>
+  <circle cx="44" cy="44" r="2" fill="#e0e0e0"/>
+</svg>

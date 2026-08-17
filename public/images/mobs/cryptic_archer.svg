@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <rect width="128" height="128" rx="16" fill="#0d0914"/>
+  <!-- Skeleton Head -->
+  <rect x="32" y="24" width="64" height="64" rx="6" fill="#cfd8dc" stroke="#00f5d4" stroke-width="2"/>
+  <!-- Dark Eye sockets -->
+  <rect x="42" y="40" width="16" height="18" fill="#10002b"/>
+  <rect x="70" y="40" width="16" height="18" fill="#10002b"/>
+  <circle cx="50" cy="49" r="3" fill="#00f5d4"/>
+  <circle cx="78" cy="49" r="3" fill="#00f5d4"/>
+  <!-- Teeth -->
+  <rect x="46" y="70" width="8" height="10" fill="#37474f"/>
+  <rect x="60" y="70" width="8" height="10" fill="#37474f"/>
+  <rect x="74" y="70" width="8" height="10" fill="#37474f"/>
+  <!-- Triple Arrow Icon overlay -->
+  <path d="M15 105 L45 95 M15 112 L45 112 M15 119 L45 122" stroke="#00f5d4" stroke-width="3"/>
+</svg>
