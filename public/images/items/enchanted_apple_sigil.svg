@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
+  <defs>
+    <radialGradient id="appleSigilGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff00ff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#4a0e4e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="purpleGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffbe0b"/>
+      <stop offset="50%" stop-color="#c77dff"/>
+      <stop offset="100%" stop-color="#7b2cbf"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="10" fill="#14061a"/>
+  <circle cx="32" cy="32" r="26" fill="url(#appleSigilGlow)"/>
+  <!-- Sigil Rune Disc -->
+  <polygon points="32,10 46,16 54,32 46,48 32,54 18,48 10,32 18,16" fill="url(#purpleGold)" stroke="#ffd166" stroke-width="2"/>
+  <!-- Golden Apple Rune in Center -->
+  <path d="M32 20 C 32 16, 35 15, 36 16" fill="none" stroke="#55ff55" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 22 C 26 22, 22 26, 22 32 C 22 40, 27 44, 32 44 C 37 44, 42 40, 42 32 C 42 26, 38 22, 32 22 Z" fill="#ffd000" stroke="#ff00ff" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="17" fill="none" stroke="#e0aaff" stroke-width="1" stroke-dasharray="2,3"/>
+</svg>

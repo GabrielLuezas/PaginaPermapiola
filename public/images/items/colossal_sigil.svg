@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
+  <defs>
+    <radialGradient id="fireSigilGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff5400" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#370617" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sigilMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d90429"/>
+      <stop offset="50%" stop-color="#ef233c"/>
+      <stop offset="100%" stop-color="#590d22"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="10" fill="#1b080a"/>
+  <circle cx="32" cy="32" r="26" fill="url(#fireSigilGlow)"/>
+  <!-- Sigil Rune Disc (Octagon) -->
+  <polygon points="32,10 46,16 54,32 46,48 32,54 18,48 10,32 18,16" fill="url(#sigilMetal)" stroke="#ffb703" stroke-width="2"/>
+  <!-- Inner Flame Rune -->
+  <path d="M32 20 C 38 26, 42 34, 38 42 C 34 46, 26 44, 26 38 C 26 32, 32 28, 30 24 C 31 22, 32 20, 32 20 Z" fill="#ffd166" stroke="#ff7b00" stroke-width="1.2"/>
+  <circle cx="32" cy="32" r="16" fill="none" stroke="#ffb703" stroke-width="1" stroke-dasharray="3,3"/>
+</svg>

@@ -1551,37 +1551,37 @@ const PATCHES_DATA = [
       {
         name: 'Cryptic Creeper',
         img: '/images/mobs/cryptic_creeper.webp',
-        description: 'Tiene el daño explosivo de un Creeper Cargado y el doble de vida que un Creeper normal. Su explosión te aplicará Oscuridad (Darkness) y Descomposición (Wither).',
+        description: 'Criatura sumamente letal que hace mucho daño explosivo (superior a un Creeper Cargado) y posee el doble de vida que un Creeper normal. Su explosión te aplicará Oscuridad (Darkness) y Descomposición (Wither).',
         drop: 'Drop: Cryptic Gunpowder'
       },
       {
         name: 'Cryptic Undead',
         img: '/images/mobs/cryptic_undead.webp',
-        description: 'Zombie veloz que quita 2 corazones por golpe y te ciega con cada impacto.',
+        description: 'Zombie veloz que hace mucho daño con cada impacto y te aplica Ceguera al golpearte.',
         drop: 'Drop: Cryptic Flesh'
       },
       {
         name: 'Cryptic Archer',
         img: '/images/mobs/cryptic_archer.webp',
-        description: 'Esqueleto tirador mortífero. Quita 1.5 corazones por flechazo y dispara ráfagas de 2 a 3 flechas.',
+        description: 'Esqueleto tirador mortífero que hace mucho daño disparando ráfagas de 2 a 3 flechas.',
         drop: 'Drop: Cryptic Bone'
       },
       {
         name: 'Cryptic Widow',
         img: '/images/mobs/cryptic_arachnyd.webp',
-        description: 'Araña de las profundidades. Cada golpe te deja con Fatiga Minera durante unos segundos y coloca una telaraña (cobweb) en tu posición.',
+        description: 'Araña de las profundidades que hace mucho daño. Cada golpe te deja con Fatiga Minera durante unos segundos y coloca una telaraña (cobweb) en tu posición.',
         drop: 'Drop: Cryptic Weave'
       },
       {
         name: 'Cryptic Stalker',
         img: '/images/mobs/cryptic_stalker.webp',
-        description: 'Husk resistente. Su golpe te inflige 5 corazones de daño, te otorga el efecto Memoria Encadenada (Chained Memory) durante 2 minutos y Lentitud (Slowness), y muere al asestar el golpe.',
+        description: 'Husk resistente que hace mucho daño. Su golpe te otorga el efecto Memoria Encadenada (Chained Memory) durante 2 minutos y Lentitud (Slowness), y muere al asestar el golpe.',
         drop: 'Drop: Cryptic Cloth'
       },
       {
         name: 'Cryptic Wailer',
         img: '/images/mobs/cryptic_wailer.webp',
-        description: 'Ghast espectral. Lanza fireballs que no hacen daño, pero al pegarle te dará Ceguera y Descomposición por varios segundos.',
+        description: 'Ghast espectral que hace mucho daño. Lanza fireballs que provocan una explosión que no rompe bloques pero es muy dañina, y al pegarle te dará Ceguera y Descomposición por varios segundos.',
         drop: 'Drop: Cryptic Tear'
       }
     ],
@@ -1807,18 +1807,109 @@ const PATCHES_DATA = [
   {
     number: 7,
     day: 14,
-    revealDate: new Date('2026-08-21T19:00:00Z'),
+    revealDate: new Date('2026-08-21T21:00:00Z'),
     mechanics: [
-      { tag: 'NUEVO', text: 'Mecánica de fatiga por calor en el Nether: debes tomar pociones de resistencia al fuego para no deshidratarte.' }
+      { tag: 'NUEVO', text: 'Ahora los Cryptic Mobs aparecen naturalmente por el mundo.' },
+      { tag: 'NUEVO', text: 'Las Arañas Venenosas (Cave Spiders) ahora pueden aparecer naturalmente por el mundo.' },
+      { tag: 'NUEVO', text: 'Los Happy Ghast ahora se convierten en Cryptic Wailer.' },
+      { tag: 'NUEVO', text: 'Mecánica de fatiga por calor en el Nether: debes tomar pociones de resistencia al fuego para no deshidratarte.' },
+      { tag: 'NERFEO/BUFEO', text: 'TODOS los Tótems de Inmortalidad tienen cooldown de 1 segundo y ya no otorgan ningún efecto positivo por defecto.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Wasted Walker te quitan 4 corazones por golpe.' },
+      { tag: 'NERFEO/BUFEO', text: 'Todas las herramientas (excepto las Cryptic) se rompen instantáneamente al usarse.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Drowneds, Guardianes, Elder Guardian y Wither Skeletons pierden totalmente su drop para siempre.' },
+      { tag: 'NERFEO/BUFEO', text: 'Todos los Drowneds portan un Tridente con Impaling VI y Channeling.' },
+      { tag: 'NERFEO/BUFEO', text: 'Todos los Mobs son inmunes a las explosiones.' },
+      { tag: 'NERFEO/BUFEO', text: 'Un golpe o embestida de la Cabra es Instakill (mueres de inmediato aunque lleves tótem).' },
+      { tag: 'NERFEO/BUFEO', text: 'El daño por Cactus y Bayas Dulces causa Oneshot.' },
+      { tag: 'NERFEO/BUFEO', text: 'Las Arañas de Cueva tienen el tamaño mucho más disminuido.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Silverfish y Endermites quitan 3 corazones por golpe (2 corazones incluso con armadura Full Cryptic Protección IV).' },
+      { tag: 'NERFEO/BUFEO', text: 'El rayo láser del Elder Guardian es Oneshot.' },
+      { tag: 'NERFEO/BUFEO', text: 'Llenar baldes con lava te prenderá fuego inmediatamente.' },
+      { tag: 'NERFEO/BUFEO', text: 'El daño infligido por los Guardianes es x3.' },
+      { tag: 'NERFEO/BUFEO', text: 'El daño por Ahogamiento se ha multiplicado x9.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Cryptic Mobs ahora tienen más daño y más vida.' },
+      { tag: 'NERFEO/BUFEO', text: 'Al romper o pisar Obsidiana te aplicará Ceguera (Blindness).' },
+      { tag: 'NERFEO/BUFEO', text: 'Cuando un Wither Skeleton o un Magma Cube te golpeen te incendiarán.' },
+      { tag: 'NERFEO/BUFEO', text: 'Al romper un bloque de piedra existe un 5% de probabilidad de que aparezca un Armored Silverfish.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los minerales de Redstone, Esmeralda y Lapislázuli ya no son afectados por el encantamiento Fortuna.' },
+      { tag: 'NERFEO/BUFEO', text: 'Todos los peces (excepto los Pufferfish) se han extinguido por una causa desconocida.' },
+      { tag: 'NERFEO/BUFEO', text: 'La bomba del Wasted Bomber es de nivel 8.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Pufferfish son más comunes de encontrar y su tamaño es mucho más gigantesco.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Wasted Zombies son el doble de rápidos y llevan botas de Netherita con Feather Falling IV y Protección IV.' },
+      { tag: 'NERFEO/BUFEO', text: 'Las arañas venenosas al golpearte te aplicarán Descomposición (Wither) con la misma duración que su veneno.' },
+      { tag: 'NERFEO/BUFEO', text: 'Lanzar una Enderpearl tiene un 10% de probabilidad de aplicarte Oscuridad (Darkness) por 5 segundos.' },
+      { tag: 'NERFEO/BUFEO', text: 'Ahora el Tridente tiene un tiempo de reutilización (cooldown) de 2 segundos.' },
+      { tag: 'NERFEO/BUFEO', text: 'Todas las arañas al golpearte colocan una telaraña (cobweb) en tu posición.' },
+      { tag: 'REMOVIDO', text: 'Ya no se pueden fabricar Brewing Stands (Soportes de Pociones).' },
+      { tag: 'REMOVIDO', text: 'Ya no se pueden fabricar antorchas.' },
+      { tag: 'REMOVIDO', text: 'Ahora ya no se pueden ordeñar las Vacas.' },
+      { tag: 'REMOVIDO', text: 'Ya no se pueden conseguir Tridentes.' }
     ],
-    mobs: [],
-    crafts: [],
-    loot: []
+    mobs: [
+      {
+        name: 'Cyclone Blaze',
+        img: '/images/mobs/cyclone_blaze.svg',
+        description: 'Sus proyectiles son explosivos, además que al pegarle te empezará a quemar y te empujará lejos de él. Invocará Blaze Wisps al pegarle con cierta probabilidad.',
+        drop: 'Drop: Cyclone Blaze Rods'
+      },
+      {
+        name: 'Cyclone Breeze',
+        img: '/images/mobs/cyclone_breeze.svg',
+        description: 'Sus proyectiles al impactar generan un rayo, y cuando le pegas te empezará a congelar y te empujará lejos de él. Invocará Breeze Wisps al pegarle con cierta probabilidad.',
+        drop: 'Drop: Cyclone Breeze Rods'
+      },
+      {
+        name: 'Psychic Invader (Husk)',
+        img: '/images/mobs/psychic_invader.svg',
+        description: 'Este enemigo tiene un aspecto oscuro y siniestro. Al golpearte se sumergirá dentro de tu mente, teniendo una probabilidad de llevarte al Fallen Memories o provocarte daño psíquico. Por cada golpe suyo que recibas mientras estás atrapado aumenta un 5% la probabilidad de ir al Fallen Memories. Si en 5 segundos no escapas de él, pierdes 5 corazones y tienes un 30% de probabilidad de ir al Fallen.'
+      }
+    ],
+    crafts: [
+      {
+        name: 'Blessed Fruit',
+        img: '/images/items/blessed_fruit.svg',
+        description: 'Fruta desconocida cuya receta fue descubierta por los pueblerinos. Proporciona mejores beneficios y efectos a su consumidor.'
+      },
+      {
+        name: 'Vessel of Undying',
+        img: '/images/items/vessel_of_undying.svg',
+        description: 'Ahora necesitarás tener este objeto en tu inventario para poder gastar tótems sin necesidad de recibir un castigo. Conforme los días pasen tendrás que irlo reforzando para que no se pierda su poder. A este Vessel puedes agregarle Perks para anular castigos al usar Tótems de Inmortalidad.'
+      },
+      {
+        name: 'Colossal Sigil',
+        img: '/images/items/colossal_sigil.svg',
+        description: 'Necesitarás upgradear la Vessel of Undying con este sigilo para tener Resistencia al Fuego (Fire Resistance) al momento de usar un Tótem de Inmortalidad.'
+      },
+      {
+        name: 'Enchanted Apple Sigil',
+        img: '/images/items/enchanted_apple_sigil.svg',
+        description: 'Necesitarás upgradear la Vessel of Undying con este sigilo para tener efectos positivos al momento de usar un Tótem de Inmortalidad.'
+      },
+      {
+        name: 'Golden Jar',
+        img: '/images/items/golden_jar.svg',
+        description: 'Podrás fabricar hasta 2 Golden Jars; cada una sirve para aumentar permanentemente +2 HP (1 corazón de vida adicional).'
+      }
+    ],
+    loot: [
+      {
+        name: 'Cyclone Blaze Rods',
+        img: '/images/items/cblaze_rods.svg',
+        description: 'Varas forjadas en el corazón de un ciclón ígneo.',
+        droppedBy: 'Cyclone Blaze'
+      },
+      {
+        name: 'Cyclone Breeze Rods',
+        img: '/images/items/cbreeze_rods.svg',
+        description: 'Varas nacidas en el aliento eterno de una ventisca.',
+        droppedBy: 'Cyclone Breeze'
+      }
+    ]
   },
   {
     number: 8,
     day: 18,
-    revealDate: new Date('2026-08-25T19:00:00Z'),
+    revealDate: new Date('2026-08-25T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
     mobs: [],
     crafts: [],
@@ -1827,7 +1918,7 @@ const PATCHES_DATA = [
   {
     number: 9,
     day: 21,
-    revealDate: new Date('2026-08-28T19:00:00Z'),
+    revealDate: new Date('2026-08-28T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
     mobs: [],
     crafts: [],
@@ -1836,7 +1927,7 @@ const PATCHES_DATA = [
   {
     number: 10,
     day: 23,
-    revealDate: new Date('2026-08-30T19:00:00Z'),
+    revealDate: new Date('2026-08-30T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
     mobs: [],
     crafts: [],
@@ -1845,7 +1936,7 @@ const PATCHES_DATA = [
   {
     number: 11,
     day: 25,
-    revealDate: new Date('2026-09-01T19:00:00Z'),
+    revealDate: new Date('2026-09-01T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
     mobs: [],
     crafts: [],
@@ -1854,7 +1945,7 @@ const PATCHES_DATA = [
   {
     number: 12,
     day: 28,
-    revealDate: new Date('2026-09-04T19:00:00Z'),
+    revealDate: new Date('2026-09-04T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
     mobs: [],
     crafts: [],

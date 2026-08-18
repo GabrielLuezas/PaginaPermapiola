@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
+  <defs>
+    <radialGradient id="blazeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff9e00" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff4800" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffea00"/>
+      <stop offset="50%" stop-color="#ff7b00"/>
+      <stop offset="100%" stop-color="#d00000"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="10" fill="#180a04"/>
+  <circle cx="32" cy="32" r="28" fill="url(#blazeGlow)"/>
+  <!-- Cyclone Swirls -->
+  <path d="M12 20 Q32 8 52 20 Q40 32 16 30" fill="none" stroke="#ff7b00" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M52 44 Q32 56 12 44 Q24 32 48 34" fill="none" stroke="#ffaa00" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <!-- Blaze Head -->
+  <rect x="22" y="18" width="20" height="20" rx="3" fill="url(#fireGrad)" stroke="#370617" stroke-width="1.5"/>
+  <rect x="25" y="24" width="4" height="4" fill="#370617"/>
+  <rect x="35" y="24" width="4" height="4" fill="#370617"/>
+  <!-- Orbiting Rods -->
+  <rect x="10" y="28" width="5" height="14" rx="2" fill="#ffb703" stroke="#d00000" stroke-width="1"/>
+  <rect x="49" y="22" width="5" height="14" rx="2" fill="#ffb703" stroke="#d00000" stroke-width="1"/>
+  <rect x="20" y="44" width="6" height="12" rx="2" fill="#ffb703" stroke="#d00000" stroke-width="1"/>
+  <rect x="38" y="44" width="6" height="12" rx="2" fill="#ffb703" stroke="#d00000" stroke-width="1"/>
+</svg>
