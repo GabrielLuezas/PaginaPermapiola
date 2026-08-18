@@ -1511,7 +1511,22 @@ const PATCHES_DATA = [
     number: 6,
     day: 10,
     revealDate: new Date('2026-08-16T12:00:00Z'),
-    mechanics: [],
+    mechanics: [
+      { tag: 'NERFEO/BUFEO', text: 'La Sandstone y sus variantes ahora te quemarán durante 15sg al pisarlas.' },
+      { tag: 'NERFEO/BUFEO', text: 'Las carnes crudas te quitan 5 de saturación.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Endermans te dan Blindness por 10sg al atacarte.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Piglin Brute tienen x2 de daño.' },
+      { tag: 'NERFEO/BUFEO', text: 'El fuego en el Nether es infinito.' },
+      { tag: 'NERFEO/BUFEO', text: 'El Daño por Hambre es oneshot.' },
+      { tag: 'NERFEO/BUFEO', text: 'Romper nieve te hará daño.' },
+      { tag: 'NERFEO/BUFEO', text: 'El Mazo ahora tiene un 100% de reflejar el daño que causaste en ti mismo.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Phantoms son el cuádruple de gigantes y sus estadísticas son x3.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Phantoms al morir por un jugador tienen un 15% de que generen una TNT con Explosion Power 7.' },
+      { tag: 'NERFEO/BUFEO', text: 'En las Mushroom Islands el agua es tóxica y hace daño aparte del envenenamiento.' },
+      { tag: 'NERFEO/BUFEO', text: 'Cuando golpees un armadillo y este cubriéndose te hará oneshot.' },
+      { tag: 'NERFEO/BUFEO', text: 'El Warden al golpearte te dará Slowness II + Blindness V durante unos segundos.' },
+      { tag: 'NERFEO/BUFEO', text: 'Abrir cofres por debajo de capa 0 te dará Darkness.' }
+    ],
     dungeons: [
       {
         name: 'CRYPTIC CATACOMBS',
