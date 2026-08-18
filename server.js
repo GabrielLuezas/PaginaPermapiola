@@ -1525,7 +1525,8 @@ const PATCHES_DATA = [
       { tag: 'NERFEO/BUFEO', text: 'En las Mushroom Islands el agua es tóxica y hace daño aparte del envenenamiento.' },
       { tag: 'NERFEO/BUFEO', text: 'Cuando golpees un armadillo y este cubriéndose te hará oneshot.' },
       { tag: 'NERFEO/BUFEO', text: 'El Warden al golpearte te dará Slowness II + Blindness V durante unos segundos.' },
-      { tag: 'NERFEO/BUFEO', text: 'Abrir cofres por debajo de capa 0 te dará Darkness.' }
+      { tag: 'NERFEO/BUFEO', text: 'Abrir cofres por debajo de capa 0 te dará Darkness.' },
+      { tag: 'NERFEO/BUFEO', text: 'Los Silverfish se convierten en Armored Silverfish y los Endermites en Armored Endermite: poseen 1 barra y media de vida y al ser golpeados hacen daño reflectivo.' }
     ],
     dungeons: [
       {
@@ -1535,6 +1536,18 @@ const PATCHES_DATA = [
       }
     ],
     mobs: [
+      {
+        name: 'Armored Silverfish',
+        img: '/images/mobs/armored_silverfish.png',
+        hearts: 30,
+        description: 'Variante acorazada del Silverfish. Posee 1 barra y media de vida (30 HP) y al ser golpeado inflige daño reflectivo a quien lo ataque.'
+      },
+      {
+        name: 'Armored Endermite',
+        img: '/images/mobs/armored_endermite.png',
+        hearts: 30,
+        description: 'Variante acorazada del Endermite. Posee 1 barra y media de vida (30 HP) y al ser golpeado inflige daño reflectivo a quien lo ataque.'
+      },
       {
         name: 'Cryptic Creeper',
         img: '/images/mobs/cryptic_creeper.webp',
