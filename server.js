@@ -1736,15 +1736,15 @@ const PATCHES_DATA = [
         gridCols: 3,
         gridRows: 3,
         slots: [
-          { row: 0, col: 0, name: 'Cryptic Bone', count: 64, img: '/images/items/cryptic_bone.webp' },
-          { row: 0, col: 1, name: 'Cryptic Ectoplasm', count: 64, img: '/images/items/cryptic_essence.webp' },
-          { row: 0, col: 2, name: 'Cryptic Bone', count: 64, img: '/images/items/cryptic_bone.webp' },
-          { row: 1, col: 0, name: 'Cryptic Flesh', count: 64, img: '/images/items/cryptic_flesh.webp' },
+          { row: 0, col: 0, name: 'Cryptic Ectoplasm', count: 64, img: '/images/items/cryptic_essence.webp' },
+          { row: 0, col: 1, name: 'Cryptic Weave', count: 64, img: '/images/items/cryptic_weave.webp' },
+          { row: 0, col: 2, name: 'Cryptic Ectoplasm', count: 64, img: '/images/items/cryptic_essence.webp' },
+          { row: 1, col: 0, name: 'Cryptic Cloth', count: 64, img: '/images/items/cryptic_cloth.webp' },
           { row: 1, col: 1, name: 'Cryptic Template', img: '/images/items/infuser_template.png' },
-          { row: 1, col: 2, name: 'Cryptic Tear', count: 64, img: '/images/items/cryptic_tear.webp' },
-          { row: 2, col: 0, name: 'Cryptic Gunpowder', count: 64, img: '/images/items/cryptic_gunpowder.webp' },
-          { row: 2, col: 1, name: 'Cryptic Cloth', count: 64, img: '/images/items/cryptic_cloth.webp' },
-          { row: 2, col: 2, name: 'Cryptic Weave', count: 64, img: '/images/items/cryptic_weave.webp' }
+          { row: 1, col: 2, name: 'Cryptic Tear', count: 32, img: '/images/items/cryptic_tear.webp' },
+          { row: 2, col: 0, name: 'Cryptic Flesh', count: 64, img: '/images/items/cryptic_flesh.webp' },
+          { row: 2, col: 1, name: 'Cryptic Gunpowder', count: 64, img: '/images/items/cryptic_gunpowder.webp' },
+          { row: 2, col: 2, name: 'Cryptic Bone', count: 64, img: '/images/items/cryptic_bone.webp' }
         ],
         result: { row: 1, col: 2, name: 'Cryptic Infuser', img: '/images/items/cryptic_infuser.webp' }
       },
