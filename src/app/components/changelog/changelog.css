@@ -1571,3 +1571,277 @@
   background: rgba(168, 85, 247, 0.1);
   border: 1px solid rgba(168, 85, 247, 0.15);
 }
+
+/* ===========================
+   BOSSES SECTION
+   =========================== */
+.bosses-section {
+  border: 1px solid rgba(255, 94, 0, 0.25);
+  box-shadow: 0 8px 32px rgba(255, 94, 0, 0.08);
+}
+
+.text-boss-fire {
+  color: #ff5e00;
+  text-shadow: 0 0 16px rgba(255, 94, 0, 0.4);
+}
+
+.bosses-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.boss-card {
+  background: rgba(18, 16, 26, 0.85);
+  border: 1px solid rgba(255, 94, 0, 0.2);
+  border-radius: 16px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boss-card:hover {
+  border-color: rgba(255, 94, 0, 0.45);
+  box-shadow: 0 8px 32px rgba(255, 94, 0, 0.15);
+}
+
+.boss-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.boss-img-wrap {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 94, 0, 0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.boss-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 12px rgba(255, 94, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.boss-img-wrap:hover .boss-img {
+  transform: scale(1.08);
+}
+
+.boss-meta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.boss-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.boss-name {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+.boss-subtitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.boss-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.boss-attacks-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.boss-attacks-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffb703;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.boss-attacks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.attack-card {
+  border-left: 3px solid #ffb703;
+}
+
+.attack-img-wrap {
+  width: 120px;
+  height: 85px;
+  background: #14121f;
+  border: 1px solid rgba(255, 183, 3, 0.25);
+  border-radius: 8px;
+  padding: 3px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.attack-img-wrap:hover {
+  transform: scale(1.04);
+  border-color: #ffb703;
+}
+
+.attack-img-wrap .entry-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  transform: none;
+  filter: none;
+}
+
+.attack-name {
+  color: #ffb703;
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.attack-badge {
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(255, 183, 3, 0.12);
+  color: #ffb703;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+}
+
+.attack-badge-trono {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.22), rgba(249, 115, 22, 0.22));
+  color: #fde047;
+  border: 1px solid rgba(250, 204, 21, 0.5);
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.18);
+}
+
+.attack-badge-arena {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(220, 38, 38, 0.22));
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.18);
+}
+
+/* ===========================
+   SPECIAL PHASE SECTION
+   =========================== */
+.special-phase-section {
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.08);
+}
+
+.special-phase-card {
+  background: rgba(18, 16, 26, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.special-phase-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.special-phase-rules-box {
+  background: rgba(245, 158, 11, 0.04);
+  border: 1px solid rgba(245, 158, 11, 0.18);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.special-phase-rules-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===========================
+   BOSS PHASES SECTION
+   =========================== */
+.boss-phases-section {
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  box-shadow: 0 8px 32px rgba(14, 165, 233, 0.08);
+}
+
+.boss-phases-card {
+  background: rgba(18, 22, 34, 0.85);
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.boss-phases-list {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.boss-phases-list li strong {
+  color: #38bdf8;
+}
+
+
+

@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
-  <rect width="64" height="64" rx="10" fill="#0d0914"/>
-  <!-- Sword Blade -->
-  <path d="M48 12 L52 16 L28 40 L24 36 Z" fill="#00f5d4" stroke="#7b2cbf" stroke-width="1.5"/>
-  <path d="M22 38 L30 46 L24 50 L16 42 Z" fill="#3a0ca3"/>
-  <rect x="14" y="48" width="6" height="6" rx="1" fill="#7b2cbf" transform="rotate(-45 17 51)"/>
-</svg>

@@ -109,6 +109,7 @@ export interface DungeonGuide {
   title: string;
   subtitle: string;
   mainImg?: string;
+  rulesTitle?: string;
   rules?: string[];
   steps: GuideStep[];
 }
@@ -150,6 +151,45 @@ export interface DungeonDropsData {
   items: DungeonDropItem[];
 }
 
+export interface BossRole {
+  name: string;
+  color?: string;
+  badge?: string;
+  img?: string;
+  description: string;
+}
+
+export interface BossAttack {
+  name: string;
+  badge?: string;
+  img?: string;
+  description: string;
+}
+
+export interface BossInfo {
+  name: string;
+  subtitle?: string;
+  img?: string;
+  hearts?: number;
+  description?: string;
+  attacks: BossAttack[];
+}
+
+export interface SpecialPhase {
+  title: string;
+  subtitle?: string;
+  badge?: string;
+  img?: string;
+  description: string;
+  rules?: string[];
+}
+
+export interface BossPhasesInfo {
+  title?: string;
+  subtitle?: string;
+  rules: string[];
+}
+
 export interface Patch {
   number: number;
   day: number;
@@ -167,6 +207,10 @@ export interface Patch {
   npcs?: NpcEntry[];
   items?: ItemEntry[];
   dungeonGuide?: DungeonGuide;
+  bossRoles?: BossRole[];
+  bosses?: BossInfo[];
+  bossPhases?: BossPhasesInfo;
+  specialPhase?: SpecialPhase;
   dungeonLoot?: DungeonLootTable[];
   newAmuletCategories?: NewAmuletCategories;
   dungeonDrops?: DungeonDropsData;

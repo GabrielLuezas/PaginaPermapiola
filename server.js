@@ -1806,6 +1806,275 @@ const PATCHES_DATA = [
   },
   {
     number: 7,
+    day: 13,
+    revealDate: new Date('2026-08-20T20:00:00Z'),
+    mechanics: [],
+    mobs: [],
+    dungeonGuide: {
+      title: 'Los hermanos Illager',
+      subtitle: 'Boss fight por equipos donde os enfrentareis contra los hermanos Illager',
+      rulesTitle: 'REGLAS DEL BOSS',
+      rules: [
+        'El boss obligatoriamente requiere de <strong>mínimo 4 personas y máximo 6 personas</strong>.',
+        '<strong>Puedes reunir a gente de otros teams</strong> para hacerlo.',
+        'La <strong>Spider\'s Claw</strong> y el <strong>Interdimensional Scepter</strong> <strong>no se pueden utilizar</strong> en la pelea.',
+        '<strong>Está prohibido salirse de la arena con intencionalidad</strong>, así como intentar quedarse entre las trampillas de la arena o bugearse en los barriers.',
+        'Los jugadores están en <strong>modo aventura</strong> durante toda la pelea.',
+        '<strong>No se puede activar la stasis</strong> de un jugador que está en medio de la pelea del boss.'
+      ],
+      mainImg: '/images/dungeons/ImagenCentral.webp',
+      steps: [
+        {
+          title: 'Crear la party',
+          text: 'Primero, el líder de la party debe crear el grupo ejecutando el comando <code>/party crear</code>.'
+        },
+        {
+          title: 'Interfaz de la Party',
+          text: 'Una vez creada, si usas el comando <code>/party</code> se te abrirá la interfaz del grupo, donde podrás visualizar el estado actual de los miembros y los controles de la party.',
+          img: '/images/interfaces/guipartyboss.webp'
+        },
+        {
+          title: 'Invitar jugadores',
+          text: 'Puedes invitar a otros jugadores a unirse usando el comando <code>/party invitar (NICKJUGADOR)</code>.'
+        },
+        {
+          title: 'Aceptar la invitación',
+          text: 'Los jugadores invitados pueden unirse aceptando la invitación mediante el comando <code>/party aceptar</code> o dandole clic al mensaje que te sale en el chat'
+        },
+        {
+          title: 'Expulsar jugadores',
+          text: 'Si eres el líder, puedes echar a cualquier jugador de la party con el comando <code>/party echar (NICKJUGADOR)</code>.'
+        },
+        {
+          title: 'Indicar que estás listo',
+          text: 'Cuando todos estén dentro del grupo, todos los jugadores deben marcar que están listos para empezar. Esto se hace usando el comando <code>/party listo</code> o haciendo clic en el <strong>tinte verde</strong> que hay en la interfaz.',
+        },
+
+        {
+          title: 'Cambiar tu rol',
+          text: 'Puedes cambiar tu rol para la pelea desde la interfaz haciendo clic en tu cabeza o en la lana situada encima de ella. Esto te abrirá un menú que te dejará elegir qué rol quieres ser. (Importante: si sois 4 jugadores, tendrá que haber 1 de cada rol; si sois 5, habrá 2 verdes; y si sois 6, habrá 2 azules)',
+          img: '/images/interfaces/selecionarcolor.webp'
+        },
+        {
+          title: 'Seleccionar arena',
+          text: 'Una vez que todo el grupo esté listo, el líder deberá hacer clic en el ítem del <strong>Beacon (Faro)</strong> en la interfaz. Se abrirá un menú para seleccionar el slot o instancia de la arena.',
+          importantNote: 'Habrá un número limitado de instancias concurrentes al mismo tiempo. Si están todas ocupadas, deberás esperar a que una quede libre.',
+        },
+        {
+          title: 'Sala de espera',
+          text: 'Tras seleccionar la instancia, todos los jugadores serán teletransportados automáticamente a una sala de espera.',
+        },
+        {
+          title: 'Confirmar "Listo" en la sala de espera',
+          text: 'Una vez dentro de la sala de espera, todos los miembros de la party deberán volver a marcar que están listos (usando el comando o abriendo el menú y haciendo clic en la lana verde).',
+        },
+        {
+          title: 'Inicio del Combate contra el Boss',
+          text: 'Cuando todos los jugadores estén listos en la sala de espera, serán teletransportados directamente a la arena para dar comienzo al enfrentamiento contra el Boss.',
+          img: '/images/dungeons/ImagenCentral.webp' 
+        },
+        {
+          title: 'Testear ataques',
+          text: 'Los jugadores podran acceder a una arena donde podran reproducir los ataques realizados por los bosses, para ello tendran que crear una party estar todos listos y el lider le dara al ítem del <strong>Polvo de blaze (Faro)</strong>',
+          img: '/images/interfaces/testeogui.webp' 
+        },
+        {
+          title: 'Seleccionar arena de testeo',
+          text: 'Una vez clicado el ítem del polvo de Blaze, el líder seleccionará la instancia donde realizarán el testeo',
+          importantNote: 'Habrá un número limitado de instancias concurrentes al mismo tiempo. Si están todas ocupadas, deberás esperar a que una quede libre.',
+          img: '/images/interfaces/seleccionarinstanciatesteo.webp' 
+        },
+        {
+          title: 'Comandos para testear ataques',
+          text: 'Una vez dentro de la arena de testeo, podréis usar el comando <code>/testearboss lista</code> para ver los ataques disponibles, para probar un ataque usa <code>/testearboss <nombreataque> <fasedelataque></code>, cuando terminéis de probar podréis salir de la arena de testeo con el comando <code>/testearboss salir</code>',
+        },
+      ]
+    },
+    bossRoles: [
+      {
+        name: 'ROL VERDE',
+        color: '#22c55e',
+        badge: 'Pillager',
+        img: '/images/items/green_wool.webp',
+        description: 'Eres el único encargado capaz de desactivar las trampas. Si el resto de jugadores pasan por encima de una trampa serán encerrados, pero tú eres inmune. Además, eres el único que puede hacer clic derecho en una trampa para abrir el minijuego y desactivarla. Todos los jugadores pueden liberarse entre ellos haciéndole clic derecho a quien esté atrapado.'
+      },
+      {
+        name: 'ROL AZUL',
+        color: '#3b82f6',
+        badge: 'Illusioner',
+        img: '/images/items/blue_wool.webp',
+        description: 'Eres el encargado de guiar a tus compañeros a la zona segura durante el ataque del Illusioner. Tus compañeros estarán cegados, pero tú no; tú verás varias zonas y tendrás que guiarlos a todas ellas para neutralizar el ataque'
+      },
+      {
+        name: 'ROL ROJO',
+        color: '#ef4444',
+        badge: 'Vindicator',
+        img: '/images/items/red_wool.webp',
+        description: 'Eres el encargado de avisar a tus compañeros del ataque del hacha. Cuando el Vindicator está en el trono, de vez en cuando tirará un ataque LETAL del que solo tú serás avisado. Tendrás que decirle al resto de compañeros que el ataque viene y que todos se agachen'
+      },
+      {
+        name: 'ROL AMARILLO',
+        color: '#eab308',
+        badge: 'Evoker',
+        img: '/images/items/yellow_wool.webp',
+        description: 'Eres el encargado de guiar a los jugadores a las zonas seguras durante el ataque de los Fangs del Evoker (ataque ONE-SHOT / Letal). Tus compañeros no verán nada en la arena, pero tú verás una estructura con bloques de concreto amarillo. ¡ESA ES LA ZONA SEGURA! Guía a tus compañeros allí en cada ronda del ataque para evitar la muerte instantánea.'
+      }
+    ],
+    bosses: [
+      {
+        name: 'VINDICATOR',
+        subtitle: 'Hermano Illager · Asesino cuerpo a cuerpo',
+        img: '/images/mobs/vindicator.webp',
+        description: 'Experto en combate cuerpo a cuerpo y letalidad masiva.<br><br>⚡ <strong>Sistema de Furia:</strong> Acumula cargas al golpear a los jugadores. Si te impacta un hacha del cielo le da <strong>1 carga</strong>, y si te da con la carga le da <strong>4 cargas instantáneas</strong>. Al alcanzar <strong>4 cargas</strong> entra en estado de <strong>Rage (Furia)</strong> donde es mucho más rápido; tras <strong>30 segundos</strong> se calma.',
+        attacks: [
+          {
+            name: 'axethrow (Hacha Horizontal Letal)',
+            badge: 'ATAQUE DE TRONO',
+            img: '/images/dungeons/axe_throw.webp',
+            description: 'El Vindicator se posiciona en el trono y lanza un hacha horizontal gigante que atraviesa toda la arena. Es ONE-SHOT (Letal).<br><strong>Rol Clave:</strong> 🔴 <strong>Rol Rojo</strong> (es el único que ve las partículas y el aviso del lanzamiento; debe avisar al equipo para que todos se agachen con Shift).'
+          },
+          {
+            name: 'vindicatorcharge (Carga Brutal)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/carga_vindicator.webp',
+            description: 'Fija a un jugador y se abalanza a gran velocidad. Si impacta en un jugador, lo lanza por los aires, le desordena la hotbar y le carga <strong>4 cargas de furia instantáneas</strong> al Vindicator (activando su modo Rage). Al chocar con una pared genera una explosión.'
+          },
+          {
+            name: 'roofaxes (Hachas del Techo)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/roof_axes.webp',
+            description: 'Fija las posiciones de los jugadores y hace caer hachas desde el techo con círculos de aviso que explotan al impactar. Cada impacto de un hacha le otorga <strong>1 carga de furia</strong> al Vindicator y deja sangrando al jugador.'
+          }
+        ]
+      },
+      {
+        name: 'EVOKER',
+        subtitle: 'Hermano Illager · Invocador y Magia Arcana',
+        img: '/images/items/Evoker.webp',
+        description: 'Maestro de la magia oscura, colmillos gigantes y criaturas explosivas.',
+        attacks: [
+          {
+            name: 'vexwave (Oleada de Vexes Arcanos)',
+            badge: 'ATAQUE DE TRONO',
+            img: '/images/dungeons/vex_wave.webp',
+            description: 'Desde el trono invoca una oleada de zombies acorazados que harán inmortal al boss que esté en la arena en ese momento. Elimina a todos para poder pegar nuevamente al boss activo.'
+          },
+          {
+            name: 'evokerfangs (Colmillos del Suelo)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/evoker_fangs.webp',
+            description: 'Invoca rondas masivas de colmillos en toda la arena. Es un ataque <strong>ONE-SHOT (Letal)</strong>.<br><strong>Rol Clave:</strong> 🟡 <strong>Rol Amarillo</strong> (es el único que ve la estructura segura de concreto amarillo en la arena para guiar a todos a tiempo).'
+          },
+          {
+            name: 'wallwave (Muros de Cristal)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/ataque_muro.webp',
+            description: 'Despliega muros gigantes de cristal que barren la arena de lado a lado con huecos estrechos por donde los jugadores deben pasar.'
+          },
+          {
+            name: 'explodingsheep (Ovejas Explosivas)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/oveja_explosiva.webp',
+            description: 'Invoca ovejas con dinamita teledirigidas 1 por jugador'
+          },
+          {
+            name: 'fangwave (Ráfaga de Colmillos)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/fang_wave.webp',
+            description: 'Lanza 3 oleadas lineales directas de colmillos hacia los pies de un jugador al azar'
+          }
+        ]
+      },
+      {
+        name: 'ILLUSIONER',
+        subtitle: 'Hermano Illager · Maestro de la Ceguera y el Engaño',
+        img: '/images/items/Illusioner.webp',
+        description: 'Capaz de alterar la percepción, crear clones y proyectar rayos devastadores.',
+        attacks: [
+          {
+            name: 'thronemobspawn (Invocación de Refuerzos)',
+            badge: 'ATAQUE DE TRONO',
+            img: '/images/dungeons/mobs_spawn.webp',
+            description: 'Desde el trono invoca oleadas de Vindicators Arcanos rápidos, Ravagers Arcanos y Pillagers con flechas de veneno/efectos alterados.'
+          },
+          {
+            name: 'blindzones (Ceguera y Zonas Seguras)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/zonas_ilusioner.webp',
+            description: 'Aplica ceguera/oscuridad total a los jugadores y genera zonas seguras de colores.<br><strong>Rol Clave:</strong> 🔵 <strong>Rol Azul</strong> (es inmune a la ceguera; debe guiar a sus compañeros a las zonas seguras para cancelar el ataque).'
+          },
+          {
+            name: 'illusioncopies (Copias Ilusorias)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/copias_ilusioner.webp',
+            description: 'Invoca 20 clones (19 falsos y 1 real). Golpear un clon falso penaliza al jugador; deben golpear al real. Cada jugador verá a X ilusiones con el glowing de su color; el Illusioner real es el que <strong>TODOS</strong> ven con color (es decir, el rojo lo ve rojo, el azul lo ve azul, etc.), en la fase 2 y 3 habra 2 falsos en este ataque.'
+          },
+          {
+            name: 'spinningbeam (Rayo Giratorio)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/rayo_giratorio.webp',
+            description: 'Proyecta un rayo láser giratorio que cruza la arena y obliga a agacharse o saltar mientras caen proyectiles, se generan trampas o se invocan fantasmas.'
+          }
+        ]
+      },
+      {
+        name: 'PILLAGER',
+        subtitle: 'Hermano Illager · Tirador y Trampero de la Arena',
+        img: '/images/mobs/Pillager.webp',
+        description: 'Especialista en emboscadas, trampas de contención y estampidas.',
+        attacks: [
+          {
+            name: 'trapsystem (Sistema de Trampas)',
+            badge: 'ATAQUE DE TRONO',
+            img: '/images/dungeons/trampas.webp',
+            description: 'Coloca 5 trampas de osos invisibles/marcadas. Si un jugador entra en ellas queda encerrado en una jaula de barrotes recibiendo daño continuo. <strong>Todos los jugadores pueden liberarse entre ellos dándole clic derecho a alguien atrapado</strong>.<br><strong>Rol Clave:</strong> 🟢 <strong>Rol Verde</strong> (es inmune al encierro y es el <strong>único</strong> que tiene el kit para desactivar las trampas haciendo clic derecho sobre ellas y resolviendo el minijuego).'
+          },
+          {
+            name: 'ravagercharge (Carga de Ravagers)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/ravager_charge.webp',
+            description: 'Invoca una estampida de Ravagers con estelas de partículas que embisten en línea recta a través de la arena.'
+          },
+          {
+            name: 'shotandretreat (Disparo y Retroceso)',
+            badge: 'ATAQUE EN ARENA',
+            img: '/images/dungeons/shootandretrear.webp',
+            description: 'Tras recibir 12 golpes entra en modo esquiva, lanza trampas, salta hacia atrás y lanza ravagers de captura a los jugadores.'
+          }
+        ]
+      }
+    ],
+    specialPhase: {
+      title: 'FASE ESPECIAL: Flechas',
+      badge: 'Fase 3 · Todos los Hermanos',
+      img: '/images/items/Shield.webp',
+      description: 'Al llegar a la <strong>Fase 3</strong> de la batalla, los 4 hermanos suben simultáneamente a sus tronos.',
+      rules: [
+        'Los jugadores reciben un <strong>Escudo de Energía</strong> y deben bloquear flechas en 4 direcciones cardinales (Norte, Sur, Este, Oeste).',
+        'Deben seguir instrucciones de agacharse/saltar que solo un jugador verá y tendrá que avisar al resto del equipo.',
+        '<strong>Hay 2 tipos de flechas:</strong>',
+        '🔴 <strong>Flechas Rojas:</strong> Desaparecen inmediatamente al ser bloqueadas.',
+        '🟢 <strong>Flechas Verdes:</strong> Al bloquearlas, generan automáticamente una flecha roja en tu espalda (¡debes girarte rápidamente para bloquearla!).'
+      ]
+    },
+    bossPhases: {
+      title: '🔄 Fases, Rotación de Tronos y Descansos',
+      rules: [
+        '<strong>3 Fases de Combate:</strong> El boss cuenta con 3 fases principales. Se avanzará de fase cada vez que <strong>todos</strong> los bosses pierdan un 40% de su vida.',
+        '<strong>Inicio de Fase 2:</strong> Comenzará cuando <strong>Vindicator, Illusioner, Evoker y Pillager</strong> lleguen todos al <strong>60% de vida</strong>.',
+        '<strong>Inicio de Fase 3:</strong> Comenzará cuando todos los hermanos lleguen al <strong>20% de vida</strong>.',
+        '<strong>Rotación de Tronos:</strong> Cada vez que un hermano pierde un <strong>20% de vida</strong>, sube al trono y baja otro. En la <strong>Fase 3</strong>, esta rotación ocurre cada <strong>10% de vida</strong>.',
+        '<strong>Descanso y Ender Chest:</strong> Entre fase y fase hay un <strong>descanso de 1 minuto</strong> donde podréis acceder a un <strong>Ender Chest</strong> situado en medio de la arena para reponer suministros.',
+        '⚠️ <strong>Evolución de Ataques:</strong> Conforme se avanza de fase, <strong>algunos ataques y habilidades se verán modificados o bufados</strong>, volviéndose más rápidos, con mayor área de efecto o añadiendo nuevas mecánicas de peligro.'
+      ]
+    },
+    effects: [],
+    dungeons: [],
+    crafts: [],
+    loot: []
+  },
+  {
+    number: 8,
     day: 14,
     revealDate: new Date('2026-08-21T21:00:00Z'),
     mechanics: [
@@ -1907,7 +2176,7 @@ const PATCHES_DATA = [
     ]
   },
   {
-    number: 8,
+    number: 9,
     day: 18,
     revealDate: new Date('2026-08-25T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1916,7 +2185,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 9,
+    number: 10,
     day: 21,
     revealDate: new Date('2026-08-28T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1925,7 +2194,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 10,
+    number: 11,
     day: 23,
     revealDate: new Date('2026-08-30T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1934,7 +2203,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 11,
+    number: 12,
     day: 25,
     revealDate: new Date('2026-09-01T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1943,7 +2212,7 @@ const PATCHES_DATA = [
     loot: []
   },
   {
-    number: 12,
+    number: 13,
     day: 28,
     revealDate: new Date('2026-09-04T21:00:00Z'),
     mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
@@ -1979,10 +2248,31 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
   const now = Date.now();
   
   const processedPatches = PATCHES_DATA.map(patch => {
-    const revealTime = patch.revealDate.getTime();
-    // El Día 6 es especial y se revela para todos al mismo tiempo, sin acceso anticipado
-    const effectiveBufferMs = (patch.day === 6) ? 0 : bufferMs;
-    const isUnlocked = now >= (revealTime - effectiveBufferMs);
+    let unlockTime = patch.revealDate.getTime();
+    
+    if (patch.day === 13) {
+      // Horarios específicos para el Boss (Día 13):
+      // - Netherite: YA (inmediato)
+      // - Diamond: en 5 horas (19 Ago 18:25 CEST / 16:25 UTC)
+      // - Gold: a las 11 PM hoy (19 Ago 23:00 CEST / 21:00 UTC)
+      // - Todos: mañana a las 10 PM (20 Ago 22:00 CEST / 20:00 UTC)
+      if (userRank === 'netherite') {
+        unlockTime = new Date('2026-08-19T11:00:00Z').getTime();
+      } else if (userRank === 'diamond') {
+        unlockTime = new Date('2026-08-19T16:25:00Z').getTime();
+      } else if (userRank === 'gold') {
+        unlockTime = new Date('2026-08-19T21:00:00Z').getTime();
+      } else {
+        unlockTime = new Date('2026-08-20T20:00:00Z').getTime();
+      }
+    } else if (patch.day === 6) {
+      // El Día 6 se revela para todos al mismo tiempo, sin acceso anticipado
+      unlockTime = patch.revealDate.getTime();
+    } else {
+      unlockTime = patch.revealDate.getTime() - bufferMs;
+    }
+    
+    const isUnlocked = now >= unlockTime;
     
     if (isUnlocked) {
       return {
@@ -2002,19 +2292,24 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
         npcs: patch.npcs || [],
         items: [...(patch.crafts || []), ...(patch.loot || [])],
         dungeonGuide: patch.dungeonGuide || null,
+        bossRoles: patch.bossRoles || patch.dungeonGuide?.roles || [],
+        bosses: patch.bosses || [],
+        bossPhases: patch.bossPhases || null,
+        specialPhase: patch.specialPhase || null,
         dungeonLoot: patch.dungeonLoot || [],
         newAmuletCategories: patch.newAmuletCategories || null,
         dungeonDrops: patch.dungeonDrops || null
       };
     } else {
-      const formattedDate = patch.revealDate.toLocaleString('es-ES', { 
-        timeZone: 'UTC',
+      const displayUnlockDate = new Date(unlockTime);
+      const formattedDate = displayUnlockDate.toLocaleString('es-ES', { 
+        timeZone: 'Europe/Madrid',
         day: '2-digit', 
         month: '2-digit', 
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
-      }) + ' UTC';
+      }) + ' CEST';
       
       return {
         number: patch.number,
@@ -2027,6 +2322,10 @@ app.get('/api/changelogs', authenticateToken, async (req, res) => {
         dungeons: [],
         effects: [],
         mobs: [],
+        bossRoles: [],
+        bosses: [],
+        bossPhases: null,
+        specialPhase: null,
         crafts: [],
         loot: [],
         items: []

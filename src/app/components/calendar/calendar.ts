@@ -80,8 +80,8 @@ const SERVER_EVENTS: CalendarEvent[] = [
     description: 'Parche de cambios y ajustes.'
   },
   {
-    id: 'boss_aug19',
-    day: 19, hour: 23, minute: 0,
+    id: 'boss_aug20',
+    day: 20, hour: 23, minute: 0,
     type: 'boss',
     title: 'Boss',
     description: 'Aparición de Boss.'

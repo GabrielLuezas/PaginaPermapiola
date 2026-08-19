@@ -233,7 +233,7 @@
         <!-- Dungeon Rules Section -->
         @if (currentPatch().dungeonGuide!.rules && currentPatch().dungeonGuide!.rules!.length > 0) {
           <div class="dungeon-rules-section glass-card" style="margin: 25px 0; border: 1px solid rgba(239, 68, 68, 0.25); background: rgba(239, 68, 68, 0.04); padding: 24px; border-radius: 16px; box-shadow: inset 0 0 15px rgba(239, 68, 68, 0.05);">
-            <h3 style="color: #f87171; font-size: 1.35rem; font-weight: 800; margin-top: 0; margin-bottom: 16px; letter-spacing: 0.5px; text-shadow: 0 0 10px rgba(239, 68, 68, 0.2); display: flex; align-items: center; gap: 8px;">🛡️ REGLAS DE LA MAZMORRA</h3>
+            <h3 style="color: #f87171; font-size: 1.35rem; font-weight: 800; margin-top: 0; margin-bottom: 16px; letter-spacing: 0.5px; text-shadow: 0 0 10px rgba(239, 68, 68, 0.2); display: flex; align-items: center; gap: 8px;">🛡️ {{ currentPatch().dungeonGuide!.rulesTitle || (currentPatch().day === 13 ? 'REGLAS DEL BOSS' : 'REGLAS DE LA MAZMORRA') }}</h3>
             <ul style="margin: 0; padding-left: 24px; color: #cbd5e1; font-size: 1.05rem; line-height: 1.8; display: flex; flex-direction: column; gap: 10px;">
               @for (rule of currentPatch().dungeonGuide!.rules!; track rule) {
                 <li [innerHTML]="getSafeHtml(rule)"></li>
@@ -264,6 +264,158 @@
                   </div>
                 }
               </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — ROLES DE LA PELEA
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().bossRoles && currentPatch().bossRoles!.length > 0) {
+      <section class="cl-section glass-card">
+        <div class="section-header">
+          <h2 class="section-title text-gold">⚔️ ROLES DE LA PELEA</h2>
+        </div>
+        <div class="entries-list">
+          @for (role of currentPatch().bossRoles; track role.name) {
+            <div class="entry-card item-entry-card role-item-card">
+              <div class="entry-img-wrap item-slot-wrap" (click)="role.img ? openZoom(role.img) : null" [style.cursor]="role.img ? 'zoom-in' : 'default'">
+                <img [src]="role.img" [alt]="role.name" class="entry-img" />
+              </div>
+              <div class="entry-content">
+                <div class="entry-header-row">
+                  <h4 class="entry-name" [style.color]="role.color || '#ffb703'">{{ role.name }}</h4>
+                  @if (role.badge) {
+                    <span class="mob-hp-badge" [style.color]="role.color || '#ffb703'" [style.border-color]="role.color ? role.color + '55' : 'rgba(255,183,3,0.3)'" [style.background]="role.color ? role.color + '18' : 'rgba(255,183,3,0.1)'">{{ role.badge }}</span>
+                  }
+                </div>
+                <p class="entry-desc" [innerHTML]="getSafeHtml(formatMcText(role.description))"></p>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — DINÁMICA DE FASES Y TRONOS
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().bossPhases) {
+      <section class="cl-section glass-card boss-phases-section">
+        <div class="section-header">
+          <h2 class="section-title text-cyan">{{ currentPatch().bossPhases!.title || '🔄 FASES Y PROGRESIÓN DEL COMBATE' }}</h2>
+        </div>
+        <div class="boss-phases-card">
+          @if (currentPatch().bossPhases!.subtitle) {
+            <p class="guide-subtitle-text" [innerHTML]="getSafeHtml(currentPatch().bossPhases!.subtitle!)"></p>
+          }
+          <ul class="boss-phases-list">
+            @for (rule of currentPatch().bossPhases!.rules; track rule) {
+              <li [innerHTML]="getSafeHtml(rule)"></li>
+            }
+          </ul>
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — BOSSES DE LA PELEA
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().bosses && currentPatch().bosses!.length > 0) {
+      <section class="cl-section glass-card bosses-section">
+        <div class="section-header">
+          <h2 class="section-title text-boss-fire">👑 BOSSES</h2>
+        </div>
+        
+        <div class="bosses-grid">
+          @for (boss of currentPatch().bosses; track boss.name) {
+            <div class="boss-card">
+              <!-- Boss Header / Main Info -->
+              <div class="boss-card-header">
+                @if (boss.img) {
+                  <div class="boss-img-wrap" (click)="openZoom(boss.img)" style="cursor: zoom-in;">
+                    <img [src]="boss.img" [alt]="boss.name" class="boss-img" />
+                  </div>
+                }
+                <div class="boss-meta-content">
+                  <div class="boss-title-row">
+                    <h3 class="boss-name gradient-text-fire">{{ boss.name }}</h3>
+                  </div>
+                  @if (boss.subtitle) {
+                    <span class="boss-subtitle">{{ boss.subtitle }}</span>
+                  }
+                  @if (boss.description) {
+                    <p class="entry-desc boss-desc" [innerHTML]="getSafeHtml(formatMcText(boss.description))"></p>
+                  }
+                </div>
+              </div>
+
+              <!-- Attacks Sub-section -->
+              @if (boss.attacks && boss.attacks.length > 0) {
+                <div class="boss-attacks-wrapper">
+                  <h4 class="boss-attacks-title">⚔️ ATAQUES Y HABILIDADES</h4>
+                  <div class="boss-attacks-list">
+                    @for (attack of boss.attacks; track attack.name) {
+                      <div class="entry-card item-entry-card attack-card">
+                        @if (attack.img) {
+                          <div class="entry-img-wrap item-slot-wrap attack-img-wrap" (click)="openZoom(attack.img)" style="cursor: zoom-in;">
+                            <img [src]="attack.img" [alt]="attack.name" class="entry-img attack-img" />
+                          </div>
+                        }
+                        <div class="entry-content">
+                          <div class="entry-header-row">
+                            <h5 class="entry-name attack-name text-yellow">{{ attack.name }}</h5>
+                            @if (attack.badge) {
+                              <span class="attack-badge" [class.attack-badge-trono]="attack.badge.toUpperCase().includes('TRONO')" [class.attack-badge-arena]="attack.badge.toUpperCase().includes('ARENA')">{{ attack.badge }}</span>
+                            }
+                          </div>
+                          <p class="entry-desc" [innerHTML]="getSafeHtml(formatMcText(attack.description))"></p>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- ═══════════════════════════════════════════
+         SECTION — FASE ESPECIAL (SPECIAL PHASE)
+    ════════════════════════════════════════════ -->
+    @if (currentPatch().specialPhase) {
+      <section class="cl-section glass-card special-phase-section">
+        <div class="section-header">
+          <h2 class="section-title text-gold">⚔️ {{ currentPatch().specialPhase!.title }}</h2>
+        </div>
+        <div class="special-phase-card">
+          <div class="special-phase-header">
+            @if (currentPatch().specialPhase!.img) {
+              <div class="entry-img-wrap item-slot-wrap" (click)="openZoom(currentPatch().specialPhase!.img!)" style="cursor: zoom-in;">
+                <img [src]="currentPatch().specialPhase!.img" alt="Special Phase" class="entry-img" />
+              </div>
+            }
+            <div class="entry-content">
+              <div class="entry-header-row">
+                <h4 class="entry-name" style="color: #f59e0b;">{{ currentPatch().specialPhase!.title }}</h4>
+                @if (currentPatch().specialPhase!.badge) {
+                  <span class="attack-badge attack-badge-trono">{{ currentPatch().specialPhase!.badge }}</span>
+                }
+              </div>
+              <p class="entry-desc" [innerHTML]="getSafeHtml(formatMcText(currentPatch().specialPhase!.description))"></p>
+            </div>
+          </div>
+          @if (currentPatch().specialPhase!.rules && currentPatch().specialPhase!.rules!.length > 0) {
+            <div class="special-phase-rules-box">
+              <ul class="special-phase-rules-list">
+                @for (rule of currentPatch().specialPhase!.rules!; track rule) {
+                  <li [innerHTML]="getSafeHtml(formatMcText(rule))"></li>
+                }
+              </ul>
             </div>
           }
         </div>
@@ -510,7 +662,7 @@
         <div class="entries-list">
           @for (mob of currentPatch().mobs; track mob.name) {
             <div class="entry-card mob-entry-card">
-              <div class="entry-img-wrap">
+              <div class="entry-img-wrap" (click)="openZoom(mob.img)" style="cursor: zoom-in;">
                 <img [src]="mob.img" [alt]="mob.name" class="entry-img" />
               </div>
               <div class="entry-content">
