@@ -1820,7 +1820,8 @@ const PATCHES_DATA = [
         'La <strong>Spider\'s Claw</strong> y el <strong>Interdimensional Scepter</strong> <strong>no se pueden utilizar</strong> en la pelea.',
         '<strong>Está prohibido salirse de la arena con intencionalidad</strong>, así como intentar quedarse entre las trampillas de la arena o bugearse en los barriers.',
         'Los jugadores están en <strong>modo aventura</strong> durante toda la pelea.',
-        '<strong>No se puede activar la stasis</strong> de un jugador que está en medio de la pelea del boss.'
+        '<strong>No se puede activar la stasis</strong> de un jugador que está en medio de la pelea del boss.',
+        'Si un jugador se desconecta durante la pelea, <strong>el combate se detendrá completamente</strong> hasta que reconecte y todos usen <code>/party desconexion</code> para reanudar.'
       ],
       mainImg: '/images/dungeons/ImagenCentral.webp',
       steps: [
@@ -1872,6 +1873,11 @@ const PATCHES_DATA = [
           title: 'Inicio del Combate contra el Boss',
           text: 'Cuando todos los jugadores estén listos en la sala de espera, serán teletransportados directamente a la arena para dar comienzo al enfrentamiento contra el Boss.',
           img: '/images/dungeons/ImagenCentral.webp' 
+        },
+        {
+          title: 'Mecánica de Desconexión (/party desconexion)',
+          text: 'Si alguien se desconecta o se sale durante la pelea, <strong>el combate se detiene por completo</strong> y queda pausado hasta que vuelva a entrar la persona desconectada.<br><br>Cuando el jugador regrese al servidor, todos los miembros de la party deberán ejecutar el comando <code>/party desconexion</code> para abrir la interfaz y volver a marcar que están <strong>Listos</strong> para reanudar el enfrentamiento.',
+          importantNote: 'La pelea permanecerá congelada hasta que todos los jugadores vuelvan a confirmar que están listos en el menú de desconexión.'
         },
         {
           title: 'Testear ataques',
