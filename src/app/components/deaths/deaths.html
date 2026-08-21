@@ -5,12 +5,33 @@
       <h1 class="page-title gradient-text-death glow-text-death">CEMENTERIO DE CAÍDOS</h1>
     </header>
 
+    <!-- Filters Bar -->
+    <div class="deaths-filter-bar">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          class="search-input" 
+          placeholder="Buscar caído por nombre, causa o últimas palabras..."
+          [value]="searchQuery()" 
+          (input)="updateSearch($event)"
+        />
+      </div>
 
+      <div class="sort-select-wrapper">
+        <span class="sort-label">Ordenar por:</span>
+        <select class="sort-select" [value]="sortBy()" (change)="updateSort($event)">
+          <option value="deathNumber">Nº de Muerte</option>
+          <option value="day">Día</option>
+          <option value="name">Nombre</option>
+        </select>
+      </div>
+    </div>
 
     <!-- Grid of Fallen Warriors -->
     @if (filteredFallen().length > 0) {
       <div class="deaths-grid">
-        @for (warrior of filteredFallen(); track warrior.name + '-' + warrior.deathNumber) {
+        @for (warrior of filteredFallen(); track warrior.name + '-' + warrior.deathNumber + '-' + warrior.day + '-' + $index) {
           <div class="death-card glass-card border-danger">
             <!-- Death info banners -->
             <div class="death-card-banners">
