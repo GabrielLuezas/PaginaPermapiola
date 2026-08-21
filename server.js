@@ -2115,6 +2115,7 @@ const PATCHES_DATA = [
       { tag: 'NERFEO/BUFEO', text: 'Lanzar una Enderpearl tiene un 10% de probabilidad de aplicarte Oscuridad (Darkness) por 5 segundos.' },
       { tag: 'NERFEO/BUFEO', text: 'Ahora el Tridente tiene un tiempo de reutilización (cooldown) de 2 segundos.' },
       { tag: 'NERFEO/BUFEO', text: 'Todas las arañas al golpearte colocan una telaraña (cobweb) en tu posición.' },
+      { tag: 'NERFEO/BUFEO', text: 'Ya no se pueden comer Manzanas de Notch (Manzanas Doradas Encantadas) a menos que poseas el Colossal Sigil.' },
       { tag: 'REMOVIDO', text: 'Ya no se pueden fabricar Brewing Stands (Soportes de Pociones).' },
       { tag: 'REMOVIDO', text: 'Ya no se pueden fabricar antorchas.' },
       { tag: 'REMOVIDO', text: 'Ahora ya no se pueden ordeñar las Vacas.' },
@@ -2148,7 +2149,7 @@ const PATCHES_DATA = [
       {
         name: 'Colossal Sigil',
         img: '/images/items/colossal_sigil.svg',
-        description: 'Necesitarás upgradear la Vessel of Undying con este sigilo para tener Resistencia al Fuego (Fire Resistance) al momento de usar un Tótem de Inmortalidad.'
+        description: 'Necesitarás upgradear la Vessel of Undying con este sigilo para tener Resistencia al Fuego (Fire Resistance) al momento de usar un Tótem de Inmortalidad. Además, sin el Colossal Sigil no podrás comer Manzanas de Notch (Manzanas Doradas Encantadas).'
       },
       {
         name: 'Enchanted Apple Sigil',
