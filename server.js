@@ -2211,7 +2211,7 @@ const PATCHES_DATA = [
           { row: 1, col: 0, name: 'Vara de Blaze', count: 64, img: '/images/items/blaze_rod.webp' },
           { row: 1, col: 1, name: 'Lágrima de Ghast', count: 32, img: '/images/items/Ghast_Tear.webp' },
           { row: 1, col: 2, name: 'Verruga del Nether', count: 64, img: '/images/items/Nether_Wart.webp' },
-          { row: 2, col: 0, name: 'Blackstone Dorada', count: 64, img: '/images/items/Gilded_Blackstone.webp' },
+          { row: 2, col: 0, name: 'Piedra negra aurea', count: 64, img: '/images/items/Gilded_Blackstone.webp' },
           { row: 2, col: 1, name: 'Cubo de Lava', count: 1, img: '/images/items/lava_bucket.webp' },
           { row: 2, col: 2, name: 'Oro en Bruto', count: 64, img: '/images/items/Raw_Gold.webp' }
         ],
