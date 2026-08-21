@@ -2208,7 +2208,7 @@ const PATCHES_DATA = [
         slots: [
           { row: 0, col: 0, name: 'Bloque de Netherita', count: 8, img: '/images/items/Block_Netherite.webp' },
           { row: 0, col: 1, name: 'Netherrack', count: 64, img: '/images/items/Netherrack.webp' },
-          { row: 0, col: 2, name: 'Ladrillos del Nether', count: 64, img: '/images/items/Cracked_Nether_Bricks.webp' },
+          { row: 0, col: 2, name: 'Ladrillos del Nether agrietados', count: 64, img: '/images/items/Cracked_Nether_Bricks.webp' },
           { row: 1, col: 0, name: 'Vara de Blaze', count: 64, img: '/images/items/blaze_rod.webp' },
           { row: 1, col: 1, name: 'Lágrima de Ghast', count: 32, img: '/images/items/Ghast_Tear.webp' },
           { row: 1, col: 2, name: 'Verruga del Nether', count: 64, img: '/images/items/Nether_Wart.webp' },
