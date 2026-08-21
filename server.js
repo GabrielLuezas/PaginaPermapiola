@@ -2090,7 +2090,6 @@ const PATCHES_DATA = [
       { tag: 'NUEVO', text: 'Mecánica de fatiga por calor en el Nether: debes tomar pociones de resistencia al fuego para no deshidratarte.' },
       { tag: 'NERFEO/BUFEO', text: 'TODOS los Tótems de Inmortalidad tienen cooldown de 1 segundo y ya no otorgan ningún efecto positivo por defecto.' },
       { tag: 'NERFEO/BUFEO', text: 'Los Wasted Walker te quitan 4 corazones por golpe.' },
-      { tag: 'NERFEO/BUFEO', text: 'Todas las herramientas (excepto las Cryptic) se rompen instantáneamente al usarse.' },
       { tag: 'NERFEO/BUFEO', text: 'Los Drowneds, Guardianes, Elder Guardian y Wither Skeletons pierden totalmente su drop para siempre.' },
       { tag: 'NERFEO/BUFEO', text: 'Todos los Drowneds portan un Tridente con Impaling VI y Channeling.' },
       { tag: 'NERFEO/BUFEO', text: 'Todos los Mobs son inmunes a las explosiones.' },
@@ -2133,11 +2132,6 @@ const PATCHES_DATA = [
         img: '/images/mobs/cyclone_breeze.svg',
         description: 'Sus proyectiles al impactar generan un rayo, y cuando le pegas te empezará a congelar y te empujará lejos de él. Invocará Breeze Wisps al pegarle con cierta probabilidad.',
         drop: 'Drop: Cyclone Breeze Rods'
-      },
-      {
-        name: 'Psychic Invader (Husk)',
-        img: '/images/mobs/psychic_invader.svg',
-        description: 'Este enemigo tiene un aspecto oscuro y siniestro. Al golpearte se sumergirá dentro de tu mente, teniendo una probabilidad de llevarte al Fallen Memories o provocarte daño psíquico. Por cada golpe suyo que recibas mientras estás atrapado aumenta un 5% la probabilidad de ir al Fallen Memories. Si en 5 segundos no escapas de él, pierdes 5 corazones y tienes un 30% de probabilidad de ir al Fallen.'
       }
     ],
     crafts: [
@@ -2260,8 +2254,16 @@ const PATCHES_DATA = [
     number: 9,
     day: 18,
     revealDate: new Date('2026-08-25T21:00:00Z'),
-    mechanics: [{ tag: 'NUEVO', text: '🔒 Contenido bloqueado.' }],
-    mobs: [],
+    mechanics: [
+      { tag: 'NERFEO/BUFEO', text: 'Todas las herramientas (excepto las Cryptic) se rompen instantáneamente al usarse.' }
+    ],
+    mobs: [
+      {
+        name: 'Psychic Invader (Husk)',
+        img: '/images/mobs/psychic_invader.svg',
+        description: 'Este enemigo tiene un aspecto oscuro y siniestro. Al golpearte se sumergirá dentro de tu mente, teniendo una probabilidad de llevarte al Fallen Memories o provocarte daño psíquico. Por cada golpe suyo que recibas mientras estás atrapado aumenta un 5% la probabilidad de ir al Fallen Memories. Si en 5 segundos no escapas de él, pierdes 5 corazones y tienes un 30% de probabilidad de ir al Fallen.'
+      }
+    ],
     crafts: [],
     loot: []
   },
