@@ -2141,11 +2141,6 @@ const PATCHES_DATA = [
     ],
     crafts: [
       {
-        name: 'Blessed Fruit',
-        img: '/images/items/blessed_fruit.svg',
-        description: 'Fruta desconocida cuya receta fue descubierta por los pueblerinos. Proporciona mejores beneficios y efectos a su consumidor.'
-      },
-      {
         name: 'Vessel of Undying',
         img: '/images/items/vessel_of_undying.svg',
         description: 'Ahora necesitarás tener este objeto en tu inventario para poder gastar tótems sin necesidad de recibir un castigo. Conforme los días pasen tendrás que irlo reforzando para que no se pierda su poder. A este Vessel puedes agregarle Perks para anular castigos al usar Tótems de Inmortalidad.'
@@ -2161,23 +2156,102 @@ const PATCHES_DATA = [
         description: 'Necesitarás upgradear la Vessel of Undying con este sigilo para tener efectos positivos al momento de usar un Tótem de Inmortalidad.'
       },
       {
+        name: 'Blessed Fruit',
+        img: '/images/items/blessed_fruit.webp',
+        description: 'Fruta desconocida cuya receta fue descubierta por los pueblerinos. Proporciona mejores beneficios y efectos a su consumidor.'
+      },
+      {
         name: 'Golden Jar',
-        img: '/images/items/golden_jar.svg',
+        img: '/images/items/golden_jar.webp',
         description: 'Podrás fabricar hasta 2 Golden Jars; cada una sirve para aumentar permanentemente +2 HP (1 corazón de vida adicional).'
       }
     ],
     loot: [
       {
         name: 'Cyclone Blaze Rods',
-        img: '/images/items/cblaze_rods.svg',
+        img: '/images/items/cblaze_rod.webp',
         description: 'Varas forjadas en el corazón de un ciclón ígneo.',
         droppedBy: 'Cyclone Blaze'
       },
       {
         name: 'Cyclone Breeze Rods',
-        img: '/images/items/cbreeze_rods.svg',
+        img: '/images/items/cbreeze_rod.webp',
         description: 'Varas nacidas en el aliento eterno de una ventisca.',
         droppedBy: 'Cyclone Breeze'
+      }
+    ],
+    recipes: [
+      {
+        title: 'Vessel of Undying',
+        type: 'crafting',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Sangre', count: 4, img: '/images/items/blood.webp' },
+          { row: 0, col: 1, name: 'Bloque de Oro', count: 64, img: '/images/items/block_gold.webp' },
+          { row: 0, col: 2, name: 'Sangre', count: 4, img: '/images/items/blood.webp' },
+          { row: 1, col: 0, name: 'Bloque de Esmeralda', count: 64, img: '/images/items/emerald_block.webp' },
+          { row: 1, col: 1, name: 'Bloque de Diamante', count: 64, img: '/images/items/block_diamond.webp' },
+          { row: 1, col: 2, name: 'Bloque de Esmeralda', count: 64, img: '/images/items/emerald_block.webp' },
+          { row: 2, col: 0, name: 'Sangre', count: 4, img: '/images/items/blood.webp' },
+          { row: 2, col: 1, name: 'Bloque de Oro', count: 64, img: '/images/items/block_gold.webp' },
+          { row: 2, col: 2, name: 'Sangre', count: 4, img: '/images/items/blood.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Vessel of Undying', img: '/images/items/vessel_of_undying.svg' }
+      },
+      {
+        title: 'Colossal Sigil',
+        type: 'crafting',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Bloque de Netherita', count: 8, img: '/images/items/Block_Netherite.webp' },
+          { row: 0, col: 1, name: 'Netherrack', count: 64, img: '/images/items/Netherrack.webp' },
+          { row: 0, col: 2, name: 'Ladrillos del Nether', count: 64, img: '/images/items/Cracked_Nether_Bricks.webp' },
+          { row: 1, col: 0, name: 'Vara de Blaze', count: 64, img: '/images/items/blaze_rod.webp' },
+          { row: 1, col: 1, name: 'Lágrima de Ghast', count: 32, img: '/images/items/Ghast_Tear.webp' },
+          { row: 1, col: 2, name: 'Verruga del Nether', count: 64, img: '/images/items/Nether_Wart.webp' },
+          { row: 2, col: 0, name: 'Blackstone Dorada', count: 64, img: '/images/items/Gilded_Blackstone.webp' },
+          { row: 2, col: 1, name: 'Cubo de Lava', count: 1, img: '/images/items/lava_bucket.webp' },
+          { row: 2, col: 2, name: 'Oro en Bruto', count: 64, img: '/images/items/Raw_Gold.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Colossal Sigil', img: '/images/items/colossal_sigil.svg' }
+      },
+      {
+        title: 'Enchanted Sigil',
+        type: 'crafting',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Manzana Dorada Encantada', count: 5, img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { row: 0, col: 1, name: 'Manzana Dorada Encantada', count: 5, img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { row: 0, col: 2, name: 'Manzana Dorada Encantada', count: 5, img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { row: 1, col: 0, name: 'Tótem de Inmortalidad', count: 1, img: '/images/items/totem.webp' },
+          { row: 1, col: 1, name: 'Tótem de Inmortalidad', count: 1, img: '/images/items/totem.webp' },
+          { row: 1, col: 2, name: 'Tótem de Inmortalidad', count: 1, img: '/images/items/totem.webp' },
+          { row: 2, col: 0, name: 'Manzana Dorada Encantada', count: 5, img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { row: 2, col: 1, name: 'Manzana Dorada Encantada', count: 5, img: '/images/items/Enchanted_Golden_Apple.gif' },
+          { row: 2, col: 2, name: 'Manzana Dorada Encantada', count: 5, img: '/images/items/Enchanted_Golden_Apple.gif' }
+        ],
+        result: { row: 1, col: 2, name: 'Enchanted Sigil', img: '/images/items/enchanted_apple_sigil.svg' }
+      },
+      {
+        title: 'Blessed Fruit',
+        type: 'crafting',
+        gridCols: 3,
+        gridRows: 3,
+        slots: [
+          { row: 0, col: 0, name: 'Cryptic Essence', count: 8, img: '/images/items/cryptic_essence.webp' },
+          { row: 0, col: 1, name: 'Cryptic Essence', count: 8, img: '/images/items/cryptic_essence.webp' },
+          { row: 0, col: 2, name: 'Cryptic Essence', count: 8, img: '/images/items/cryptic_essence.webp' },
+          { row: 1, col: 0, name: 'Cryptic Essence', count: 8, img: '/images/items/cryptic_essence.webp' },
+          { row: 1, col: 1, name: 'Manzana Dorada', count: 8, img: '/images/items/Golden_Apple.webp' },
+          { row: 1, col: 2, name: 'Cryptic Essence', count: 8, img: '/images/items/cryptic_essence.webp' },
+          { row: 2, col: 0, name: 'Cryptic Essence', count: 8, img: '/images/items/cryptic_essence.webp' },
+          { row: 2, col: 1, name: 'Cryptic Essence', count: 8, img: '/images/items/cryptic_essence.webp' },
+          { row: 2, col: 2, name: 'Cryptic Essence', count: 8, img: '/images/items/cryptic_essence.webp' }
+        ],
+        result: { row: 1, col: 2, name: 'Blessed Fruit', img: '/images/items/blessed_fruit.webp' }
       }
     ]
   },
